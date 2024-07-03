@@ -27,6 +27,15 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(hello
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        Sign_in.ui
+        Register.h Register.cpp
+        Register.ui
+        Clock.h Clock.cpp
+        Clock.ui
+
+
+
+
     )
 else()
     if(ANDROID)

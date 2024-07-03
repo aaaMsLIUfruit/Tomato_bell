@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <memory>
+class Sign_in; // 前向声明
+class Register; // 前向声明
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -39,7 +42,16 @@ public:
 
     void changeMusic();//切换音乐
 
+
 private:
     Ui::MainWindow *ui;
+    std::unique_ptr<Sign_in> sign_in; // 使用智能指针
+    std::unique_ptr<Register> register_; // 使用智能指针
+
+
+private slots:
+    void on_sign_in_clicked();
+    void on_register_clicked();
+    void on_return_to_main();
 };
 #endif // MAINWINDOW_H

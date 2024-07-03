@@ -1,23 +1,18 @@
-#ifndef SIGN_IN_H
-#define SIGN_IN_H
+#ifndef REGISTER_H
+#define REGISTER_H
 
-#include <QDialog>
 #include <QWidget>
-#include<QIcon>
-#include"Clock.h"
 
 namespace Ui{
-class Sign_in;
+class Register;
 }
 
-class Sign_in: public QWidget {
+class Register : public QWidget
+{
     Q_OBJECT
-
 public:
-    explicit Sign_in(QWidget *parent = nullptr);
-    ~Sign_in();
-
-    Clock *clock;
+    explicit Register(QWidget *parent = nullptr);
+    ~Register();
 
 protected:
     // 事件过滤器，用于处理窗口移动事件
@@ -26,7 +21,7 @@ protected:
     void showEvent(QShowEvent *event) override;
 
 private:
-    Ui::Sign_in *ui; // 指向UI界面的指针
+    Ui::Register *ui; // 指向UI界面的指针
 
 signals:
     void returnToMain();
@@ -34,6 +29,7 @@ signals:
 private slots:
     void on_return_button_clicked();
     void on_yes_clicked();
+
 };
 
-#endif // SIGN_IN_H
+#endif // REGISTER_H
