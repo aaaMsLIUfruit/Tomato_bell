@@ -4,7 +4,7 @@
 * **团队名称**
   西虹市首富队
 * **团队logo**
-[团队logo](..//..//Tomato.jpg)
+[团队logo](https://github.com/aaaMsLIUfruit/Tomato_bell/blob/main/Tomato.jpg)
 * **团队结构**
   Scrum团队
 * **团队组成和说明**
