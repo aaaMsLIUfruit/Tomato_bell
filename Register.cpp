@@ -69,3 +69,5 @@ void Register::on_yes_clicked(){
 Register::~Register(){
     delete ui;
 }
+
+

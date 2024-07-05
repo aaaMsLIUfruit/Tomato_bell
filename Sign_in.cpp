@@ -59,8 +59,14 @@ void Sign_in::on_yes_clicked() {
         clock = new Clock(this); // 创建新的 Clock 对象
         clock->setAttribute(Qt::WA_DeleteOnClose); // 窗口关闭时自动删除
     }
+    ui->yes->hide();
+    ui->account->hide();
+    ui->label->hide();
+    ui->label_2->hide();
+    ui->password->hide();
+    ui->return_2->hide();
     clock->show();
-    this->hide(); // 隐藏当前窗口
+     // 隐藏当前窗口
 }
 
 void Sign_in::on_return_button_clicked() {
@@ -75,3 +81,6 @@ Sign_in::~Sign_in() {
         delete clock;
     }
 }
+
+
+
