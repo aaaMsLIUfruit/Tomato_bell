@@ -21,7 +21,7 @@ public:
     explicit Mainclock(QWidget *parent = nullptr);
     ~Mainclock();
 
-    void initWindow(const QFont &font);
+    void initWindow();
 
 private slots:
     void togglePausePlay(); // 暂停/播放按钮槽函数
@@ -31,6 +31,7 @@ private slots:
     void onContinueClicked(); // 继续按钮点击槽函数
     void onRestartClicked(); // 重新开始按钮点击槽函数
     void onBackClicked(); // 回到上一个界面按钮点击槽函数
+
 
 private:
     Ui::Mainclock *ui;
@@ -44,7 +45,6 @@ private:
     bool isPaused;
 
     QMessageBox *pauseMessageBox; // 暂停时的消息框
-
     void showPauseMessageBox(); // 显示暂停消息框
     void showFailureMessageBox(); // 显示失败消息框
 };

@@ -17,7 +17,7 @@ Mainclock::Mainclock(QWidget *parent)
 {
     ui->setupUi(this);
 
-    setWindowTitle("番茄钟");
+    setWindowTitle(TITLE);
     setWindowIcon(QIcon(ICON));
 
     int fontId = QFontDatabase::addApplicationFont(ZITI);
@@ -25,36 +25,29 @@ Mainclock::Mainclock(QWidget *parent)
     QFont myFont(fontFamily);
     myFont.setBold(true);
 
-    initWindow(myFont); // 初始化窗口布局
-    togglePausePlay(); // 初始状态为暂停状态，点击后开始计时
+    initWindow();
+    togglePausePlay();
 }
 
 Mainclock::~Mainclock() {
     delete ui;
 }
 
-void Mainclock::initWindow(const QFont &font) {
-    // 设置布局管理器
+//初始化窗口
+void Mainclock::initWindow() {
     setLayout(layout);
 
-    // 初始化并配置按钮
     pauseButton->setText("▶");
     pauseButton->setFixedSize(80, 80);
-    pauseButton->setStyleSheet("font-size: 30px; color: #800000; background-color: #FFFACD; border-radius: 40px;"); // 字符颜色为酒红色，背景色为米黄色，圆形按钮
-    pauseButton->setFont(font);
+    pauseButton->setStyleSheet("font-size: 30px; color: #800000; background-color: #FFFACD; border-radius: 40px;");
     layout->addWidget(pauseButton, 0, Qt::AlignCenter);
 
-    // 初始化并配置标签
     timerLabel->setText("25:00");
     timerLabel->setStyleSheet("font-size: 36px; color: #800000;");
     timerLabel->setAlignment(Qt::AlignCenter);
-    timerLabel->setFont(font);
     layout->addWidget(timerLabel);
 
-    // 连接按钮的点击信号和槽函数
     connect(pauseButton, &QPushButton::clicked, this, &Mainclock::togglePausePlay);
-
-    // 连接计时器的超时信号和槽函数
     connect(mainTimer, &QTimer::timeout, this, &Mainclock::updateTimer);
     connect(pauseTimer, &QTimer::timeout, this, &Mainclock::updatePauseTimer);
 }
@@ -62,22 +55,16 @@ void Mainclock::initWindow(const QFont &font) {
 void Mainclock::togglePausePlay() {
     if (!isPaused) {
         // 开始或继续计时
-        pauseButton->setText("||"); // 切换到暂停符号
-        mainTimer->start(1000); // 每秒更新一次
-        pauseTimer->stop(); //暂停暂停计时
+        pauseButton->setText("||");
+        mainTimer->start(1000);
+        pauseTimer->stop();
     } else {
         // 暂停计时器
         mainTimer->stop();
-        pauseButton->setText("▶"); // 切换到播放符号
-
-        // 显示暂停消息框
+        pauseButton->setText("▶");
         showPauseMessageBox();
-
-        // 启动暂停计时器
-        pauseTimer->start(1000); // 每秒更新一次
-        update();
     }
-    isPaused = !isPaused; // 切换状态变量
+    isPaused = !isPaused;
 }
 
 void Mainclock::updateTimer() {
@@ -91,7 +78,7 @@ void Mainclock::updateTimer() {
         // 计时结束
         mainTimer->stop();
         isPaused = true;
-        pauseButton->setText("▶"); // 切换到播放符号
+        pauseButton->setText("▶");
 
         // 进入5分钟休息
         remainingPauseTime = 300;
@@ -111,19 +98,15 @@ void Mainclock::updatePauseTimer() {
             pauseMessageBox->setText(QString("倒计时: %1:%2").arg(minutes, 2, 10, QChar('0')).arg(seconds, 2, 10, QChar('0')));
         }
 
-        if (remainingPauseTime == 0) {
-            // 暂停时间结束
-            pauseTimer->stop();
-
-            // 关闭暂停消息框并显示失败消息框
-            if (pauseMessageBox) {
-                pauseMessageBox->close();
-                delete pauseMessageBox;
-                pauseMessageBox = nullptr;
-            }
-
-            showFailureMessageBox();
+    }else{
+        pauseTimer->stop();
+        if (pauseMessageBox) {
+            pauseMessageBox->close();
+            delete pauseMessageBox;
+            pauseMessageBox = nullptr;
         }
+
+        showFailureMessageBox();
     }
 }
 
@@ -134,6 +117,7 @@ void Mainclock::resumeMainTimer() {
 }
 
 void Mainclock::showPauseMessageBox() {
+    pauseTimer->start(1000);
     if (!pauseMessageBox) {
         pauseMessageBox = new QMessageBox(this);
 
@@ -147,7 +131,6 @@ void Mainclock::showPauseMessageBox() {
             fontFamily = "Sans-serif";
         }
 
-        // 设置样式表
         QString styleSheet = QString("QLabel {"
                                      "min-width: 400px;"
                                      "min-height: 250px; "
