@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>icon.png</file>
+        <file>Clock.png</file>
+        <file>ziti.ttf</file>
     </qresource>
 </RCC>

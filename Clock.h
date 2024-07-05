@@ -14,7 +14,6 @@ class Clock : public QWidget
 public:
     explicit Clock(QWidget *parent = nullptr);
     ~Clock();
-    void paintEvent(QPaintEvent *event);
 
 private:
      Ui::Clock *ui;
