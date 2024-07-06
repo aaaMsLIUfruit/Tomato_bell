@@ -5,6 +5,7 @@
 #include <QWidget>
 #include<QIcon>
 #include"Clock.h"
+#include"mainclock.h"
 
 namespace Ui{
 class Sign_in;
@@ -17,7 +18,9 @@ public:
     explicit Sign_in(QWidget *parent = nullptr);
     ~Sign_in();
 
-    Clock *clock;
+    Clock *clock = nullptr;
+    Mainclock *mainclock =nullptr;
+
 
 protected:
     // 事件过滤器，用于处理窗口移动事件

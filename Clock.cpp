@@ -21,7 +21,7 @@ Clock::Clock(QWidget *parent)
 
     ui->setupUi(this);
 
-    setWindowTitle("注册");
+    setWindowTitle("番茄钟");
     setWindowIcon(QIcon(ICON));
 
 
@@ -32,12 +32,12 @@ Clock::Clock(QWidget *parent)
     connect(ui->start_task,&QPushButton::clicked,this,&Clock::on_start_task_clicked);
     connect(ui->personal_center,&QPushButton::clicked,this,&Clock::on_personal_center_clicked);
 }
+
 void Clock::paintEvent(QPaintEvent *event) {
    QPainter painter(this);
    QPixmap pixmap(CLOCK);
    painter.drawPixmap(0, 0, width(), height(), pixmap); // 绘制背景图片
 }
-
 
 
 Clock::~Clock(){

@@ -33,8 +33,15 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         Clock.h Clock.cpp
         Clock.ui
         start_task.h start_task.cpp start_task.ui
-        mainclock.h mainclock.cpp mainclock.ui
         usercenter.h usercenter.cpp usercenter.ui
+        mainclock.h mainclock.cpp
+        Mainclock.ui
+
+
+
+
+
+
 
 
 

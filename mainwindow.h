@@ -5,6 +5,7 @@
 #include <memory>
 class Sign_in; // 前向声明
 class Register; // 前向声明
+class Mainclock;// 前向声明
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
