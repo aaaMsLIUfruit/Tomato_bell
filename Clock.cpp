@@ -8,7 +8,7 @@ Clock::Clock(QWidget *parent)
     //构造函数，初始化注册界面
     ui->setupUi(this);
 
-    setWindowTitle("注册");
+    setWindowTitle("番茄钟");
     setWindowIcon(QIcon(ICON));
 
 
@@ -17,13 +17,6 @@ Clock::Clock(QWidget *parent)
     }
 
 }
-void Clock::paintEvent(QPaintEvent *event) {
-    QPainter painter(this);
-    QPixmap pixmap(CLOCK);
-    painter.drawPixmap(0, 0, width(), height(), pixmap); // 绘制背景图片
-}
-
-
 
 Clock::~Clock(){
     delete ui;
