@@ -19,7 +19,7 @@ public:
     ~Sign_in();
 
     Clock *clock = nullptr;
-    mainclock *mainclock =nullptr;
+    Mainclock *mainclock =nullptr;
 
 
 protected:

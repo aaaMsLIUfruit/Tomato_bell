@@ -13,6 +13,8 @@ Mainclock::Mainclock(QWidget *parent)
     remainingTime(1500), // 初始时间为25分钟（1500秒）
     remainingPauseTime(300), // 暂停时间为5分钟（300秒）
     isPaused(0),
+    rest(0), // 初始化为0
+    num(1), // 初始值设为1
     pauseMessageBox(nullptr)
 {
     ui->setupUi(this);
@@ -57,7 +59,9 @@ void Mainclock::togglePausePlay() {
         // 开始或继续计时
         pauseButton->setText("||");
         mainTimer->start(1000);
-        pauseTimer->stop();
+        if (pauseMessageBox) {
+            pauseMessageBox->hide();
+        }
     } else {
         // 暂停计时器
         mainTimer->stop();
@@ -81,6 +85,7 @@ void Mainclock::updateTimer() {
         pauseButton->setText("▶");
 
         // 进入5分钟休息
+        rest = 1;
         remainingPauseTime = 300;
         showPauseMessageBox();
     }
@@ -89,16 +94,8 @@ void Mainclock::updateTimer() {
 void Mainclock::updatePauseTimer() {
     if (remainingPauseTime > 0) {
         remainingPauseTime--;
-
-        int minutes = remainingPauseTime / 60;
-        int seconds = remainingPauseTime % 60;
-
-        // 更新暂停消息框的文本
-        if (pauseMessageBox) {
-            pauseMessageBox->setText(QString("倒计时: %1:%2").arg(minutes, 2, 10, QChar('0')).arg(seconds, 2, 10, QChar('0')));
-        }
-
-    }else{
+        updatePauseMessageBoxText();
+    } else {
         pauseTimer->stop();
         if (pauseMessageBox) {
             pauseMessageBox->close();
@@ -106,57 +103,62 @@ void Mainclock::updatePauseTimer() {
             pauseMessageBox = nullptr;
         }
 
-        showFailureMessageBox();
+        if (rest == 0) {
+            showFailureMessageBox();
+        } else {
+            onRestartClicked();
+        }
     }
 }
 
 void Mainclock::resumeMainTimer() {
-    mainTimer->start(1000); // 恢复主计时器
+    mainTimer->start(1000);
     isPaused = false;
-    pauseButton->setText("||"); // 切换到暂停符号
+    pauseButton->setText("||");
 }
 
 void Mainclock::showPauseMessageBox() {
-    pauseTimer->start(1000);
     if (!pauseMessageBox) {
         pauseMessageBox = new QMessageBox(this);
-
-        // 加载字体并获取字体系列名称
-        int fontId = QFontDatabase::addApplicationFont(ZITI);
-        QString fontFamily;
-        if (fontId != -1) {
-            fontFamily = QFontDatabase::applicationFontFamilies(fontId).at(0);
-        } else {
-            // 如果字体加载失败，使用默认字体系列
-            fontFamily = "Sans-serif";
-        }
 
         QString styleSheet = QString("QLabel {"
                                      "min-width: 400px;"
                                      "min-height: 250px; "
                                      "font-size: 36px;"
                                      "color: #800000;"
-                                     "font-family: '%1';"
-                                     "}").arg(fontFamily);
+                                     "}");
 
         pauseMessageBox->setStyleSheet(styleSheet);
 
-        pauseMessageBox->setWindowTitle("暂停中");
-        pauseMessageBox->setText(QString("倒计时: %1:%2").arg(remainingPauseTime / 60, 2, 10, QChar('0')).arg(remainingPauseTime % 60, 2, 10, QChar('0')));
+        if (rest == 0) {
+            pauseMessageBox->setWindowTitle("暂停中");
+        } else {
+            remainingPauseTime = 300;
+            pauseMessageBox->setWindowTitle("休息中");
+        }
 
-        // 设置自定义按钮
         QPushButton *continueButton = new QPushButton("继续", pauseMessageBox);
-        continueButton->setFixedSize(80,60);
-        continueButton->setFont(fontFamily);
+        continueButton->setFixedSize(80, 60);
         continueButton->setStyleSheet("font-size: 26px; color: #800000;");
         pauseMessageBox->addButton(continueButton, QMessageBox::AcceptRole);
 
         connect(continueButton, &QPushButton::clicked, this, &Mainclock::onContinueClicked);
-
-        pauseMessageBox->exec();
     }
+
+    updatePauseMessageBoxText();
+    pauseTimer->start(1000);
+    pauseMessageBox->show();
 }
 
+void Mainclock::updatePauseMessageBoxText() {
+    if (pauseMessageBox) {
+        if (rest == 0) {
+            pauseMessageBox->setText(QString("暂停倒计时: %1:%2").arg(remainingPauseTime / 60, 2, 10, QChar('0')).arg(remainingPauseTime % 60, 2, 10, QChar('0')));
+        } else {
+            pauseMessageBox->setText(QString("出去走一走吧！\n休息倒计时: %1:%2").arg(remainingPauseTime / 60, 2, 10, QChar('0')).arg(remainingPauseTime % 60, 2, 10, QChar('0')));
+        }
+    }
+}
 
 void Mainclock::showFailureMessageBox() {
     QMessageBox *failureMessageBox = new QMessageBox(this);
@@ -171,7 +173,6 @@ void Mainclock::showFailureMessageBox() {
     failureMessageBox->addButton(backButton, QMessageBox::RejectRole);
 
     failureMessageBox->setStandardButtons(QMessageBox::NoButton);
-    // 禁用右上角关闭按钮
     failureMessageBox->setWindowFlags(failureMessageBox->windowFlags() & ~Qt::WindowCloseButtonHint);
 
     connect(restartButton, &QPushButton::clicked, this, &Mainclock::onRestartClicked);
@@ -183,7 +184,6 @@ void Mainclock::showFailureMessageBox() {
 void Mainclock::onContinueClicked() {
     if (pauseMessageBox) {
         pauseMessageBox->close();
-        delete pauseMessageBox;
         pauseMessageBox = nullptr;
     }
     pauseTimer->stop();
@@ -193,11 +193,17 @@ void Mainclock::onContinueClicked() {
 void Mainclock::onRestartClicked() {
     remainingTime = 1500; // 重置时间为25分钟
     timerLabel->setText("25:00");
-    isPaused = 0;
-    togglePausePlay(); // 开始新的计时
+    resumeMainTimer();
 }
 
 void Mainclock::onBackClicked() {
-    // 执行回到上一个界面的操作
-    // TODO: 实现回到上一个界面的具体逻辑
+    QApplication::quit();
+}
+
+void Mainclock::setSpinBoxData(int n) {
+    num = n;
+}
+
+void Mainclock::setComBoxData(QString comboBoxData){
+    comboBox = comboBoxData;
 }

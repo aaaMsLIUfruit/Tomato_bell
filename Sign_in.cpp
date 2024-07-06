@@ -55,9 +55,9 @@ void Sign_in::showEvent(QShowEvent *event) {
 }
 
 void Sign_in::on_yes_clicked() {
-    if (mainclock == nullptr) {
-        mainclock = new Mainclock(this); // 创建新的 Clock 对象
-        mainclock->setAttribute(Qt::WA_DeleteOnClose); // 窗口关闭时自动删除
+    if (clock == nullptr) {
+        clock = new Clock(this); // 创建新的 Clock 对象
+        clock->setAttribute(Qt::WA_DeleteOnClose); // 窗口关闭时自动删除
     }
     ui->yes->hide();
     ui->account->hide();
@@ -66,6 +66,7 @@ void Sign_in::on_yes_clicked() {
     ui->password->hide();
     ui->return_2->hide();
     clock->show();
+}
 
 void Sign_in::on_return_button_clicked() {
     emit returnToMain(); // 发射自定义信号

@@ -2,12 +2,13 @@
 #define MAINCLOCK_H
 
 #include <QWidget>
-#include <QPushButton>
 #include <QVBoxLayout>
+#include <QPushButton>
 #include <QLabel>
 #include <QTimer>
 #include <QMessageBox>
 #include <QFontDatabase>
+#include "config.h"
 
 namespace Ui {
 class Mainclock;
@@ -21,32 +22,40 @@ public:
     explicit Mainclock(QWidget *parent = nullptr);
     ~Mainclock();
 
-    void initWindow();
+    void setSpinBoxData(int n);
+    void setComBoxData(QString comboBoxData);
+
+signals:
+    void returntoClock();
 
 private slots:
-    void togglePausePlay(); // 暂停/播放按钮槽函数
-    void updateTimer(); // 更新主计时器槽函数
-    void updatePauseTimer(); // 更新暂停计时器槽函数
-    void resumeMainTimer(); // 恢复主计时器槽函数
-    void onContinueClicked(); // 继续按钮点击槽函数
-    void onRestartClicked(); // 重新开始按钮点击槽函数
-    void onBackClicked(); // 回到上一个界面按钮点击槽函数
-
+    void togglePausePlay();
+    void updateTimer();
+    void updatePauseTimer();
+    void resumeMainTimer();
+    void showPauseMessageBox();
+    void updatePauseMessageBoxText();
+    void showFailureMessageBox();
+    void onContinueClicked();
+    void onRestartClicked();
+    void onBackClicked();
 
 private:
     Ui::Mainclock *ui;
     QVBoxLayout *layout;
     QPushButton *pauseButton;
+    QString comboBox;
     QLabel *timerLabel;
     QTimer *mainTimer;
     QTimer *pauseTimer;
     int remainingTime;
     int remainingPauseTime;
     bool isPaused;
+    int rest; // 0: 暂停中，1: 休息中
+    int num; // 初始值设为1
+    QMessageBox *pauseMessageBox;
 
-    QMessageBox *pauseMessageBox; // 暂停时的消息框
-    void showPauseMessageBox(); // 显示暂停消息框
-    void showFailureMessageBox(); // 显示失败消息框
+    void initWindow();
 };
 
 #endif // MAINCLOCK_H

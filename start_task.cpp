@@ -5,12 +5,13 @@
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QMoveEvent>
+#include <memory>
 
 
 start_task::start_task(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::start_task),
-    Mainclock(nullptr)
+    mainclock(nullptr)
 {
     ui->setupUi(this);
 
@@ -45,28 +46,24 @@ start_task::start_task(QWidget *parent)
 start_task::~start_task()
 {
     delete ui;
-    if (Mainclock != nullptr) {
-        delete Mainclock;
-    }
-
 }
 
 
 
 void start_task::on_start_clicked()
 {
-    if (Mainclock == nullptr) {
-        Mainclock = new mainclock(this); // 创建新的 mainclock 对象
-        Mainclock->setAttribute(Qt::WA_DeleteOnClose); // 窗口关闭时自动删除
+    if (mainclock == nullptr) {
+        mainclock = std::make_unique<Mainclock>(this); // 创建新的 mainclock 对象
+        mainclock->setAttribute(Qt::WA_DeleteOnClose); // 窗口关闭时自动删除
+        connect(mainclock.get(), &Mainclock::returntoClock, this, &start_task::on_return_to_start_task);
     }
 
-    QString comboBoxData=ui->comboBox->currentText();
     int spinBoxData=ui->spinBox->value();
+    QString comboBoxData=ui->comboBox->currentText();
 
     // 传递数据
-
-    Mainclock->setComboBoxData(comboBoxData);
-    Mainclock->setSpinBoxData(spinBoxData);
+    mainclock->setComBoxData(comboBoxData);
+    mainclock->setSpinBoxData(spinBoxData);
 
     // 显示新页面
 
@@ -79,7 +76,7 @@ void start_task::on_start_clicked()
     ui->label_3->hide();
     ui->lineEdit->hide();
     ui->start->hide();
-    Mainclock->show();
+    mainclock->show();
 }
 
 
@@ -132,3 +129,14 @@ void start_task::on_pushButton_clicked()
 
 }
 
+void start_task::on_return_to_start_task(){
+    ui->pushButton_2->show();
+    ui->comboBox->show();
+    ui->pushButton->show();
+    ui->spinBox->show();
+    ui->label->show();
+    ui->label_2->show();
+    ui->label_3->show();
+    ui->lineEdit->show();
+    ui->start->show();
+}

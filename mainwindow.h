@@ -3,9 +3,9 @@
 
 #include <QMainWindow>
 #include <memory>
-class Sign_in; // 前向声明
-class Register; // 前向声明
-class Mainclock;// 前向声明
+class Sign_in;
+class Register;
+class Mainclock;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -21,13 +21,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void initWindow();//初始化窗口
+    void initWindow();
 
 
 private:
     Ui::MainWindow *ui;
-    std::unique_ptr<Sign_in> sign_in; // 使用智能指针
-    std::unique_ptr<Register> register_; // 使用智能指针
+    std::unique_ptr<Sign_in> sign_in;
+    std::unique_ptr<Register> register_;
 
 
 private slots:

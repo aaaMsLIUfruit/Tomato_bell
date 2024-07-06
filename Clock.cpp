@@ -3,6 +3,7 @@
 #include"config.h"
 #include"start_task.h"
 #include"usercenter.h"
+#include"mainclock.h"
 #include <QIcon>
 #include <QApplication>
 #include <QString>
@@ -36,7 +37,7 @@ Clock::Clock(QWidget *parent)
 void Clock::paintEvent(QPaintEvent *event) {
    QPainter painter(this);
    QPixmap pixmap(CLOCK);
-   painter.drawPixmap(0, 0, width(), height(), pixmap); // 绘制背景图片
+   painter.drawPixmap(0, 0, width(), height(), pixmap);
 }
 
 
@@ -46,6 +47,7 @@ Clock::~Clock(){
 }
 
 void Clock::on_return_to_Clock() {
+
 
     ui->personal_center->show();
     ui->start_task->show();
