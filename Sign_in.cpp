@@ -1,3 +1,4 @@
+
 #include "Sign_in.h"
 #include "ui_Sign_in.h"
 #include "config.h"
@@ -101,6 +102,7 @@ void Sign_in::on_yes_clicked() {
     ui->label_2->hide();
     ui->password->hide();
     ui->return_2->hide();
+    clock->show();
 }
 
 void Sign_in::on_return_button_clicked() {
