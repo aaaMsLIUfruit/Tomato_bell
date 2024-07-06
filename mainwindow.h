@@ -24,8 +24,6 @@ public:
     void initWindow();//初始化窗口
 
 
-
-
 private:
     Ui::MainWindow *ui;
     std::unique_ptr<Sign_in> sign_in; // 使用智能指针

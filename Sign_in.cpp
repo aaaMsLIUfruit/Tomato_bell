@@ -65,8 +65,7 @@ void Sign_in::on_yes_clicked() {
     ui->label_2->hide();
     ui->password->hide();
     ui->return_2->hide();
-    mainclock->show();
-}
+    clock->show();
 
 void Sign_in::on_return_button_clicked() {
     emit returnToMain(); // 发射自定义信号
@@ -75,8 +74,10 @@ void Sign_in::on_return_button_clicked() {
 
 Sign_in::~Sign_in() {
     delete ui;
-    // 删除 clock 指针
     if (clock != nullptr) {
         delete clock;
     }
 }
+
+
+

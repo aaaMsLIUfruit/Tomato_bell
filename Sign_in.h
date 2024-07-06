@@ -37,6 +37,7 @@ signals:
 private slots:
     void on_return_button_clicked();
     void on_yes_clicked();
+
 };
 
 #endif // SIGN_IN_H
