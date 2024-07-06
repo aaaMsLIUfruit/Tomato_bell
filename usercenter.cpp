@@ -1,18 +1,31 @@
-#include "usercenter.h"
-#include "ui_userCenter.h"
+// #include "usercenter.h"
+// #include "ui_usercenter.h"
+// #include "config.h"
 
-UserCenter::UserCenter(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::UserCenter) {
-    ui->setupUi(this);
+// usercenter::usercenter(QWidget *parent)
+//     : QWidget(parent)
+//     , ui(new Ui::usercenter)
 
-    // 设置用户图片
-    QPixmap pixmap(":/resources/user.png");
-    ui->userInfo->setPixmap(pixmap.scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+// {
+//     ui->setupUi(this);
+
+//     setWindowTitle("个人中心");
+//     setWindowIcon(QIcon(ICON));
+
+//     connect(ui->return_2,&QPushButton::clicked,this,&usercenter::on_return_2_clicked);
+// }
+
+// usercenter::~usercenter()
+// {
+//     delete ui;
+
+// }
 
 
-}
 
-UserCenter::~UserCenter() {
-    delete ui;
-}
+// void usercenter::on_return_2_clicked()
+// {
+//     emit returnToClock();
+//     close();
+// }
+

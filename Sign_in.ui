@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>800</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,31 +16,43 @@
   <widget class="QLineEdit" name="account">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>90</y>
-     <width>113</width>
-     <height>20</height>
+     <x>400</x>
+     <y>300</y>
+     <width>300</width>
+     <height>35</height>
     </rect>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
    </property>
   </widget>
   <widget class="QLineEdit" name="password">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>140</y>
-     <width>113</width>
-     <height>20</height>
+     <x>400</x>
+     <y>200</y>
+     <width>300</width>
+     <height>35</height>
     </rect>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Normal</enum>
    </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>90</y>
-     <width>40</width>
-     <height>12</height>
+     <x>360</x>
+     <y>200</y>
+     <width>60</width>
+     <height>30</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>黑体</family>
+     <pointsize>14</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>账号</string>
@@ -49,11 +61,17 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>140</y>
-     <width>40</width>
-     <height>12</height>
+     <x>360</x>
+     <y>300</y>
+     <width>60</width>
+     <height>30</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>黑体</family>
+     <pointsize>14</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>密码</string>
@@ -62,11 +80,17 @@
   <widget class="QPushButton" name="yes">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>190</y>
-     <width>80</width>
-     <height>18</height>
+     <x>500</x>
+     <y>400</y>
+     <width>120</width>
+     <height>30</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>黑体</family>
+     <pointsize>14</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>登录</string>
@@ -75,11 +99,17 @@
   <widget class="QPushButton" name="return_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>80</width>
-     <height>18</height>
+     <x>100</x>
+     <y>100</y>
+     <width>150</width>
+     <height>50</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>黑体</family>
+     <pointsize>16</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>返回</string>

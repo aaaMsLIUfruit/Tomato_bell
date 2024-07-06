@@ -352,9 +352,21 @@
 			null
 		],
 		[
+			"C:/Users/lenovo/Desktop/Tomato/mainClock.h",
+			"MU",
+			"EWIEGA46WW/moc_mainClock.cpp",
+			null
+		],
+		[
 			"C:/Users/lenovo/Desktop/Tomato/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
+			null
+		],
+		[
+			"C:/Users/lenovo/Desktop/Tomato/start_task.h",
+			"MU",
+			"EWIEGA46WW/moc_start_task.cpp",
 			null
 		],
 		[
@@ -441,7 +453,9 @@
 		[ "C:/Users/lenovo/Desktop/Tomato/Register.cpp", "MU", null ],
 		[ "C:/Users/lenovo/Desktop/Tomato/Sign_in.cpp", "MU", null ],
 		[ "C:/Users/lenovo/Desktop/Tomato/main.cpp", "MU", null ],
+		[ "C:/Users/lenovo/Desktop/Tomato/mainClock.cpp", "MU", null ],
 		[ "C:/Users/lenovo/Desktop/Tomato/mainwindow.cpp", "MU", null ],
+		[ "C:/Users/lenovo/Desktop/Tomato/start_task.cpp", "MU", null ],
 		[ "C:/Users/lenovo/Desktop/Tomato/usercenter.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],

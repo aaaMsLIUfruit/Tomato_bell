@@ -1,21 +1,31 @@
-#ifndef USERCENTER_H
-#define USERCENTER_H
+// #ifndef USERCENTER_H
+// #define USERCENTER_H
 
-#include <QWidget>
+// #include <QWidget>
+// #include "Clock.h"
 
-namespace Ui {
-class UserCenter;
-}
+// namespace Ui {
+// class usercenter;
+// }
 
-class UserCenter : public QWidget {
-    Q_OBJECT
+// class usercenter : public QWidget
+// {
+//     Q_OBJECT
 
-public:
-    explicit UserCenter(QWidget *parent = nullptr);
-    ~UserCenter();
+// public:
+//     explicit usercenter(QWidget *parent = nullptr);
+//     ~usercenter();
 
-private:
-    Ui::UserCenter *ui;
-};
 
-#endif // USERCENTER_H
+// signals:
+//     void returnToClock();
+
+// private slots:
+
+//     void on_return_2_clicked();
+
+// private:
+//     Ui::usercenter *ui;
+// };
+
+// #endif // USERCENTER_H

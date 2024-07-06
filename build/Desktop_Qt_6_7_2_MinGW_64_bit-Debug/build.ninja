@@ -97,9 +97,25 @@ build CMakeFiles/hello.dir/Clock.cpp.obj: CXX_COMPILER__hello_unscanned_Debug C$
   OBJECT_DIR = CMakeFiles\hello.dir
   OBJECT_FILE_DIR = CMakeFiles\hello.dir
 
+build CMakeFiles/hello.dir/start_task.cpp.obj: CXX_COMPILER__hello_unscanned_Debug C$:/Users/lenovo/Desktop/Tomato/start_task.cpp || cmake_object_order_depends_target_hello
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\hello.dir\start_task.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/lenovo/Desktop/Tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_autogen/include -isystem C:/Qt/6.7.2/mingw_64/include/QtCore -isystem C:/Qt/6.7.2/mingw_64/include -isystem C:/Qt/6.7.2/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.7.2/mingw_64/include/QtWidgets -isystem C:/Qt/6.7.2/mingw_64/include/QtGui -isystem C:/Qt/6.7.2/mingw_64/include/QtSql
+  OBJECT_DIR = CMakeFiles\hello.dir
+  OBJECT_FILE_DIR = CMakeFiles\hello.dir
+
 build CMakeFiles/hello.dir/usercenter.cpp.obj: CXX_COMPILER__hello_unscanned_Debug C$:/Users/lenovo/Desktop/Tomato/usercenter.cpp || cmake_object_order_depends_target_hello
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\hello.dir\usercenter.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/lenovo/Desktop/Tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_autogen/include -isystem C:/Qt/6.7.2/mingw_64/include/QtCore -isystem C:/Qt/6.7.2/mingw_64/include -isystem C:/Qt/6.7.2/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.7.2/mingw_64/include/QtWidgets -isystem C:/Qt/6.7.2/mingw_64/include/QtGui -isystem C:/Qt/6.7.2/mingw_64/include/QtSql
+  OBJECT_DIR = CMakeFiles\hello.dir
+  OBJECT_FILE_DIR = CMakeFiles\hello.dir
+
+build CMakeFiles/hello.dir/mainClock.cpp.obj: CXX_COMPILER__hello_unscanned_Debug C$:/Users/lenovo/Desktop/Tomato/mainClock.cpp || cmake_object_order_depends_target_hello
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\hello.dir\mainClock.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/lenovo/Desktop/Tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_autogen/include -isystem C:/Qt/6.7.2/mingw_64/include/QtCore -isystem C:/Qt/6.7.2/mingw_64/include -isystem C:/Qt/6.7.2/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.7.2/mingw_64/include/QtWidgets -isystem C:/Qt/6.7.2/mingw_64/include/QtGui -isystem C:/Qt/6.7.2/mingw_64/include/QtSql
   OBJECT_DIR = CMakeFiles\hello.dir
@@ -121,7 +137,7 @@ build CMakeFiles/hello.dir/hello_autogen/3YJK5W5UP7/qrc_resources.cpp.obj: CXX_C
 #############################################
 # Link the executable hello.exe
 
-build hello.exe: CXX_EXECUTABLE_LINKER__hello_Debug CMakeFiles/hello.dir/hello_autogen/mocs_compilation.cpp.obj CMakeFiles/hello.dir/main.cpp.obj CMakeFiles/hello.dir/mainwindow.cpp.obj CMakeFiles/hello.dir/Sign_in.cpp.obj CMakeFiles/hello.dir/Register.cpp.obj CMakeFiles/hello.dir/Clock.cpp.obj CMakeFiles/hello.dir/usercenter.cpp.obj CMakeFiles/hello.dir/hello_autogen/3YJK5W5UP7/qrc_resources.cpp.obj | C$:/Qt/6.7.2/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Sql.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Gui.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Core.a C$:/Qt/6.7.2/mingw_64/lib/libQt6EntryPoint.a || hello_autogen hello_autogen_timestamp_deps
+build hello.exe: CXX_EXECUTABLE_LINKER__hello_Debug CMakeFiles/hello.dir/hello_autogen/mocs_compilation.cpp.obj CMakeFiles/hello.dir/main.cpp.obj CMakeFiles/hello.dir/mainwindow.cpp.obj CMakeFiles/hello.dir/Sign_in.cpp.obj CMakeFiles/hello.dir/Register.cpp.obj CMakeFiles/hello.dir/Clock.cpp.obj CMakeFiles/hello.dir/start_task.cpp.obj CMakeFiles/hello.dir/usercenter.cpp.obj CMakeFiles/hello.dir/mainClock.cpp.obj CMakeFiles/hello.dir/hello_autogen/3YJK5W5UP7/qrc_resources.cpp.obj | C$:/Qt/6.7.2/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Sql.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Gui.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Core.a C$:/Qt/6.7.2/mingw_64/lib/libQt6EntryPoint.a || hello_autogen hello_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = C:/Qt/6.7.2/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.7.2/mingw_64/lib/libQt6Sql.a  C:/Qt/6.7.2/mingw_64/lib/libQt6Gui.a  -ld3d11  -ldxgi  -ldxguid  -ld3d12  C:/Qt/6.7.2/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  C:/Qt/6.7.2/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
@@ -208,7 +224,7 @@ build hello_autogen_timestamp_deps: phony
 #############################################
 # Utility command for hello_autogen
 
-build hello_autogen: phony CMakeFiles/hello_autogen hello_autogen/include/ui_mainwindow.h hello_autogen/include/ui_Sign_in.h hello_autogen/include/ui_Register.h hello_autogen/include/ui_Clock.h hello_autogen/include/ui_userCenter.h hello_autogen/timestamp hello_autogen/mocs_compilation.cpp hello_autogen_timestamp_deps
+build hello_autogen: phony CMakeFiles/hello_autogen hello_autogen/include/ui_mainwindow.h hello_autogen/include/ui_Sign_in.h hello_autogen/include/ui_Register.h hello_autogen/include/ui_Clock.h hello_autogen/include/ui_start_task.h hello_autogen/include/ui_userCenter.h hello_autogen/include/ui_mainClock.h hello_autogen/timestamp hello_autogen/mocs_compilation.cpp hello_autogen_timestamp_deps
 
 
 #############################################
@@ -225,7 +241,7 @@ build hello_autogen/timestamp hello_autogen/mocs_compilation.cpp | ${cmake_ninja
 #############################################
 # Custom command for hello_autogen\3YJK5W5UP7\qrc_resources.cpp
 
-build hello_autogen/3YJK5W5UP7/qrc_resources.cpp | ${cmake_ninja_workdir}hello_autogen/3YJK5W5UP7/qrc_resources.cpp: CUSTOM_COMMAND C$:/Users/lenovo/Desktop/Tomato/resources/resources.qrc CMakeFiles/hello_autogen.dir/AutoRcc_resources_3YJK5W5UP7_Info.json C$:/Users/lenovo/Desktop/Tomato/resources/icon.png C$:/Qt/6.7.2/mingw_64/./bin/rcc.exe C$:/Qt/6.7.2/mingw_64/./bin/rcc.exe || hello_autogen hello_autogen_timestamp_deps
+build hello_autogen/3YJK5W5UP7/qrc_resources.cpp | ${cmake_ninja_workdir}hello_autogen/3YJK5W5UP7/qrc_resources.cpp: CUSTOM_COMMAND C$:/Users/lenovo/Desktop/Tomato/resources/resources.qrc CMakeFiles/hello_autogen.dir/AutoRcc_resources_3YJK5W5UP7_Info.json C$:/Users/lenovo/Desktop/Tomato/resources/Clock.png C$:/Users/lenovo/Desktop/Tomato/resources/ziti.ttf C$:/Users/lenovo/Desktop/Tomato/resources/icon.png C$:/Qt/6.7.2/mingw_64/./bin/rcc.exe C$:/Qt/6.7.2/mingw_64/./bin/rcc.exe || hello_autogen hello_autogen_timestamp_deps
   COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\lenovo\Desktop\Tomato\build\Desktop_Qt_6_7_2_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Users/lenovo/Desktop/Tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/hello_autogen.dir/AutoRcc_resources_3YJK5W5UP7_Info.json Debug"
   DESC = Automatic RCC for resources/resources.qrc
   restat = 1
@@ -234,7 +250,7 @@ build hello_autogen/3YJK5W5UP7/qrc_resources.cpp | ${cmake_ninja_workdir}hello_a
 #############################################
 # Phony custom command for CMakeFiles\hello_autogen
 
-build CMakeFiles/hello_autogen hello_autogen/include/ui_mainwindow.h hello_autogen/include/ui_Sign_in.h hello_autogen/include/ui_Register.h hello_autogen/include/ui_Clock.h hello_autogen/include/ui_userCenter.h | ${cmake_ninja_workdir}CMakeFiles/hello_autogen ${cmake_ninja_workdir}hello_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}hello_autogen/include/ui_Sign_in.h ${cmake_ninja_workdir}hello_autogen/include/ui_Register.h ${cmake_ninja_workdir}hello_autogen/include/ui_Clock.h ${cmake_ninja_workdir}hello_autogen/include/ui_userCenter.h: phony hello_autogen/timestamp || hello_autogen_timestamp_deps
+build CMakeFiles/hello_autogen hello_autogen/include/ui_mainwindow.h hello_autogen/include/ui_Sign_in.h hello_autogen/include/ui_Register.h hello_autogen/include/ui_Clock.h hello_autogen/include/ui_start_task.h hello_autogen/include/ui_userCenter.h hello_autogen/include/ui_mainClock.h | ${cmake_ninja_workdir}CMakeFiles/hello_autogen ${cmake_ninja_workdir}hello_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}hello_autogen/include/ui_Sign_in.h ${cmake_ninja_workdir}hello_autogen/include/ui_Register.h ${cmake_ninja_workdir}hello_autogen/include/ui_Clock.h ${cmake_ninja_workdir}hello_autogen/include/ui_start_task.h ${cmake_ninja_workdir}hello_autogen/include/ui_userCenter.h ${cmake_ninja_workdir}hello_autogen/include/ui_mainClock.h: phony hello_autogen/timestamp || hello_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.

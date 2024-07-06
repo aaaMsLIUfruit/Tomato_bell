@@ -31,6 +31,22 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         Register.ui
         Clock.h Clock.cpp
         Clock.ui
+        start_task.h start_task.cpp start_task.ui
+        usercenter.h usercenter.cpp usercenter.ui
+        mainclock.h mainclock.cpp
+        Mainclock.ui
+        Register.ui
+
+
+
+
+
+
+
+
+
+
+
 
         userCenter.ui
         usercenter.h usercenter.cpp
