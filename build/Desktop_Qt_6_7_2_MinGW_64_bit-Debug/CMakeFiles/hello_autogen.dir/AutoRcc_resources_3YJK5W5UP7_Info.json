@@ -1,0 +1,22 @@
+{
+	"BUILD_DIR" : "C:/Users/lenovo/Desktop/Tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/lenovo/Desktop/Tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/lenovo/Desktop/Tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/lenovo/Desktop/Tomato",
+	"CMAKE_SOURCE_DIR" : "C:/Users/lenovo/Desktop/Tomato",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "C:/Users/lenovo/Desktop/Tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_autogen/include",
+	"INPUTS" : [ "C:/Users/lenovo/Desktop/Tomato/resources/icon.png" ],
+	"LOCK_FILE" : "C:/Users/lenovo/Desktop/Tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/hello_autogen.dir/AutoRcc_resources_3YJK5W5UP7_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "resources" ],
+	"OUTPUT_CHECKSUM" : "3YJK5W5UP7",
+	"OUTPUT_NAME" : "qrc_resources.cpp",
+	"RCC_EXECUTABLE" : "C:/Qt/6.7.2/mingw_64/./bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "C:/Users/lenovo/Desktop/Tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/hello_autogen.dir/AutoRcc_resources_3YJK5W5UP7_Used.txt",
+	"SOURCE" : "C:/Users/lenovo/Desktop/Tomato/resources/resources.qrc",
+	"USE_BETTER_GRAPH" : false,
+	"VERBOSITY" : 0
+}

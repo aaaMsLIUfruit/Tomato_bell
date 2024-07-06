@@ -5,6 +5,7 @@
 #include "Register.h"
 
 #include <QIcon>
+#include<QSqlDatabase>
 #include <QApplication>
 #include <QString>
 #include <QScreen>
@@ -80,5 +81,6 @@ void MainWindow::on_return_to_main() {
     ui->register_button->show();
     update();
 }
+
 
 
