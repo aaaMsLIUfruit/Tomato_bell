@@ -30,6 +30,7 @@ private slots:
     void on_return_button_clicked();
     void on_yes_clicked();
 
+
 };
 
 #endif // REGISTER_H
