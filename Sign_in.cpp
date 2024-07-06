@@ -5,6 +5,8 @@
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QMoveEvent>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
 
 Sign_in::Sign_in(QWidget *parent) :
     QWidget(parent),
@@ -16,12 +18,16 @@ Sign_in::Sign_in(QWidget *parent) :
     setWindowTitle("登录");
     setWindowIcon(QIcon(ICON));
 
+
+
     if (parent) {
         parent->installEventFilter(this);
     }
 
     connect(ui->yes, &QPushButton::clicked, this, &Sign_in::on_yes_clicked);
     connect(ui->return_2,&QPushButton::clicked, this, &Sign_in::on_return_button_clicked);
+
+
 }
 
 bool Sign_in::eventFilter(QObject *obj, QEvent *event) {
@@ -54,7 +60,37 @@ void Sign_in::showEvent(QShowEvent *event) {
     }
 }
 
+bool Sign_in::validateAccount() {
+    QString account = ui->account->text(); // 获取账号输入框的内容
+
+    // 验证账号是否为11位数字
+    QRegularExpression re("\\d{11}");
+    QRegularExpressionMatch match = re.match(account);
+    if (!match.hasMatch()) {
+        QMessageBox::warning(this, "输入错误", "账号必须为11位数字构成的手机号码！", QMessageBox::Ok);
+        return false;
+    }
+    return true;
+}
+
+bool Sign_in::validatePassword() {
+    QString password = ui->password->text(); // 获取密码输入框的内容
+
+    // 验证密码是否为不超过15个字符的数字、字母、字符的组合
+    QRegularExpression re("^[\\w!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>/?]{1,15}$");
+    QRegularExpressionMatch match = re.match(password);
+    if (!match.hasMatch()) {
+        QMessageBox::warning(this, "输入错误", "密码必须是不超过15个字符的数字、字母、字符的组合！请输入正确密码！", QMessageBox::Ok);
+        return false;
+    }
+    return true;
+}
+
 void Sign_in::on_yes_clicked() {
+    if (!validateAccount() || !validatePassword()) {
+        return; // 如果账号或密码验证失败，直接返回
+    }
+
     if (clock == nullptr) {
         clock = new Clock(this); // 创建新的 Clock 对象
         clock->setAttribute(Qt::WA_DeleteOnClose); // 窗口关闭时自动删除
@@ -65,20 +101,18 @@ void Sign_in::on_yes_clicked() {
     ui->label_2->hide();
     ui->password->hide();
     ui->return_2->hide();
-    clock->show();
 }
 
 void Sign_in::on_return_button_clicked() {
     emit returnToMain(); // 发射自定义信号
+
     close(); // 关闭注册界面
 }
 
 Sign_in::~Sign_in() {
     delete ui;
+    // 删除 clock 指针
     if (clock != nullptr) {
         delete clock;
     }
 }
-
-
-

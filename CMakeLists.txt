@@ -36,6 +36,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         usercenter.h usercenter.cpp usercenter.ui
         mainclock.h mainclock.cpp
         Mainclock.ui
+        Register.ui
 
 
 

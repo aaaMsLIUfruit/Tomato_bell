@@ -5,7 +5,7 @@
 #include <QWidget>
 #include<QIcon>
 #include"Clock.h"
-#include"mainclock.h"
+#include<QMessageBox>
 
 namespace Ui{
 class Sign_in;
@@ -18,8 +18,6 @@ public:
     explicit Sign_in(QWidget *parent = nullptr);
     ~Sign_in();
 
-    Clock *clock = nullptr;
-    Mainclock *mainclock =nullptr;
 
 
 protected:
@@ -30,6 +28,10 @@ protected:
 
 private:
     Ui::Sign_in *ui; // 指向UI界面的指针
+    Clock *clock;
+
+    bool validateAccount(); // 账号合法性验证函数
+    bool validatePassword();   // 密码合法性验证函数
 
 signals:
     void returnToMain();
@@ -37,7 +39,6 @@ signals:
 private slots:
     void on_return_button_clicked();
     void on_yes_clicked();
-
 };
 
 #endif // SIGN_IN_H

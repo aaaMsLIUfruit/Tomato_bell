@@ -2,6 +2,7 @@
 #define REGISTER_H
 
 #include <QWidget>
+#include<QMessageBox>
 
 namespace Ui{
 class Register;
@@ -23,13 +24,17 @@ protected:
 private:
     Ui::Register *ui; // 指向UI界面的指针
 
+    bool validateAccount();//账号合法性验证函数
+    void showAgreement();//用户协议函数
+    bool validatePasswords();  // 验证密码函数
+    void enableInputFields(bool enable); // 启用或禁用输入字段
+
 signals:
     void returnToMain();
 
 private slots:
     void on_return_button_clicked();
     void on_yes_clicked();
-
 
 };
 
