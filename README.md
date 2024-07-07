@@ -23,6 +23,9 @@
 
 ## 工作进展
 * [产品待办列表](https://github.com/aaaMsLIUfruit/Tomato_bell/blob/main/%E4%BA%A7%E5%93%81%E5%BE%85%E5%8A%9E%E5%88%97%E8%A1%A8%EF%BC%88%E6%80%BB%E9%9C%80%E6%B1%82%EF%BC%89.xls)
-* [Sprint1待办列表]
+* [Sprint1待办列表](https://github.com/aaaMsLIUfruit/Tomato_bell/blob/main/Spint%E5%BE%85%E5%8A%9E%E5%88%97%E8%A1%A8.xlsx)
 * [应用系统开发-需求文档](https://github.com/aaaMsLIUfruit/Tomato_bell/blob/main/%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91-%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3.docx)
-* [会议纪要]
+  
+* sprint1组内验收会议纪要
+  用户故事完成度审核和修改[总需求列表改]()
+
