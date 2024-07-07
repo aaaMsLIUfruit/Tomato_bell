@@ -159,6 +159,13 @@ C:/Users/lenovo/Desktop/Tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_a
   C:/Qt/6.7.2/mingw_64/include/QtGui/qvalidator.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.7.2/mingw_64/include/QtSql/QSqlDatabase \
+  C:/Qt/6.7.2/mingw_64/include/QtSql/QSqlError \
+  C:/Qt/6.7.2/mingw_64/include/QtSql/qsqldatabase.h \
+  C:/Qt/6.7.2/mingw_64/include/QtSql/qsqlerror.h \
+  C:/Qt/6.7.2/mingw_64/include/QtSql/qtsql-config.h \
+  C:/Qt/6.7.2/mingw_64/include/QtSql/qtsqlexports.h \
+  C:/Qt/6.7.2/mingw_64/include/QtSql/qtsqlglobal.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QComboBox \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMessageBox \

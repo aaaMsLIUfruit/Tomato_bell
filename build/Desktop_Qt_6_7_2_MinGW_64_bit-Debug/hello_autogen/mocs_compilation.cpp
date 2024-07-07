@@ -5,3 +5,4 @@
 #include "EWIEGA46WW/moc_mainClock.cpp"
 #include "EWIEGA46WW/moc_mainwindow.cpp"
 #include "EWIEGA46WW/moc_start_task.cpp"
+#include "EWIEGA46WW/moc_usercenter.cpp"

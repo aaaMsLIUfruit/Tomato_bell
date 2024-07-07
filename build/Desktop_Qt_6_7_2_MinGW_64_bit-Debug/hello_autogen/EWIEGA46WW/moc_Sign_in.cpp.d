@@ -117,7 +117,6 @@ C:/Users/lenovo/Desktop/Tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_a
   C:/Qt/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qyieldcpu.h \
-  C:/Qt/6.7.2/mingw_64/include/QtGui/QIcon \
   C:/Qt/6.7.2/mingw_64/include/QtGui/QPainter \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qaction.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qbitmap.h \
@@ -147,7 +146,11 @@ C:/Users/lenovo/Desktop/Tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_a
   C:/Qt/6.7.2/mingw_64/include/QtGui/qtransform.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
-  C:/Qt/6.7.2/mingw_64/include/QtWidgets/QDialog \
+  C:/Qt/6.7.2/mingw_64/include/QtSql/QSqlDatabase \
+  C:/Qt/6.7.2/mingw_64/include/QtSql/qsqldatabase.h \
+  C:/Qt/6.7.2/mingw_64/include/QtSql/qtsql-config.h \
+  C:/Qt/6.7.2/mingw_64/include/QtSql/qtsqlexports.h \
+  C:/Qt/6.7.2/mingw_64/include/QtSql/qtsqlglobal.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMessageBox \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QWidget \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
