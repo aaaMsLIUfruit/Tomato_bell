@@ -27,5 +27,5 @@
 * [应用系统开发-需求文档](https://github.com/aaaMsLIUfruit/Tomato_bell/blob/main/%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91-%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3.docx)
   
 * sprint1组内验收会议纪要
-  用户故事完成度审核和修改[总需求列表改]()
+  用户故事完成度审核和修改:基本实现3个用户故事，实现用户登录界面，任务创建界面，倒计时界面和暂停休息界面，个人中心界面，其余sprint1用户故事完成一部分，预计在sprint2持续完成，调整任务进度 [总需求列表改](https://github.com/aaaMsLIUfruit/Tomato_bell/blob/main/%E5%89%AF%E6%9C%AC%E4%BA%A7%E5%93%81%E5%BE%85%E5%8A%9E%E5%88%97%E8%A1%A8%EF%BC%88%E6%80%BB%E9%9C%80%E6%B1%82%EF%BC%89%E6%94%B9.xlsx)
 
