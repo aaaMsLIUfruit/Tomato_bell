@@ -28,9 +28,9 @@ public:
 signals:
     void returnToClock();
     void on_comboBox_textActivated(const QString &arg1);
-public slots:
+// public slots:
 
-    void onUserLoggedIn(int userId);
+//     void onUserLoggedIn(int userId);
 private slots:
 
 
@@ -45,12 +45,9 @@ private slots:
 private:
     Ui::start_task *ui;
     QSqlDatabase db;
-    int currentUserId;
-    bool createConnection();//connect to the database
+    //int currentUserId;
     bool updateTomatoCount(int userId, int tomatoCount);
     void addTaskLabelIfNotExists(const QString &label,int userID);
-
-
 };
 
 #endif // START_TASK_H

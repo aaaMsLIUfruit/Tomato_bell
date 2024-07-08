@@ -1,14 +1,17 @@
 #include "usercenter.h"
-#include "qboxlayout.h"
 #include "ui_usercenter.h"
 #include "config.h"
 #include<QDebug>
 #include<QSqlError>
 #include<QSqlQuery>
 #include<QMessageBox>
+
+extern int currentUserID;
+
+
 usercenter::usercenter(QWidget *parent)
     : QWidget(parent)
-    , ui(new Ui::usercenter),currentUserId(-1)
+    , ui(new Ui::usercenter)
 
 {
     db = QSqlDatabase::addDatabase("QMYSQL");
@@ -53,21 +56,21 @@ usercenter::~usercenter()
 
 }
 
-void usercenter::onUserLoggedIn(int userId) {
-    currentUserId = userId;
-    displayUsername(); // 显示用户名
-}
+// void usercenter::onUserLoggedIn(int userId) {
+//     currentUserId = userId;
+//     displayUsername(); // 显示用户名
+// }
 
 void usercenter::displayUsername()
 {
-    if (currentUserId == -1) {
+    if (currentUserID == -1) {
         ui->UserName->setText("未知用户");
         return;
     }
 
     QSqlQuery query(db);
     query.prepare("SELECT username FROM Users WHERE id = :id");
-    query.bindValue(":id", currentUserId);
+    query.bindValue(":id", currentUserID);
     if (query.exec() && query.next()) {
         QString username = query.value(0).toString();
         ui->UserName->setText(username);

@@ -7,6 +7,7 @@
 #include<QLabel>
 #include<QSqlDatabase>
 
+
 namespace Ui {
 class usercenter;
 }
@@ -22,8 +23,7 @@ public:
 
 signals:
     void returnToClock();
-public slots:
-  void onUserLoggedIn(int userId);
+
 
 private slots:
 
@@ -32,7 +32,6 @@ private slots:
 
 private:
     Ui::usercenter *ui;
-    int currentUserId;
      void displayUsername();
     // void displayHistory(const QString &period);
     QString username; // 保存用户名

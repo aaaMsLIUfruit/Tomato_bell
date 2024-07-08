@@ -12,6 +12,10 @@
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 
+
+ int currentUserID;
+
+
 Sign_in::Sign_in(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Sign_in),
@@ -24,10 +28,10 @@ Sign_in::Sign_in(QWidget *parent) :
 
 
         db = QSqlDatabase::addDatabase("QMYSQL");
-        db.setHostName("localhost");
+        db.setHostName("Fighting");
         db.setDatabaseName("TOMATO");
         db.setUserName("root");
-        db.setPassword("YourPassword");
+        db.setPassword("Bestran123");
         db.setPort(3306);
 
         if (!db.open()) {
@@ -112,6 +116,7 @@ int Sign_in::getUserId(const QString &username) {
     if (!query.exec() || !query.next()) {
         return -1; // User not found
     }
+    currentUserID=query.value(0).toInt();
     return query.value(0).toInt();
 }
 
@@ -162,7 +167,7 @@ void Sign_in::on_yes_clicked()
         return; // 用户不存在或密码不正确，直接返回
     }
 
-    emit userLoggedIn(getUserId(username));
+    getUserId(username);
 
     if (clock == nullptr) {
         clock = new Clock(this); // 创建新的 Clock 对象

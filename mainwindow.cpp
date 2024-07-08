@@ -13,11 +13,14 @@
 #include <QPushButton>
 #include <memory> // 包含智能指针的头文件
 
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , sign_in(nullptr)
     , register_(nullptr)
+
 {
     ui->setupUi(this);
     initWindow();
@@ -81,6 +84,4 @@ void MainWindow::on_return_to_main() {
     ui->register_button->show();
     update();
 }
-
-
 

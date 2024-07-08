@@ -2,23 +2,59 @@
 #include "qsqlquery.h"
 #include "ui_start_task.h"
 #include "config.h"
-
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QMoveEvent>
+#include<QDebug>
 #include <memory>
+
+extern int currentUserID;
+int curLabel_id=0;
 
 
 start_task::start_task(QWidget *parent)
     : QWidget(parent)
-    , ui(new Ui::start_task),currentUserId(-1),
+    , ui(new Ui::start_task),
     mainclock(nullptr)
 {
-    if (!createConnection()) {
-        qDebug() << "Failed to connect to database.";
+    ui->setupUi(this);//这个要最先进行初始化……
+
+    //初始化comboBox
+    ui->comboBox->setEditable(true);
+
+
+    //create connection
+    db = QSqlDatabase::addDatabase("QMYSQL");
+    db.setHostName("Fighting");
+    db.setDatabaseName("TOMATO");
+    db.setUserName("root");
+    db.setPassword("Bestran123");
+    db.setPort(3306);
+
+    if (!db.open()) {
+        qDebug() << "Failed to connect to database:" << db.lastError().text();
+    }
+    else
+        qDebug()<<"already connected to database";
+
+
+    //load user's labels
+    QSqlQuery query;
+    query.prepare("SELECT label_name FROM TaskLabels WHERE user_id = :user_id");
+    query.bindValue(":user_id", currentUserID);
+
+    if (!query.exec()) {
+        qDebug() << "Failed to load user labels:" << query.lastError().text();
+        return;
     }
 
-    ui->setupUi(this);
+    while (query.next()) {
+        QString labelName = query.value(0).toString();
+        ui->comboBox->addItem(labelName);
+    }
+
+
+
 
     setWindowTitle("任务设置");
     setWindowIcon(QIcon(ICON));
@@ -37,7 +73,6 @@ start_task::start_task(QWidget *parent)
     connect(ui->comboBox, &QComboBox::currentTextChanged, this, &start_task::on_comboBox_currentTextChanged);
     connect(ui->comboBox,&QComboBox::editTextChanged,this,&start_task::on_comboBox_editTextChanged);
 
-    //connect(ui->comboBox,&QComboBox::textActivated,this,&start_task::on_comboBox_textActivated);
     // QSpinBox槽函数
     connect(ui->spinBox, &QSpinBox::valueChanged, this, &start_task::on_spinBox_valueChanged);
 
@@ -46,6 +81,7 @@ start_task::start_task(QWidget *parent)
     connect(ui->start,&QPushButton::clicked,this,&start_task::on_start_clicked);
 
     connect(ui->pushButton,&QPushButton::clicked,this,&start_task::on_pushButton_clicked);
+
 }
 
 start_task::~start_task()
@@ -54,19 +90,11 @@ start_task::~start_task()
     db.close();
 }
 
-void start_task::onUserLoggedIn(int userId) {
-    currentUserId = userId;
-
-}
-
-
 void start_task::on_pushButton_2_clicked()
 {
     emit returnToClock();
     close();
 }
-
-
 
 
 void start_task::on_comboBox_editTextChanged(const QString &arg1)
@@ -102,32 +130,15 @@ void start_task::on_return_to_start_task(){
 }
 
 
-//链接数据库
-bool start_task::createConnection() {
-    db = QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName("localhost");
-    db.setDatabaseName("TOMATO");
-    db.setUserName("root");
-    db.setPassword("YourPassword");
-    db.setPort(3306);
-
-    if (!db.open()) {
-        qDebug() << "Failed to connect to database:" << db.lastError().text();
-        return false;
-    }
-    else
-        qDebug()<<"already connected to database";
-    return true;
-}
-
 
 //添加新任务标签
 void start_task::on_pushButton_clicked()
 {
     QString newLabel = ui->lineEdit->text();
+    qDebug()<<"用户ID："<<currentUserID;
+
     if (!newLabel.isEmpty()) {
-        addTaskLabelIfNotExists(newLabel,currentUserId);
-        ui->comboBox->setEditable(true);
+        addTaskLabelIfNotExists(newLabel,currentUserID);
         ui->comboBox->addItem(newLabel);
         ui->lineEdit->clear();
     }
@@ -180,27 +191,40 @@ void start_task::on_start_clicked()
     mainclock->setComBoxData(comboBoxData);
     mainclock->setSpinBoxData(spinBoxData);
 
-    int tomatoCount = spinBoxData;
-    //添加到数据库
+
     QSqlQuery query;
+
+    //找到label_id
+    query.prepare("SELECT label_id FROM TaskLabels WHERE label_name = :label_name AND user_id = :user_id ");
+    query.bindValue(":label_name", comboBoxData);
+    query.bindValue(":user_id", currentUserID);
+    query.exec();
+    if(query.next())
+    {
+        curLabel_id=query.value("label_id").toInt();
+        qDebug()<<curLabel_id;
+    }
+
+    int tomatoCount = spinBoxData;
+
+    //添加到数据库
+
     query.prepare("INSERT INTO History (user_id, label_id, task_date, task_duration, tomato_count) "
                   "VALUES (:user_id, :label_id, CURRENT_DATE(), :task_duration, :tomato_count)");
 
+
+
     //下面的和登录的数据库有关，那里的用户信息要传到这里
-    int user_id = 1;
-
-    int label_id = 1; // 替换为实际的 label_id
-
-    query.bindValue(":user_id", user_id);
-    query.bindValue(":label_id", label_id);
+    query.bindValue(":user_id", currentUserID);
     query.bindValue(":task_duration", tomatoCount*25);//一个番茄是25分钟来是不
     query.bindValue(":tomato_count", tomatoCount);
+    query.bindValue(":label_id",curLabel_id);
 
     if (!query.exec()) {
         qDebug() << "Failed to insert task data:" << query.lastError().text();
     } else {
         qDebug() << "Task data inserted successfully.";
-        if (!updateTomatoCount(user_id, tomatoCount)) {
+        if (!updateTomatoCount(currentUserID, tomatoCount)) {
             qDebug() << "Failed to update tomato count.";
         }
     }
