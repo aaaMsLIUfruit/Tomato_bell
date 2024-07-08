@@ -1,0 +1,106 @@
+{
+	"BUILD_DIR" : "/home/ayako/桌面/fqz/hello_autogen",
+	"CMAKE_BINARY_DIR" : "/home/ayako/桌面/fqz",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/ayako/桌面/fqz",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/ayako/桌面/fqz",
+	"CMAKE_EXECUTABLE" : "/usr/bin/cmake",
+	"CMAKE_SOURCE_DIR" : "/home/ayako/桌面/fqz",
+	"HEADERS" : 
+	[
+		[ "/home/ayako/桌面/fqz/Clock.h", "MU", "EWIEGA46WW/moc_Clock.cpp" ],
+		[
+			"/home/ayako/桌面/fqz/Register.h",
+			"MU",
+			"EWIEGA46WW/moc_Register.cpp"
+		],
+		[
+			"/home/ayako/桌面/fqz/Sign_in.h",
+			"MU",
+			"EWIEGA46WW/moc_Sign_in.cpp"
+		],
+		[ "/home/ayako/桌面/fqz/config.h", "MU", "EWIEGA46WW/moc_config.cpp" ],
+		[
+			"/home/ayako/桌面/fqz/mainClock.h",
+			"MU",
+			"EWIEGA46WW/moc_mainClock.cpp"
+		],
+		[
+			"/home/ayako/桌面/fqz/mainwindow.h",
+			"MU",
+			"EWIEGA46WW/moc_mainwindow.cpp"
+		],
+		[
+			"/home/ayako/桌面/fqz/start_task.h",
+			"MU",
+			"EWIEGA46WW/moc_start_task.cpp"
+		],
+		[
+			"/home/ayako/桌面/fqz/usercenter.h",
+			"MU",
+			"EWIEGA46WW/moc_usercenter.cpp"
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "/home/ayako/桌面/fqz/hello_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/ayako/桌面/fqz/hello_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_NO_DEBUG", "QT_WIDGETS_LIB" ],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"/usr/include/x86_64-linux-gnu/qt5",
+		"/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
+		"/usr/include/x86_64-linux-gnu/qt5/QtGui",
+		"/usr/include/x86_64-linux-gnu/qt5/QtCore",
+		"/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++",
+		"/usr/include/c++/9",
+		"/usr/include/x86_64-linux-gnu/c++/9",
+		"/usr/include/c++/9/backward",
+		"/usr/lib/gcc/x86_64-linux-gnu/9/include",
+		"/usr/local/include",
+		"/usr/include/x86_64-linux-gnu",
+		"/usr/include"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : true,
+	"MOC_PREDEFS_CMD" : 
+	[
+		"/usr/bin/c++",
+		"-dM",
+		"-E",
+		"-c",
+		"/usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp"
+	],
+	"MOC_PREDEFS_FILE" : "/home/ayako/桌面/fqz/hello_autogen/moc_predefs.h",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : [],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 8,
+	"PARSE_CACHE_FILE" : "/home/ayako/桌面/fqz/CMakeFiles/hello_autogen.dir/ParseCache.txt",
+	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
+	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",
+	"QT_VERSION_MAJOR" : 5,
+	"SETTINGS_FILE" : "/home/ayako/桌面/fqz/CMakeFiles/hello_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[ "/home/ayako/桌面/fqz/Clock.cpp", "MU" ],
+		[ "/home/ayako/桌面/fqz/Register.cpp", "MU" ],
+		[ "/home/ayako/桌面/fqz/Sign_in.cpp", "MU" ],
+		[ "/home/ayako/桌面/fqz/main.cpp", "MU" ],
+		[ "/home/ayako/桌面/fqz/mainClock.cpp", "MU" ],
+		[ "/home/ayako/桌面/fqz/mainwindow.cpp", "MU" ],
+		[ "/home/ayako/桌面/fqz/start_task.cpp", "MU" ],
+		[ "/home/ayako/桌面/fqz/usercenter.cpp", "MU" ]
+	],
+	"UIC_OPTIONS" : [],
+	"UIC_SEARCH_PATHS" : [],
+	"UIC_SKIP" : [],
+	"UIC_UI_FILES" : [],
+	"VERBOSITY" : 0
+}

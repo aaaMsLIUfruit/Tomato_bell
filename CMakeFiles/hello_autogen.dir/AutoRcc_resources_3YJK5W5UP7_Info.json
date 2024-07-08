@@ -1,0 +1,24 @@
+{
+	"BUILD_DIR" : "/home/ayako/桌面/fqz/hello_autogen",
+	"CMAKE_BINARY_DIR" : "/home/ayako/桌面/fqz",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/ayako/桌面/fqz",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/ayako/桌面/fqz",
+	"CMAKE_SOURCE_DIR" : "/home/ayako/桌面/fqz",
+	"INCLUDE_DIR" : "/home/ayako/桌面/fqz/hello_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/ayako/桌面/fqz/resources/icon.png",
+		"/home/ayako/桌面/fqz/resources/Clock.png",
+		"/home/ayako/桌面/fqz/resources/ziti.ttf"
+	],
+	"LOCK_FILE" : "/home/ayako/桌面/fqz/CMakeFiles/hello_autogen.dir/AutoRcc_resources_3YJK5W5UP7_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "resources" ],
+	"OUTPUT_CHECKSUM" : "3YJK5W5UP7",
+	"OUTPUT_NAME" : "qrc_resources.cpp",
+	"RCC_EXECUTABLE" : "/usr/lib/qt5/bin/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/ayako/桌面/fqz/CMakeFiles/hello_autogen.dir/AutoRcc_resources_3YJK5W5UP7_Used.txt",
+	"SOURCE" : "/home/ayako/桌面/fqz/resources/resources.qrc",
+	"VERBOSITY" : 0
+}

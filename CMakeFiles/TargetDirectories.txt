@@ -1,0 +1,8 @@
+/home/ayako/桌面/fqz/CMakeFiles/install/strip.dir
+/home/ayako/桌面/fqz/CMakeFiles/install/local.dir
+/home/ayako/桌面/fqz/CMakeFiles/install.dir
+/home/ayako/桌面/fqz/CMakeFiles/list_install_components.dir
+/home/ayako/桌面/fqz/CMakeFiles/rebuild_cache.dir
+/home/ayako/桌面/fqz/CMakeFiles/edit_cache.dir
+/home/ayako/桌面/fqz/CMakeFiles/hello.dir
+/home/ayako/桌面/fqz/CMakeFiles/hello_autogen.dir
