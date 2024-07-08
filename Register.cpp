@@ -30,10 +30,10 @@ Register::Register(QWidget *parent) :
 
     // 初始化数据库连接
     db = QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName("Fighting");
+    db.setHostName("localhost");
     db.setDatabaseName("TOMATO");
     db.setUserName("root");
-    db.setPassword("Bestran123");
+    db.setPassword("YourPassword");
 
     if (!db.open()) {
         qDebug() << "Failed to connect to database:" << db.lastError().text();

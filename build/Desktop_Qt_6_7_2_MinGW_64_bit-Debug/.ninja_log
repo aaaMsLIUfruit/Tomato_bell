@@ -69,3 +69,14 @@
 455	6685	7420707673633759	CMakeFiles/hello.dir/Clock.cpp.obj	4687a66a1d78af05
 472	7133	7420707673804522	CMakeFiles/hello.dir/start_task.cpp.obj	405bf12d3eeab0bb
 7133	7993	7420707740414727	hello.exe	f5d6f06393fb19c1
+20	315	7420717606885699	hello_autogen/timestamp	984bee5ba2c279b9
+20	315	7420717606885699	hello_autogen/mocs_compilation.cpp	984bee5ba2c279b9
+20	315	7420717606885699	C:/Users/lenovo/Desktop/Tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_autogen/timestamp	984bee5ba2c279b9
+20	315	7420717606885699	C:/Users/lenovo/Desktop/Tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_autogen/mocs_compilation.cpp	984bee5ba2c279b9
+317	5640	7420717609856161	CMakeFiles/hello.dir/mainwindow.cpp.obj	c0e0ec957904f068
+342	5717	7420717610113142	CMakeFiles/hello.dir/Register.cpp.obj	cc59d65a79874823
+329	5907	7420717609986140	CMakeFiles/hello.dir/Sign_in.cpp.obj	a4e5c0f2fd25a22
+355	6239	7420717610250655	CMakeFiles/hello.dir/Clock.cpp.obj	4687a66a1d78af05
+394	6318	7420717610628037	CMakeFiles/hello.dir/usercenter.cpp.obj	1f359f5788c8e1bb
+376	6383	7420717610454180	CMakeFiles/hello.dir/start_task.cpp.obj	405bf12d3eeab0bb
+6383	7188	7420717670524987	hello.exe	f5d6f06393fb19c1
