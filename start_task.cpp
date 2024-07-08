@@ -25,10 +25,10 @@ start_task::start_task(QWidget *parent)
 
     //create connection
     db = QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName("Fighting");
+    db.setHostName("localhost");
     db.setDatabaseName("TOMATO");
     db.setUserName("root");
-    db.setPassword("Bestran123");
+    db.setPassword("YourPassword");
     db.setPort(3306);
 
     if (!db.open()) {

@@ -245,7 +245,7 @@ build hello_autogen_timestamp_deps: phony
 #############################################
 # Utility command for hello_autogen
 
-build hello_autogen: phony CMakeFiles/hello_autogen hello_autogen/include/ui_mainwindow.h hello_autogen/include/ui_Sign_in.h hello_autogen/include/ui_Register.h hello_autogen/include/ui_Clock.h hello_autogen/include/ui_start_task.h hello_autogen/include/ui_userCenter.h hello_autogen/include/ui_mainClock.h hello_autogen/timestamp hello_autogen/mocs_compilation.cpp hello_autogen_timestamp_deps
+build hello_autogen: phony CMakeFiles/hello_autogen hello_autogen/include/ui_mainwindow.h hello_autogen/include/ui_Sign_in.h hello_autogen/include/ui_Register.h hello_autogen/include/ui_Clock.h hello_autogen/include/ui_start_task.h hello_autogen/include/ui_usercenter.h hello_autogen/include/ui_Mainclock.h hello_autogen/timestamp hello_autogen/mocs_compilation.cpp hello_autogen_timestamp_deps
 
 
 #############################################
@@ -271,7 +271,7 @@ build hello_autogen/3YJK5W5UP7/qrc_resources.cpp | ${cmake_ninja_workdir}hello_a
 #############################################
 # Phony custom command for CMakeFiles\hello_autogen
 
-build CMakeFiles/hello_autogen hello_autogen/include/ui_mainwindow.h hello_autogen/include/ui_Sign_in.h hello_autogen/include/ui_Register.h hello_autogen/include/ui_Clock.h hello_autogen/include/ui_start_task.h hello_autogen/include/ui_userCenter.h hello_autogen/include/ui_mainClock.h | ${cmake_ninja_workdir}CMakeFiles/hello_autogen ${cmake_ninja_workdir}hello_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}hello_autogen/include/ui_Sign_in.h ${cmake_ninja_workdir}hello_autogen/include/ui_Register.h ${cmake_ninja_workdir}hello_autogen/include/ui_Clock.h ${cmake_ninja_workdir}hello_autogen/include/ui_start_task.h ${cmake_ninja_workdir}hello_autogen/include/ui_userCenter.h ${cmake_ninja_workdir}hello_autogen/include/ui_mainClock.h: phony hello_autogen/timestamp || hello_autogen_timestamp_deps
+build CMakeFiles/hello_autogen hello_autogen/include/ui_mainwindow.h hello_autogen/include/ui_Sign_in.h hello_autogen/include/ui_Register.h hello_autogen/include/ui_Clock.h hello_autogen/include/ui_start_task.h hello_autogen/include/ui_usercenter.h hello_autogen/include/ui_Mainclock.h | ${cmake_ninja_workdir}CMakeFiles/hello_autogen ${cmake_ninja_workdir}hello_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}hello_autogen/include/ui_Sign_in.h ${cmake_ninja_workdir}hello_autogen/include/ui_Register.h ${cmake_ninja_workdir}hello_autogen/include/ui_Clock.h ${cmake_ninja_workdir}hello_autogen/include/ui_start_task.h ${cmake_ninja_workdir}hello_autogen/include/ui_usercenter.h ${cmake_ninja_workdir}hello_autogen/include/ui_Mainclock.h: phony hello_autogen/timestamp || hello_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.
