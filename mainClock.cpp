@@ -194,6 +194,7 @@ void Mainclock::onContinueClicked() {
 void Mainclock::onRestartClicked() {
     remainingTime = 1500; // 重置时间为25分钟
     timerLabel->setText("25:00");
+    remainingPauseTime=300;
     resumeMainTimer();
 }
 
