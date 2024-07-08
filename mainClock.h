@@ -25,7 +25,8 @@ public:
     void setComBoxData(QString comboBoxData);
 
 signals:
-    void returntoClock();
+    void returntoClockyes();
+    void returntoClockno();
 
 private slots:
     void togglePausePlay();
@@ -49,6 +50,7 @@ private:
     QTimer *pauseTimer;
     int remainingTime;
     int remainingPauseTime;
+    int completedCycles;
     bool isPaused;
     int rest; // 0: 暂停中，1: 休息中
     int num; // 初始值设为1

@@ -55,7 +55,8 @@ void start_task::on_start_clicked()
     if (mainclock == nullptr) {
         mainclock = std::make_unique<Mainclock>(this); // 创建新的 mainclock 对象
         mainclock->setAttribute(Qt::WA_DeleteOnClose); // 窗口关闭时自动删除
-        connect(mainclock.get(), &Mainclock::returntoClock, this, &start_task::on_return_to_start_task);
+        connect(mainclock.get(), &Mainclock::returntoClockyes, this, &start_task::on_return_to_start_task1);
+        connect(mainclock.get(),&Mainclock::returntoClockno, this, &start_task::on_return_to_start_task2);
     }
 
     int spinBoxData=ui->spinBox->value();
@@ -129,7 +130,7 @@ void start_task::on_pushButton_clicked()
 
 }
 
-void start_task::on_return_to_start_task(){
+void start_task::on_return_to_start_task1(){
     ui->pushButton_2->show();
     ui->comboBox->show();
     ui->pushButton->show();
@@ -140,4 +141,22 @@ void start_task::on_return_to_start_task(){
     ui->lineEdit->show();
     ui->start->show();
     mainclock.reset();
+
+    QMessageBox::information(this, "任务完成", "你已成功完成任务！");
 }
+
+void start_task::on_return_to_start_task2(){
+    ui->pushButton_2->show();
+    ui->comboBox->show();
+    ui->pushButton->show();
+    ui->spinBox->show();
+    ui->label->show();
+    ui->label_2->show();
+    ui->label_3->show();
+    ui->lineEdit->show();
+    ui->start->show();
+    mainclock.reset();
+
+    QMessageBox::information(this, "任务失败", "任务失败，再接再厉吧");
+}
+

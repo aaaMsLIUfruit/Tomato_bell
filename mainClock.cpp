@@ -13,8 +13,9 @@ Mainclock::Mainclock(QWidget *parent)
     remainingTime(1500), // 初始时间为25分钟（1500秒）
     remainingPauseTime(300), // 暂停时间为5分钟（300秒）
     isPaused(0),
-    rest(0), // 初始化为0
-    num(1), // 初始值设为1
+    rest(0),
+    num(0),
+    completedCycles(0),
     pauseMessageBox(nullptr)
 {
     ui->setupUi(this);
@@ -192,10 +193,15 @@ void Mainclock::onContinueClicked() {
 }
 
 void Mainclock::onRestartClicked() {
-    remainingTime = 1500; // 重置时间为25分钟
-    timerLabel->setText("25:00");
-    remainingPauseTime=300;
-    resumeMainTimer();
+    if (++completedCycles >= num) {
+        emit returntoClock();
+    } else {
+        remainingTime = 1500; // 重置时间为25分钟
+        timerLabel->setText("25:00");
+        remainingPauseTime = 300;
+        rest = 0; // Reset rest status
+        resumeMainTimer();
+    }
 }
 
 void Mainclock::onBackClicked() {
