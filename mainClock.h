@@ -8,10 +8,9 @@
 #include <QTimer>
 #include <QMessageBox>
 #include <QFontDatabase>
-#include "config.h"
 
 namespace Ui {
-class Mainclock;
+class mainClock;
 }
 
 class Mainclock : public QWidget
@@ -41,7 +40,7 @@ private slots:
     void onBackClicked();
 
 private:
-    Ui::Mainclock *ui;
+    Ui::mainClock *ui;
     QVBoxLayout *layout;
     QPushButton *pauseButton;
     QString comboBox;

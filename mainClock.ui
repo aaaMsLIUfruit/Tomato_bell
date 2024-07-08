@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Mainclock</class>
- <widget class="QWidget" name="Mainclock">
+ <class>mainClock</class>
+ <widget class="QWidget" name="mainClock">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,6 +13,19 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QPushButton" name="exitButton">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>250</y>
+     <width>80</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>退出</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

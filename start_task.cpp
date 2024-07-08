@@ -139,4 +139,5 @@ void start_task::on_return_to_start_task(){
     ui->label_3->show();
     ui->lineEdit->show();
     ui->start->show();
+    mainclock.reset();
 }

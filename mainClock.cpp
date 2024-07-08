@@ -1,10 +1,10 @@
-#include "mainclock.h"
-#include "ui_Mainclock.h"
+#include "mainClock.h"
+#include "ui_mainClock.h"
 #include "config.h"
 
 Mainclock::Mainclock(QWidget *parent)
     : QWidget(parent),
-    ui(new Ui::Mainclock),
+    ui(new Ui::mainClock),
     layout(new QVBoxLayout(this)),
     pauseButton(new QPushButton(this)),
     timerLabel(new QLabel(this)),
@@ -52,6 +52,7 @@ void Mainclock::initWindow() {
     connect(pauseButton, &QPushButton::clicked, this, &Mainclock::togglePausePlay);
     connect(mainTimer, &QTimer::timeout, this, &Mainclock::updateTimer);
     connect(pauseTimer, &QTimer::timeout, this, &Mainclock::updatePauseTimer);
+    connect(ui->exitButton, &QPushButton::clicked, this, &Mainclock::onBackClicked);
 }
 
 void Mainclock::togglePausePlay() {
@@ -197,7 +198,7 @@ void Mainclock::onRestartClicked() {
 }
 
 void Mainclock::onBackClicked() {
-    QApplication::quit();
+    emit returntoClock();
 }
 
 void Mainclock::setSpinBoxData(int n) {
