@@ -47,6 +47,7 @@ void MainWindow::initWindow() {
     // 设置窗口的图标
     setWindowIcon(QIcon(ICON));
 
+
     // 调用 update 函数，强制窗口重绘，确保背景被正确加载和显示
     update();
 }

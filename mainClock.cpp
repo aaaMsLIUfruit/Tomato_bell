@@ -90,6 +90,7 @@ void Mainclock::updateTimer() {
         rest = 1;
         remainingPauseTime = 300;
         showPauseMessageBox();
+        remainingTime = 1500;
     }
 }
 
@@ -194,7 +195,7 @@ void Mainclock::onContinueClicked() {
 
 void Mainclock::onRestartClicked() {
     if (++completedCycles >= num) {
-        emit returntoClock();
+        emit returntoClockyes();
     } else {
         remainingTime = 1500; // 重置时间为25分钟
         timerLabel->setText("25:00");
@@ -205,7 +206,7 @@ void Mainclock::onRestartClicked() {
 }
 
 void Mainclock::onBackClicked() {
-    emit returntoClock();
+    emit returntoClockno();
 }
 
 void Mainclock::setSpinBoxData(int n) {
