@@ -387,7 +387,6 @@ CMakeFiles/hello.dir/Clock.cpp.obj: C:\tomato\Clock.cpp C:\tomato\Clock.h \
  C:/Qt/6.7.2/mingw_64/include/QtGui/qinputmethod.h \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qlocale.h \
  C:/Qt/6.7.2/mingw_64/include/QtGui/qguiapplication_platform.h \
- C:/Qt/6.7.2/mingw_64/include/QtWidgets/QPushButton \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/QWidget C:\tomato\config.h \
  C:\tomato\start_task.h C:/Qt/6.7.2/mingw_64/include/QtWidgets/QComboBox \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qcombobox.h \
@@ -404,8 +403,17 @@ CMakeFiles/hello.dir/Clock.cpp.obj: C:\tomato\Clock.cpp C:\tomato\Clock.h \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qrubberband.h \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qabstractitemmodel.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMessageBox \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qmessagebox.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/QSpinBox \
- C:/Qt/6.7.2/mingw_64/include/QtWidgets/qspinbox.h C:\tomato\mainclock.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qspinbox.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/QSqlDatabase \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qsqldatabase.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qtsqlglobal.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qtsql-config.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qtsqlexports.h C:\tomato\mainClock.h \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/QVBoxLayout \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qboxlayout.h \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
@@ -421,23 +429,42 @@ CMakeFiles/hello.dir/Clock.cpp.obj: C:\tomato\Clock.cpp C:\tomato\Clock.h \
  C:/Qt/6.7.2/mingw_64/include/QtCore/QTimer \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qtimer.h \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qbasictimer.h \
- C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMessageBox \
- C:/Qt/6.7.2/mingw_64/include/QtWidgets/qmessagebox.h \
- C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
- C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
  C:/Qt/6.7.2/mingw_64/include/QtGui/QFontDatabase \
  C:/Qt/6.7.2/mingw_64/include/QtGui/qfontdatabase.h \
- C:\tomato\usercenter.h C:/Qt/6.7.2/mingw_64/include/QtGui/QIcon \
- C:/Qt/6.7.2/mingw_64/include/QtGui/qicon.h \
- C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplication \
- C:/Qt/6.7.2/mingw_64/include/QtCore/QString \
- C:/Qt/6.7.2/mingw_64/include/QtCore/qstring.h \
- C:/Qt/6.7.2/mingw_64/include/QtGui/QScreen \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/QSqlError \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qsqlerror.h C:\tomato\usercenter.h \
+ C:/Qt/6.7.2/mingw_64/include/QtCharts/QChartView \
+ C:/Qt/6.7.2/mingw_64/include/QtCharts/qchartview.h \
+ C:/Qt/6.7.2/mingw_64/include/QtCharts/QAbstractAxis \
+ C:/Qt/6.7.2/mingw_64/include/QtCharts/qabstractaxis.h \
+ C:/Qt/6.7.2/mingw_64/include/QtCharts/QChartGlobal \
+ C:/Qt/6.7.2/mingw_64/include/QtCharts/qchartglobal.h \
+ C:/Qt/6.7.2/mingw_64/include/QtCharts/qtcharts-config.h \
+ C:/Qt/6.7.2/mingw_64/include/QtCharts/qtchartsexports.h \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/QPen \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/qpen.h \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/QFont \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/qfont.h \
+ C:/Qt/6.7.2/mingw_64/include/QtCore/QObject \
+ C:/Qt/6.7.2/mingw_64/include/QtCore/qobject.h \
+ C:/Qt/6.7.2/mingw_64/include/QtCharts/QAbstractSeries \
+ C:/Qt/6.7.2/mingw_64/include/QtCharts/qabstractseries.h \
+ C:/Qt/6.7.2/mingw_64/include/QtCharts/QChart \
+ C:/Qt/6.7.2/mingw_64/include/QtCharts/qchart.h \
+ C:/Qt/6.7.2/mingw_64/include/QtCharts/QLegend \
+ C:/Qt/6.7.2/mingw_64/include/QtCharts/qlegend.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsWidget \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicswidget.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicslayoutitem.h \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/qevent.h \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/qeventpoint.h \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/qvector2d.h \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/qvectornd.h \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/qpointingdevice.h \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/qinputdevice.h \
  C:/Qt/6.7.2/mingw_64/include/QtGui/qscreen.h \
  C:/Qt/6.7.2/mingw_64/include/QtCore/QList \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qlist.h \
- C:/Qt/6.7.2/mingw_64/include/QtCore/QObject \
- C:/Qt/6.7.2/mingw_64/include/QtCore/qobject.h \
  C:/Qt/6.7.2/mingw_64/include/QtCore/QRect \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qrect.h \
  C:/Qt/6.7.2/mingw_64/include/QtCore/QSize \
@@ -446,5 +473,28 @@ CMakeFiles/hello.dir/Clock.cpp.obj: C:\tomato\Clock.cpp C:\tomato\Clock.h \
  C:/Qt/6.7.2/mingw_64/include/QtGui/QTransform \
  C:/Qt/6.7.2/mingw_64/include/QtGui/qtransform.h \
  C:/Qt/6.7.2/mingw_64/include/QtGui/qscreen_platform.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/qpainterpath.h \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/QBrush \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/qbrush.h \
+ C:/Qt/6.7.2/mingw_64/include/QtCore/QMargins \
+ C:/Qt/6.7.2/mingw_64/include/QtCore/qmargins.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsView \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsview.h \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/qpainter.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/QStackedWidget \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qstackedwidget.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/QScrollArea \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/QIcon \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/qicon.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplication \
+ C:/Qt/6.7.2/mingw_64/include/QtCore/QString \
+ C:/Qt/6.7.2/mingw_64/include/QtCore/qstring.h \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/QScreen \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/qscreen.h \
  C:/Qt/6.7.2/mingw_64/include/QtGui/QGuiApplication \
  C:/Qt/6.7.2/mingw_64/include/QtGui/qguiapplication.h

@@ -81,8 +81,11 @@ hello_autogen/3YJK5W5UP7/qrc_resources.cpp: C:/tomato/resources/personal.jpg
 hello_autogen/3YJK5W5UP7/qrc_resources.cpp: C:/tomato/resources/background1.jpg
 hello_autogen/3YJK5W5UP7/qrc_resources.cpp: C:/tomato/resources/xiaoba.png
 hello_autogen/3YJK5W5UP7/qrc_resources.cpp: C:/tomato/resources/Clock.png
+hello_autogen/3YJK5W5UP7/qrc_resources.cpp: C:/tomato/resources/personal2.png
+hello_autogen/3YJK5W5UP7/qrc_resources.cpp: C:/tomato/resources/first.jpg
 hello_autogen/3YJK5W5UP7/qrc_resources.cpp: C:/tomato/resources/ziti.ttf
 hello_autogen/3YJK5W5UP7/qrc_resources.cpp: C:/tomato/resources/icon.png
+hello_autogen/3YJK5W5UP7/qrc_resources.cpp: C:/tomato/resources/personal1.png
 hello_autogen/3YJK5W5UP7/qrc_resources.cpp: C:/Qt/6.7.2/mingw_64/./bin/rcc.exe
 hello_autogen/3YJK5W5UP7/qrc_resources.cpp: C:/Qt/6.7.2/mingw_64/./bin/rcc.exe
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=C:\tomato\build\Desktop_Qt_6_7_2_MinGW_64_bit-Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Automatic RCC for resources/resources.qrc"
@@ -300,6 +303,7 @@ hello.exe: CMakeFiles/hello.dir/mylabel.cpp.obj
 hello.exe: CMakeFiles/hello.dir/hello_autogen/3YJK5W5UP7/qrc_resources.cpp.obj
 hello.exe: CMakeFiles/hello.dir/build.make
 hello.exe: C:/Qt/6.7.2/mingw_64/lib/libQt6Widgets.a
+hello.exe: C:/Qt/6.7.2/mingw_64/lib/libQt6Sql.a
 hello.exe: C:/Qt/6.7.2/mingw_64/lib/libQt6Gui.a
 hello.exe: C:/Qt/6.7.2/mingw_64/lib/libQt6Core.a
 hello.exe: C:/Qt/6.7.2/mingw_64/lib/libQt6EntryPoint.a

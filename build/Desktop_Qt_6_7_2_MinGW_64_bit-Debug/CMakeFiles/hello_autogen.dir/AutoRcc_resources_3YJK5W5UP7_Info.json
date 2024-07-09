@@ -13,8 +13,11 @@
 		"C:/tomato/resources/background1.jpg",
 		"C:/tomato/resources/xiaoba.png",
 		"C:/tomato/resources/Clock.png",
+		"C:/tomato/resources/personal2.png",
+		"C:/tomato/resources/first.jpg",
 		"C:/tomato/resources/ziti.ttf",
-		"C:/tomato/resources/icon.png"
+		"C:/tomato/resources/icon.png",
+		"C:/tomato/resources/personal1.png"
 	],
 	"LOCK_FILE" : "C:/tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/hello_autogen.dir/AutoRcc_resources_3YJK5W5UP7_Lock.lock",
 	"MULTI_CONFIG" : false,

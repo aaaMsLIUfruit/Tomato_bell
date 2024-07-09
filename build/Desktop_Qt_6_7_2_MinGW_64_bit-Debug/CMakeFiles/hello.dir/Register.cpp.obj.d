@@ -363,6 +363,11 @@ CMakeFiles/hello.dir/Register.cpp.obj: C:\tomato\Register.cpp \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qwidget.h \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/QSqlDatabase \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qsqldatabase.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qtsqlglobal.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qtsql-config.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qtsqlexports.h \
  C:/tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_autogen/include/ui_Register.h \
  C:/Qt/6.7.2/mingw_64/include/QtCore/QVariant \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
@@ -400,4 +405,9 @@ CMakeFiles/hello.dir/Register.cpp.obj: C:\tomato\Register.cpp \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/QWidget C:\tomato\config.h \
  C:/Qt/6.7.2/mingw_64/include/QtCore/QRegularExpression \
- C:/Qt/6.7.2/mingw_64/include/QtCore/qregularexpression.h
+ C:/Qt/6.7.2/mingw_64/include/QtCore/qregularexpression.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/QSqlError \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qsqlerror.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/QSqlQuery \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qsqlquery.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qsqldatabase.h

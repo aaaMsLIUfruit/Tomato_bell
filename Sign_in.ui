@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLineEdit" name="account">
+  <widget class="QLineEdit" name="Password">
    <property name="geometry">
     <rect>
      <x>400</x>
@@ -23,10 +23,10 @@
     </rect>
    </property>
    <property name="echoMode">
-    <enum>QLineEdit::Password</enum>
+    <enum>QLineEdit::Normal</enum>
    </property>
   </widget>
-  <widget class="QLineEdit" name="password">
+  <widget class="QLineEdit" name="Account">
    <property name="geometry">
     <rect>
      <x>400</x>
@@ -99,10 +99,10 @@
   <widget class="QPushButton" name="return_2">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>100</y>
-     <width>150</width>
-     <height>50</height>
+     <x>109</x>
+     <y>109</y>
+     <width>141</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">

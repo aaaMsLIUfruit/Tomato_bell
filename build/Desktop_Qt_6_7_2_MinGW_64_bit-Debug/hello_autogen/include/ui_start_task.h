@@ -37,7 +37,7 @@ public:
     {
         if (start_task->objectName().isEmpty())
             start_task->setObjectName("start_task");
-        start_task->resize(400, 300);
+        start_task->resize(800, 600);
         label = new QLabel(start_task);
         label->setObjectName("label");
         label->setGeometry(QRect(140, 50, 161, 16));

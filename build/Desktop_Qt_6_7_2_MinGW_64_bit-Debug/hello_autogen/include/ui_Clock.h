@@ -11,7 +11,6 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -19,21 +18,12 @@ QT_BEGIN_NAMESPACE
 class Ui_Clock
 {
 public:
-    QPushButton *personal_center;
-    QPushButton *start_task;
 
     void setupUi(QWidget *Clock)
     {
         if (Clock->objectName().isEmpty())
             Clock->setObjectName("Clock");
-        Clock->resize(581, 413);
-        personal_center = new QPushButton(Clock);
-        personal_center->setObjectName("personal_center");
-        personal_center->setGeometry(QRect(60, 120, 80, 21));
-        start_task = new QPushButton(Clock);
-        start_task->setObjectName("start_task");
-        start_task->setGeometry(QRect(230, 190, 80, 21));
-        start_task->setAutoFillBackground(false);
+        Clock->resize(800, 600);
 
         retranslateUi(Clock);
 
@@ -43,8 +33,6 @@ public:
     void retranslateUi(QWidget *Clock)
     {
         Clock->setWindowTitle(QCoreApplication::translate("Clock", "Form", nullptr));
-        personal_center->setText(QCoreApplication::translate("Clock", "\344\270\252\344\272\272\344\270\255\345\277\203", nullptr));
-        start_task->setText(QCoreApplication::translate("Clock", "\345\274\200\345\247\213\344\273\273\345\212\241", nullptr));
     } // retranslateUi
 
 };

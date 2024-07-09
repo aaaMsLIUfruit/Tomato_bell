@@ -3,7 +3,7 @@
 #include"config.h"
 #include"start_task.h"
 #include"usercenter.h"
-#include"mainclock.h"
+#include"mainClock.h"
 #include <QIcon>
 #include <QApplication>
 #include <QString>
@@ -30,7 +30,7 @@ Clock::Clock(QWidget *parent)
     starttask->setParent(this);
     starttask->move(this->width()*0.5-starttask->width()*0.5,this->height()*0.3);
 
-    personalcenter=new mypushbutton(":/personal.jpg","");
+    personalcenter=new mypushbutton(":/personal2.png",":/personal1.png");
     personalcenter->setParent(this);
     personalcenter->move(this->width()*0.1,this->height()*0.1);
 
@@ -57,9 +57,10 @@ Clock::~Clock(){
 void Clock::on_return_to_Clock() {
 
 
-    ui->personal_center->show();
-    ui->start_task->show();
+    // ui->personal_center->show();
+    // ui->start_task->show();
     starttask->show();
+    personalcenter->show();
     update();
 }
 

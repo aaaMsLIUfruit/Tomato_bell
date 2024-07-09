@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-fcbf0ab88ee34deab31d.json",
+					"jsonFile" : "directory-.-Debug-e8e841cb68343498401a.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "hello::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-hello-Debug-22156e9c2eeef47f1f8b.json",
+					"jsonFile" : "target-hello-Debug-158991ab3883f93022ff.json",
 					"name" : "hello",
 					"projectIndex" : 0
 				},

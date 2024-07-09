@@ -1,11 +1,12 @@
 #include "mainClock.h"
 #include "mylabel.h"
-#include "ui_Mainclock.h"
+#include "ui_mainClock.h"
+
 #include "config.h"
 
-Mainclock::Mainclock(QWidget *parent)
+mainClock::mainClock(QWidget *parent)
     : QWidget(parent),
-    ui(new Ui::Mainclock),
+    ui(new Ui::mainClock),
     layout(new QVBoxLayout(this)),
     pauseButton(new QPushButton(this)),
     timerLabel(new MyLabel(this)),
@@ -14,8 +15,9 @@ Mainclock::Mainclock(QWidget *parent)
     remainingTime(1500), // 初始时间为25分钟（1500秒）
     remainingPauseTime(300), // 暂停时间为5分钟（300秒）
     isPaused(0),
-    rest(0), // 初始化为0
-    num(1), // 初始值设为1
+    rest(0),
+    num(0),
+    completedCycles(0),
     pauseMessageBox(nullptr)
 {
     ui->setupUi(this);
@@ -32,12 +34,12 @@ Mainclock::Mainclock(QWidget *parent)
     togglePausePlay();
 }
 
-Mainclock::~Mainclock() {
+mainClock::~mainClock() {
     delete ui;
 }
 
 //初始化窗口
-void Mainclock::initWindow() {
+void mainClock::initWindow() {
     setLayout(layout);
 
     pauseButton->setText("▶");
@@ -50,12 +52,13 @@ void Mainclock::initWindow() {
     timerLabel->setAlignment(Qt::AlignCenter);
     layout->addWidget(timerLabel);
 
-    connect(pauseButton, &QPushButton::clicked, this, &Mainclock::togglePausePlay);
-    connect(mainTimer, &QTimer::timeout, this, &Mainclock::updateTimer);
-    connect(pauseTimer, &QTimer::timeout, this, &Mainclock::updatePauseTimer);
+    connect(pauseButton, &QPushButton::clicked, this, &mainClock::togglePausePlay);
+    connect(mainTimer, &QTimer::timeout, this, &mainClock::updateTimer);
+    connect(pauseTimer, &QTimer::timeout, this, &mainClock::updatePauseTimer);
+    connect(ui->exitButton, &QPushButton::clicked, this, &mainClock::onBackClicked);
 }
 
-void Mainclock::togglePausePlay() {
+void mainClock::togglePausePlay() {
     if (!isPaused) {
         // 开始或继续计时
         pauseButton->setText("||");
@@ -72,7 +75,7 @@ void Mainclock::togglePausePlay() {
     isPaused = !isPaused;
 }
 
-void Mainclock::updateTimer() {
+void mainClock::updateTimer() {
 
     if (remainingTime > 0) {
         remainingTime--;
@@ -91,10 +94,11 @@ void Mainclock::updateTimer() {
         rest = 1;
         remainingPauseTime = 300;
         showPauseMessageBox();
+        remainingTime = 1500;
     }
 }
 
-void Mainclock::updatePauseTimer() {
+void mainClock::updatePauseTimer() {
     if (remainingPauseTime > 0) {
         remainingPauseTime--;
         updatePauseMessageBoxText();
@@ -114,13 +118,13 @@ void Mainclock::updatePauseTimer() {
     }
 }
 
-void Mainclock::resumeMainTimer() {
+void mainClock::resumeMainTimer() {
     mainTimer->start(1000);
     isPaused = false;
     pauseButton->setText("||");
 }
 
-void Mainclock::showPauseMessageBox() {
+void mainClock::showPauseMessageBox() {
     if (!pauseMessageBox) {
         pauseMessageBox = new QMessageBox(this);
 
@@ -145,7 +149,7 @@ void Mainclock::showPauseMessageBox() {
         continueButton->setStyleSheet("font-size: 26px; color: #800000;");
         pauseMessageBox->addButton(continueButton, QMessageBox::AcceptRole);
 
-        connect(continueButton, &QPushButton::clicked, this, &Mainclock::onContinueClicked);
+        connect(continueButton, &QPushButton::clicked, this, &mainClock::onContinueClicked);
     }
 
     updatePauseMessageBoxText();
@@ -153,7 +157,7 @@ void Mainclock::showPauseMessageBox() {
     pauseMessageBox->show();
 }
 
-void Mainclock::updatePauseMessageBoxText() {
+void mainClock::updatePauseMessageBoxText() {
     if (pauseMessageBox) {
         if (rest == 0) {
             pauseMessageBox->setText(QString("暂停倒计时: %1:%2").arg(remainingPauseTime / 60, 2, 10, QChar('0')).arg(remainingPauseTime % 60, 2, 10, QChar('0')));
@@ -163,7 +167,7 @@ void Mainclock::updatePauseMessageBoxText() {
     }
 }
 
-void Mainclock::showFailureMessageBox() {
+void mainClock::showFailureMessageBox() {
     QMessageBox *failureMessageBox = new QMessageBox(this);
     failureMessageBox->setFixedSize(2400, 2400);
     failureMessageBox->setWindowTitle("专注失败");
@@ -178,13 +182,13 @@ void Mainclock::showFailureMessageBox() {
     failureMessageBox->setStandardButtons(QMessageBox::NoButton);
     failureMessageBox->setWindowFlags(failureMessageBox->windowFlags() & ~Qt::WindowCloseButtonHint);
 
-    connect(restartButton, &QPushButton::clicked, this, &Mainclock::onRestartClicked);
-    connect(backButton, &QPushButton::clicked, this, &Mainclock::onBackClicked);
+    connect(restartButton, &QPushButton::clicked, this, &mainClock::onRestartClicked);
+    connect(backButton, &QPushButton::clicked, this, &mainClock::onBackClicked);
 
     failureMessageBox->exec();
 }
 
-void Mainclock::onContinueClicked() {
+void mainClock::onContinueClicked() {
     if (pauseMessageBox) {
         pauseMessageBox->close();
         pauseMessageBox = nullptr;
@@ -193,20 +197,26 @@ void Mainclock::onContinueClicked() {
     resumeMainTimer();
 }
 
-void Mainclock::onRestartClicked() {
-    remainingTime = 1500; // 重置时间为25分钟
-    timerLabel->setText("25:00");
-    resumeMainTimer();
+void mainClock::onRestartClicked() {
+    if (++completedCycles >= num) {
+        emit returntoClockyes();
+    } else {
+        remainingTime = 1500; // 重置时间为25分钟
+        timerLabel->setText("25:00");
+        remainingPauseTime = 300;
+        rest = 0; // Reset rest status
+        resumeMainTimer();
+    }
 }
 
-void Mainclock::onBackClicked() {
-    QApplication::quit();
+void mainClock::onBackClicked() {
+    emit returntoClockno();
 }
 
-void Mainclock::setSpinBoxData(int n) {
+void mainClock::setSpinBoxData(int n) {
     num = n;
 }
 
-void Mainclock::setComBoxData(QString comboBoxData){
+void mainClock::setComBoxData(QString comboBoxData){
     comboBox = comboBoxData;
 }

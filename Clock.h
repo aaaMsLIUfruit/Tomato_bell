@@ -23,6 +23,8 @@ public:
 
 private:
      Ui::Clock *ui;
+     //std::unique_ptr<mypushbutton> *starttask;
+     //std::unique_ptr<mypushbutton> *personalcenter;
      mypushbutton *starttask;
      mypushbutton *personalcenter;
      std::unique_ptr<start_task> Start_task;// 使用智能指针

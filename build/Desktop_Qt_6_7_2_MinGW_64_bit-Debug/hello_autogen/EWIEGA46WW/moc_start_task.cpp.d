@@ -164,6 +164,13 @@ C:/tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_autogen/EWIEGA46WW/moc
   C:/Qt/6.7.2/mingw_64/include/QtGui/qvalidator.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.7.2/mingw_64/include/QtSql/QSqlDatabase \
+  C:/Qt/6.7.2/mingw_64/include/QtSql/QSqlError \
+  C:/Qt/6.7.2/mingw_64/include/QtSql/qsqldatabase.h \
+  C:/Qt/6.7.2/mingw_64/include/QtSql/qsqlerror.h \
+  C:/Qt/6.7.2/mingw_64/include/QtSql/qtsql-config.h \
+  C:/Qt/6.7.2/mingw_64/include/QtSql/qtsqlexports.h \
+  C:/Qt/6.7.2/mingw_64/include/QtSql/qtsqlglobal.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QComboBox \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMessageBox \
@@ -399,5 +406,5 @@ C:/tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_autogen/EWIEGA46WW/moc
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
   C:/tomato/Clock.h \
   C:/tomato/config.h \
-  C:/tomato/mainclock.h \
+  C:/tomato/mainClock.h \
   C:/tomato/mypushbutton.h

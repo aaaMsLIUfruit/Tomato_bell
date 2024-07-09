@@ -8,26 +8,29 @@
 #include <QTimer>
 #include <QMessageBox>
 #include <QFontDatabase>
+
 #include "config.h"
 class MyLabel;
 
+
 namespace Ui {
-class Mainclock;
+class mainClock;
 }
 
-class Mainclock : public QWidget
+class mainClock : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Mainclock(QWidget *parent = nullptr);
-    ~Mainclock();
+    explicit mainClock(QWidget *parent = nullptr);
+    ~mainClock();
 
     void setSpinBoxData(int n);
     void setComBoxData(QString comboBoxData);
 
 signals:
-    void returntoClock();
+    void returntoClockyes();
+    void returntoClockno();
 
 private slots:
     void togglePausePlay();
@@ -42,7 +45,7 @@ private slots:
     void onBackClicked();
 
 private:
-    Ui::Mainclock *ui;
+    Ui::mainClock *ui;
     QVBoxLayout *layout;
     QPushButton *pauseButton;
     QString comboBox;
@@ -51,6 +54,7 @@ private:
     QTimer *pauseTimer;
     int remainingTime;
     int remainingPauseTime;
+    int completedCycles;
     bool isPaused;
     int rest; // 0: 暂停中，1: 休息中
     int num; // 初始值设为1

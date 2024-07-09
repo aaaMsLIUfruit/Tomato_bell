@@ -5,6 +5,7 @@
 #include "Register.h"
 
 #include <QIcon>
+#include<QtSql/QSqlDatabase>
 #include <QApplication>
 #include <QString>
 #include <QScreen>
@@ -12,11 +13,14 @@
 #include <QPushButton>
 #include <memory> // 包含智能指针的头文件
 
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , sign_in(nullptr)
     , register_(nullptr)
+
 {
     ui->setupUi(this);
     initWindow();
@@ -46,6 +50,7 @@ void MainWindow::initWindow() {
 
     // 设置窗口的图标
     setWindowIcon(QIcon(ICON));
+
 
     // 调用 update 函数，强制窗口重绘，确保背景被正确加载和显示
     update();
@@ -80,5 +85,4 @@ void MainWindow::on_return_to_main() {
     ui->register_button->show();
     update();
 }
-
 

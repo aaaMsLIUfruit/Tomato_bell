@@ -2,6 +2,8 @@
 #include "ui_Register.h"
 #include "config.h"
 #include <QRegularExpression>
+#include<QtSql/QSqlError>
+#include<QtSql/QSqlQuery>
 
 Register::Register(QWidget *parent) :
     QWidget(parent),
@@ -20,11 +22,22 @@ Register::Register(QWidget *parent) :
         parent->installEventFilter(this);
     }
 
-    connect(ui->yes, &QPushButton::clicked, this, &Register::on_yes_clicked);
+    //connect(ui->yes, &QPushButton::clicked, this, &Register::on_yes_clicked);
     connect(ui->return_2, &QPushButton::clicked, this, &Register::on_return_button_clicked);
 
     //显示用户注册协议
     showAgreement();
+
+    // 初始化数据库连接
+    db = QSqlDatabase::addDatabase("QODBC");//或者QMYSQL
+    db.setHostName("localhost");
+    db.setDatabaseName("testM");
+    db.setUserName("root");
+    db.setPassword("123456");
+
+    if (!db.open()) {
+        qDebug() << "Failed to connect to database:" << db.lastError().text();
+    }
 }
 
 bool Register::eventFilter(QObject *obj, QEvent *event)
@@ -126,19 +139,72 @@ void Register::enableInputFields(bool enable)
     ui->lineEdit_3->setEnabled(enable);
     ui->yes->setEnabled(enable);
 }
+
+
+// 检查用户是否存在
+bool Register::isUserExists(const QString &username)
+{
+    QSqlQuery query;
+    query.prepare("SELECT COUNT(*) FROM Users WHERE username = :username");
+    query.bindValue(":username", username);
+
+    if (!query.exec()) {
+        qDebug() << "Failed to check user:" << query.lastError().text();
+        QMessageBox::critical(this, "数据库错误", "检查用户时出错，请稍后重试。");
+        return true;  // 出现错误时，假设用户存在以防止错误的注册
+    }
+
+    if (query.next() && query.value(0).toInt() > 0) {
+        return true;
+    }
+
+    return false;
+}
+
+// 将用户信息写入数据库
+void Register::addUserToDatabase(const QString &username, const QString &password)
+{
+    QSqlQuery query;
+    query.prepare("INSERT INTO Users (username, password) VALUES (:username, :password)");
+    query.bindValue(":username", username);
+    query.bindValue(":password", password);
+
+    if (!query.exec()) {
+        qDebug() << "Failed to insert new user:" << query.lastError().text();
+        QMessageBox::critical(this, "数据库错误", "无法将用户添加到数据库，请稍后重试。");
+    } else {
+        QMessageBox::information(this, "注册成功", "用户注册成功！");
+    }
+}
+
+//完成注册
+void Register::on_yes_clicked()
+{
+    QString username = ui->lineEdit->text();
+    QString password = ui->lineEdit_2->text();
+
+    if (validateAccount() && validatePasswords())
+    {
+        if (isUserExists(username)) {
+            QMessageBox::warning(this, "注册失败", "该用户名已存在，请选择其他用户名。");
+            // 清空输入框，回到注册页面
+            ui->lineEdit->clear();
+            ui->lineEdit_2->clear();
+            ui->lineEdit_3->clear();
+        } else {
+            addUserToDatabase(username, password);
+            emit returnToMain();
+            close();
+        }
+    }
+}
+
+
 void Register::on_return_button_clicked() {
     emit returnToMain(); // 发射自定义信号
     close(); // 关闭注册界面
 }
 
-void Register::on_yes_clicked()
-{
-    if (validateAccount() && validatePasswords())
-    {
-        emit returnToMain();
-        close();
-    }
-}
 
 Register::~Register()
 {

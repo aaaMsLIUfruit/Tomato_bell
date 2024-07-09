@@ -21,8 +21,8 @@ QT_BEGIN_NAMESPACE
 class Ui_Sign_in
 {
 public:
-    QLineEdit *account;
-    QLineEdit *password;
+    QLineEdit *Password;
+    QLineEdit *Account;
     QLabel *label;
     QLabel *label_2;
     QPushButton *yes;
@@ -33,14 +33,14 @@ public:
         if (Sign_in->objectName().isEmpty())
             Sign_in->setObjectName("Sign_in");
         Sign_in->resize(800, 800);
-        account = new QLineEdit(Sign_in);
-        account->setObjectName("account");
-        account->setGeometry(QRect(400, 300, 300, 35));
-        account->setEchoMode(QLineEdit::Password);
-        password = new QLineEdit(Sign_in);
-        password->setObjectName("password");
-        password->setGeometry(QRect(400, 200, 300, 35));
-        password->setEchoMode(QLineEdit::Normal);
+        Password = new QLineEdit(Sign_in);
+        Password->setObjectName("Password");
+        Password->setGeometry(QRect(400, 300, 300, 35));
+        Password->setEchoMode(QLineEdit::Normal);
+        Account = new QLineEdit(Sign_in);
+        Account->setObjectName("Account");
+        Account->setGeometry(QRect(400, 200, 300, 35));
+        Account->setEchoMode(QLineEdit::Normal);
         label = new QLabel(Sign_in);
         label->setObjectName("label");
         label->setGeometry(QRect(360, 200, 60, 30));
@@ -58,7 +58,7 @@ public:
         yes->setFont(font);
         return_2 = new QPushButton(Sign_in);
         return_2->setObjectName("return_2");
-        return_2->setGeometry(QRect(100, 100, 150, 50));
+        return_2->setGeometry(QRect(109, 109, 141, 41));
         QFont font1;
         font1.setFamilies({QString::fromUtf8("\351\273\221\344\275\223")});
         font1.setPointSize(16);

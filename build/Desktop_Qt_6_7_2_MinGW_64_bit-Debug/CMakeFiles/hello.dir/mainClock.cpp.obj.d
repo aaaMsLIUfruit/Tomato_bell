@@ -390,7 +390,7 @@ CMakeFiles/hello.dir/mainClock.cpp.obj: C:\tomato\mainClock.cpp \
  C:/Qt/6.7.2/mingw_64/include/QtGui/qpainter.h \
  C:/Qt/6.7.2/mingw_64/include/QtGui/qtextoption.h \
  C:/Qt/6.7.2/mingw_64/include/QtGui/qpen.h \
- C:/tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_autogen/include/ui_Mainclock.h \
+ C:/tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_autogen/include/ui_mainClock.h \
  C:/Qt/6.7.2/mingw_64/include/QtCore/QVariant \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplication \
@@ -406,4 +406,5 @@ CMakeFiles/hello.dir/mainClock.cpp.obj: C:\tomato\mainClock.cpp \
  C:/Qt/6.7.2/mingw_64/include/QtGui/qinputmethod.h \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qlocale.h \
  C:/Qt/6.7.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/QPushButton \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/QWidget

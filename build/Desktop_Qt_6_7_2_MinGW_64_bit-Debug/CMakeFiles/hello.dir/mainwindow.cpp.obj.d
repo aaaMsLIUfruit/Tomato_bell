@@ -388,12 +388,17 @@ CMakeFiles/hello.dir/mainwindow.cpp.obj: C:\tomato\mainwindow.cpp \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qstatusbar.h \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/QWidget \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qwidget.h C:\tomato\config.h \
- C:\tomato\Sign_in.h C:/Qt/6.7.2/mingw_64/include/QtWidgets/QDialog \
+ C:\tomato\Sign_in.h C:/Qt/6.7.2/mingw_64/include/QtWidgets/QWidget \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/QSqlDatabase \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qsqldatabase.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qtsqlglobal.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qtsql-config.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qtsqlexports.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMessageBox \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qmessagebox.h \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
- C:/Qt/6.7.2/mingw_64/include/QtWidgets/QWidget \
- C:/Qt/6.7.2/mingw_64/include/QtGui/QIcon \
- C:/Qt/6.7.2/mingw_64/include/QtGui/qicon.h C:\tomato\Clock.h \
- C:/Qt/6.7.2/mingw_64/include/QtGui/QPainter \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+ C:\tomato\Clock.h C:/Qt/6.7.2/mingw_64/include/QtGui/QPainter \
  C:/Qt/6.7.2/mingw_64/include/QtGui/qpainter.h \
  C:/Qt/6.7.2/mingw_64/include/QtGui/qtextoption.h \
  C:/Qt/6.7.2/mingw_64/include/QtGui/qpen.h C:\tomato\mypushbutton.h \
@@ -402,12 +407,10 @@ CMakeFiles/hello.dir/mainwindow.cpp.obj: C:\tomato\mainwindow.cpp \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qpropertyanimation.h \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qvariantanimation.h \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qabstractanimation.h \
- C:/Qt/6.7.2/mingw_64/include/QtCore/qeasingcurve.h \
- C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMessageBox \
- C:/Qt/6.7.2/mingw_64/include/QtWidgets/qmessagebox.h \
- C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
- C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
- C:\tomato\Register.h C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplication \
+ C:/Qt/6.7.2/mingw_64/include/QtCore/qeasingcurve.h C:\tomato\Register.h \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/QIcon \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/qicon.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplication \
  C:/Qt/6.7.2/mingw_64/include/QtCore/QString \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qstring.h \
  C:/Qt/6.7.2/mingw_64/include/QtGui/QScreen \

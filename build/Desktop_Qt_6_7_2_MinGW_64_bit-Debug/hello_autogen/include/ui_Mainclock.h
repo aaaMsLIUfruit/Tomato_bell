@@ -11,35 +11,41 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
-class Ui_Mainclock
+class Ui_mainClock
 {
 public:
+    QPushButton *exitButton;
 
-    void setupUi(QWidget *Mainclock)
+    void setupUi(QWidget *mainClock)
     {
-        if (Mainclock->objectName().isEmpty())
-            Mainclock->setObjectName("Mainclock");
-        Mainclock->resize(400, 300);
-        Mainclock->setAutoFillBackground(false);
+        if (mainClock->objectName().isEmpty())
+            mainClock->setObjectName("mainClock");
+        mainClock->resize(800, 600);
+        mainClock->setAutoFillBackground(false);
+        exitButton = new QPushButton(mainClock);
+        exitButton->setObjectName("exitButton");
+        exitButton->setGeometry(QRect(650, 530, 80, 18));
 
-        retranslateUi(Mainclock);
+        retranslateUi(mainClock);
 
-        QMetaObject::connectSlotsByName(Mainclock);
+        QMetaObject::connectSlotsByName(mainClock);
     } // setupUi
 
-    void retranslateUi(QWidget *Mainclock)
+    void retranslateUi(QWidget *mainClock)
     {
-        Mainclock->setWindowTitle(QCoreApplication::translate("Mainclock", "Form", nullptr));
+        mainClock->setWindowTitle(QCoreApplication::translate("mainClock", "Form", nullptr));
+        exitButton->setText(QCoreApplication::translate("mainClock", "\351\200\200\345\207\272", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class Mainclock: public Ui_Mainclock {};
+    class mainClock: public Ui_mainClock {};
 } // namespace Ui
 
 QT_END_NAMESPACE

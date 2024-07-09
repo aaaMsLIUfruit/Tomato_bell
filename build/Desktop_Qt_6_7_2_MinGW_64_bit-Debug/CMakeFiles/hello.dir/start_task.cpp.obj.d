@@ -375,6 +375,10 @@ CMakeFiles/hello.dir/start_task.cpp.obj: C:\tomato\start_task.cpp \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qrubberband.h \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qabstractitemmodel.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMessageBox \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qmessagebox.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/QSpinBox \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qspinbox.h C:\tomato\Clock.h \
  C:/Qt/6.7.2/mingw_64/include/QtGui/QPainter \
@@ -388,7 +392,12 @@ CMakeFiles/hello.dir/start_task.cpp.obj: C:\tomato\start_task.cpp \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qpropertyanimation.h \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qvariantanimation.h \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qabstractanimation.h \
- C:/Qt/6.7.2/mingw_64/include/QtCore/qeasingcurve.h C:\tomato\mainclock.h \
+ C:/Qt/6.7.2/mingw_64/include/QtCore/qeasingcurve.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/QSqlDatabase \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qsqldatabase.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qtsqlglobal.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qtsql-config.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qtsqlexports.h C:\tomato\mainClock.h \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/QVBoxLayout \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qboxlayout.h \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
@@ -404,12 +413,13 @@ CMakeFiles/hello.dir/start_task.cpp.obj: C:\tomato\start_task.cpp \
  C:/Qt/6.7.2/mingw_64/include/QtCore/QTimer \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qtimer.h \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qbasictimer.h \
- C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMessageBox \
- C:/Qt/6.7.2/mingw_64/include/QtWidgets/qmessagebox.h \
- C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
- C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
  C:/Qt/6.7.2/mingw_64/include/QtGui/QFontDatabase \
  C:/Qt/6.7.2/mingw_64/include/QtGui/qfontdatabase.h C:\tomato\config.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/QSqlError \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qsqlerror.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/QSqlQuery \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qsqlquery.h \
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qsqldatabase.h \
  C:/tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_autogen/include/ui_start_task.h \
  C:/Qt/6.7.2/mingw_64/include/QtCore/QVariant \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
@@ -454,4 +464,6 @@ CMakeFiles/hello.dir/start_task.cpp.obj: C:\tomato\start_task.cpp \
  C:/Qt/6.7.2/mingw_64/include/QtCore/QSizeF \
  C:/Qt/6.7.2/mingw_64/include/QtGui/QTransform \
  C:/Qt/6.7.2/mingw_64/include/QtGui/qtransform.h \
- C:/Qt/6.7.2/mingw_64/include/QtGui/qscreen_platform.h
+ C:/Qt/6.7.2/mingw_64/include/QtGui/qscreen_platform.h \
+ C:/Qt/6.7.2/mingw_64/include/QtCore/QDebug \
+ C:/Qt/6.7.2/mingw_64/include/QtCore/qdebug.h
