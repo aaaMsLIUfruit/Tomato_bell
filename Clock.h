@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include<QPainter>
+#include"mypushbutton.h"
+class mypushbutton;
 class start_task;
 class usercenter;
 
@@ -21,9 +23,11 @@ public:
 
 private:
      Ui::Clock *ui;
-
+     mypushbutton *starttask;
+     mypushbutton *personalcenter;
      std::unique_ptr<start_task> Start_task;// 使用智能指针
      std::unique_ptr<usercenter> Usercenter;
+
 
 signals:
 

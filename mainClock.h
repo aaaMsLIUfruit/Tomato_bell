@@ -9,6 +9,7 @@
 #include <QMessageBox>
 #include <QFontDatabase>
 #include "config.h"
+class MyLabel;
 
 namespace Ui {
 class Mainclock;
@@ -45,7 +46,7 @@ private:
     QVBoxLayout *layout;
     QPushButton *pauseButton;
     QString comboBox;
-    QLabel *timerLabel;
+    MyLabel *timerLabel;
     QTimer *mainTimer;
     QTimer *pauseTimer;
     int remainingTime;

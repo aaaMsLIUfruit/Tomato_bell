@@ -37,6 +37,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         mainclock.h mainclock.cpp
         Mainclock.ui
         Register.ui
+        mypushbutton.h mypushbutton.cpp
+        mylabel.h mylabel.cpp
 
 
 

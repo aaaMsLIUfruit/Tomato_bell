@@ -11,6 +11,7 @@
 #include <QGuiApplication>
 #include <QPushButton>
 #include <memory> // 包含智能指针的头文件
+#include <QPainter>
 
 
 Clock::Clock(QWidget *parent)
@@ -24,19 +25,26 @@ Clock::Clock(QWidget *parent)
 
     setWindowTitle("番茄钟");
     setWindowIcon(QIcon(ICON));
+    starttask=new mypushbutton(":/xiaoba.png","");
 
+    starttask->setParent(this);
+    starttask->move(this->width()*0.5-starttask->width()*0.5,this->height()*0.3);
+
+    personalcenter=new mypushbutton(":/personal.jpg","");
+    personalcenter->setParent(this);
+    personalcenter->move(this->width()*0.1,this->height()*0.1);
 
     if (parent) {
        parent->installEventFilter(this);
     }
-
-    connect(ui->start_task,&QPushButton::clicked,this,&Clock::on_start_task_clicked);
-    connect(ui->personal_center,&QPushButton::clicked,this,&Clock::on_personal_center_clicked);
+    connect(starttask,&mypushbutton::clicked,this,&Clock::on_start_task_clicked);
+    // connect(ui->start_task,&QPushButton::clicked,this,&Clock::on_start_task_clicked);
+    connect(personalcenter,&mypushbutton::clicked,this,&Clock::on_personal_center_clicked);
 }
 
 void Clock::paintEvent(QPaintEvent *event) {
    QPainter painter(this);
-   QPixmap pixmap(CLOCK);
+   QPixmap pixmap(":/background1.jpg");
    painter.drawPixmap(0, 0, width(), height(), pixmap);
 }
 
@@ -51,19 +59,23 @@ void Clock::on_return_to_Clock() {
 
     ui->personal_center->show();
     ui->start_task->show();
+    starttask->show();
     update();
 }
 
 
 void Clock::on_start_task_clicked()
 {
-    if (!Start_task) {
-        Start_task = std::make_unique<start_task>(this);
-        connect(Start_task.get(), &start_task::returnToClock, this, &Clock::on_return_to_Clock);
-    }
-    ui->start_task->hide();
-    ui->personal_center->hide();
+     starttask->room1();
+    QTimer::singleShot(500,this,[=](){
+        if (!Start_task) {
+            Start_task = std::make_unique<start_task>(this);
+            connect(Start_task.get(), &start_task::returnToClock, this, &Clock::on_return_to_Clock);
+        }
+    starttask->hide();
+    personalcenter->hide();
     Start_task->show();
+    });
 }
 
 
@@ -73,8 +85,8 @@ void Clock::on_personal_center_clicked()
         Usercenter = std::make_unique<usercenter>(this);
         connect(Usercenter.get(), &usercenter::returnToClock, this, &Clock::on_return_to_Clock);
     }
-    ui->start_task->hide();
-    ui->personal_center->hide();
+    starttask->hide();
+    personalcenter->hide();
     Usercenter->show();
 }
 

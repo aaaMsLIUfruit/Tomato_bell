@@ -3,5 +3,8 @@
         <file>icon.png</file>
         <file>Clock.png</file>
         <file>ziti.ttf</file>
+        <file>personal.jpg</file>
+        <file>xiaoba.png</file>
+        <file>background1.jpg</file>
     </qresource>
 </RCC>

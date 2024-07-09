@@ -1,4 +1,5 @@
-#include "mainclock.h"
+#include "mainClock.h"
+#include "mylabel.h"
 #include "ui_Mainclock.h"
 #include "config.h"
 
@@ -7,7 +8,7 @@ Mainclock::Mainclock(QWidget *parent)
     ui(new Ui::Mainclock),
     layout(new QVBoxLayout(this)),
     pauseButton(new QPushButton(this)),
-    timerLabel(new QLabel(this)),
+    timerLabel(new MyLabel(this)),
     mainTimer(new QTimer(this)),
     pauseTimer(new QTimer(this)),
     remainingTime(1500), // 初始时间为25分钟（1500秒）
@@ -72,12 +73,14 @@ void Mainclock::togglePausePlay() {
 }
 
 void Mainclock::updateTimer() {
+
     if (remainingTime > 0) {
         remainingTime--;
 
         int minutes = remainingTime / 60;
         int seconds = remainingTime % 60;
         timerLabel->setText(QString("%1:%2").arg(minutes, 2, 10, QChar('0')).arg(seconds, 2, 10, QChar('0')));
+        timerLabel->setTime(remainingTime);
     } else {
         // 计时结束
         mainTimer->stop();
