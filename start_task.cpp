@@ -90,35 +90,6 @@ start_task::~start_task()
     db.close();
 }
 
-void start_task::on_start_clicked()
-{
-    if (mainclock == nullptr) {
-        mainclock = std::make_unique<Mainclock>(this); // 创建新的 mainclock 对象
-        mainclock->setAttribute(Qt::WA_DeleteOnClose); // 窗口关闭时自动删除
-        connect(mainclock.get(), &Mainclock::returntoClockyes, this, &start_task::on_return_to_start_task1);
-        connect(mainclock.get(),&Mainclock::returntoClockno, this, &start_task::on_return_to_start_task2);
-    }
-
-    int spinBoxData=ui->spinBox->value();
-    QString comboBoxData=ui->comboBox->currentText();
-
-    // 传递数据
-    mainclock->setComBoxData(comboBoxData);
-    mainclock->setSpinBoxData(spinBoxData);
-
-    // 显示新页面
-
-    ui->pushButton_2->hide();
-    ui->comboBox->hide();
-    ui->pushButton->hide();
-    ui->spinBox->hide();
-    ui->label->hide();
-    ui->label_2->hide();
-    ui->label_3->hide();
-    ui->lineEdit->hide();
-    ui->start->hide();
-    mainclock->show();
-}
 
 
 void start_task::on_pushButton_2_clicked()
@@ -146,18 +117,6 @@ void start_task::on_comboBox_currentTextChanged(const QString &arg1)
 void start_task::on_spinBox_valueChanged(int arg1)
 {
     ui->spinBox->setValue(arg1);
-}
-
-void start_task::on_return_to_start_task(){
-    ui->pushButton_2->show();
-    ui->comboBox->show();
-    ui->pushButton->show();
-    ui->spinBox->show();
-    ui->label->show();
-    ui->label_2->show();
-    ui->label_3->show();
-    ui->lineEdit->show();
-    ui->start->show();
 }
 
 
@@ -212,7 +171,10 @@ void start_task::on_start_clicked()
     if (mainclock == nullptr) {
         mainclock = std::make_unique<Mainclock>(this); // 创建新的 mainclock 对象
         mainclock->setAttribute(Qt::WA_DeleteOnClose); // 窗口关闭时自动删除
-        connect(mainclock.get(), &Mainclock::returntoClock, this, &start_task::on_return_to_start_task);
+        connect(mainclock.get(), &Mainclock::returntoClockyes, this, &start_task::on_return_to_start_task1);
+        connect(mainclock.get(), &Mainclock::returntoClockno, this, &start_task::on_return_to_start_task2);
+        mainclock->isMusic2 = isMUSIC2;
+        mainclock->isMusic3 = isMUSIC3;
     }
 
     int spinBoxData=ui->spinBox->value();
@@ -276,12 +238,24 @@ void start_task::on_start_clicked()
 
 }
 
-//更新Users库中番茄钟数据（累计）
+//更新Users库中番茄钟数据（累计）+ 更新可用音乐
 bool start_task::updateTomatoCount(int userId, int tomatoCount) {
     QSqlQuery query;
     query.prepare("UPDATE Users SET tomato_count = tomato_count + :tomato_count WHERE user_id = :user_id");
     query.bindValue(":tomato_count", tomatoCount);
     query.bindValue(":user_id", userId);
+    if(tomatoCount<5){
+        isMUSIC2 = 0;
+        isMUSIC3 = 0;
+    }
+    else if(tomatoCount<10){
+        isMUSIC2 = 1;
+        isMUSIC3 = 0;
+    }
+    else{
+        isMUSIC2 = 1;
+        isMUSIC3 = 1;
+    }
     if (!query.exec()) {
         qDebug() << "Failed to update tomato count:" << query.lastError().text();
         return false;
@@ -318,4 +292,3 @@ void start_task::on_return_to_start_task2(){
 
     QMessageBox::information(this, "任务失败", "任务失败，再接再厉吧");
 }
-

@@ -24,6 +24,8 @@ public:
     ~start_task();
 
     std::unique_ptr<Mainclock> mainclock;
+    bool isMUSIC2;
+    bool isMUSIC3;
 
 signals:
     void returnToClock();
@@ -49,6 +51,7 @@ private:
     //int currentUserId;
     bool updateTomatoCount(int userId, int tomatoCount);
     void addTaskLabelIfNotExists(const QString &label,int userID);
+    void updateMusic();
 };
 
 #endif // START_TASK_H

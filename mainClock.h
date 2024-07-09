@@ -8,6 +8,8 @@
 #include <QTimer>
 #include <QMessageBox>
 #include <QFontDatabase>
+#include <QMediaPlayer>
+#include <QUrl>
 
 namespace Ui {
 class mainClock;
@@ -23,6 +25,8 @@ public:
 
     void setSpinBoxData(int n);
     void setComBoxData(QString comboBoxData);
+    bool isMusic2;
+    bool isMusic3;
 
 signals:
     void returntoClockyes();
@@ -39,7 +43,8 @@ private slots:
     void onContinueClicked();
     void onRestartClicked();
     void onBackClicked();
-
+    void playMusic();
+    void selectMusic(QString choice);
 private:
     Ui::mainClock *ui;
     QVBoxLayout *layout;
@@ -54,7 +59,9 @@ private:
     bool isPaused;
     int rest; // 0: 暂停中，1: 休息中
     int num; // 初始值设为1
+    int Music;
     QMessageBox *pauseMessageBox;
+    QMediaPlayer musicPlayer;
 
     void initWindow();
 };

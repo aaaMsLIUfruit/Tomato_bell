@@ -16,6 +16,7 @@ Mainclock::Mainclock(QWidget *parent)
     rest(0),
     num(0),
     completedCycles(0),
+    Music(0),
     pauseMessageBox(nullptr)
 {
     ui->setupUi(this);
@@ -54,6 +55,7 @@ void Mainclock::initWindow() {
     connect(mainTimer, &QTimer::timeout, this, &Mainclock::updateTimer);
     connect(pauseTimer, &QTimer::timeout, this, &Mainclock::updatePauseTimer);
     connect(ui->exitButton, &QPushButton::clicked, this, &Mainclock::onBackClicked);
+    connect(ui->MusicBox, QOverload<int>::of(&QComboBox::currentIndexChanged),this, &Mainclock::selectMusic);
 }
 
 void Mainclock::togglePausePlay() {
@@ -81,12 +83,11 @@ void Mainclock::updateTimer() {
         int seconds = remainingTime % 60;
         timerLabel->setText(QString("%1:%2").arg(minutes, 2, 10, QChar('0')).arg(seconds, 2, 10, QChar('0')));
     } else {
-        // 计时结束
+
         mainTimer->stop();
         isPaused = true;
         pauseButton->setText("▶");
 
-        // 进入5分钟休息
         rest = 1;
         remainingPauseTime = 300;
         showPauseMessageBox();
@@ -204,6 +205,56 @@ void Mainclock::onRestartClicked() {
         resumeMainTimer();
     }
 }
+
+void Mainclock::selectMusic(QString choice){
+    if(choice == "林中细雨"){
+        Music = 1;
+    }
+    else if(choice == "巴黎咖啡馆"){
+        Music = 2;
+    }
+    else if(choice == "沙滩海浪"){
+        Music = 3;
+    }
+    else{
+        Music = 0;
+    }
+    playMusic();
+};
+
+
+void Mainclock::playMusic(){
+    musicPlayer.stop();
+    switch (Music) {
+    case 1:
+        musicPlayer.setSource(QUrl(Music1));
+        musicPlayer.setLoops(QMediaPlayer::Infinite);
+        musicPlayer.play();
+        break;
+    case 2:
+        if (isMusic2 == 1) {
+            musicPlayer.setSource(QUrl(Music2));
+            musicPlayer.setLoops(QMediaPlayer::Infinite);
+            musicPlayer.play();
+        } else {
+            QMessageBox::warning(nullptr, "Warning", "您还未拥有该背景音");
+        }
+        break;
+    case 3:
+        if (isMusic3 == 1) {
+            musicPlayer.setSource(QUrl(Music3));
+            musicPlayer.setLoops(QMediaPlayer::Infinite);
+            musicPlayer.play();
+        } else {
+            QMessageBox::warning(nullptr, "Warning", "您还未拥有该背景音");
+        }
+        break;
+    default:
+        musicPlayer.stop();
+        break;
+    }
+}
+
 
 void Mainclock::onBackClicked() {
     emit returntoClockno();
