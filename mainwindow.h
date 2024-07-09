@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <memory>
+
+
 class Sign_in;
 class Register;
 class Mainclock;

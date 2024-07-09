@@ -1,19 +1,41 @@
 #include "usercenter.h"
 #include "ui_usercenter.h"
 #include "config.h"
+#include<QDebug>
+#include<QSqlError>
+#include<QSqlQuery>
+#include<QMessageBox>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QScrollArea>
 
+extern int currentUserID;
+
+
 usercenter::usercenter(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::usercenter)
 {
+    db = QSqlDatabase::addDatabase("QMYSQL");
+    db.setHostName("localhost");
+    db.setDatabaseName("TOMATO");
+    db.setUserName("root");
+    db.setPassword("YourPassword");
+    db.setPort(3306);
+
+    if (!db.open()) {
+        qDebug() << "Failed to connect to database:" << db.lastError().text();
+    }
+    else
+        qDebug()<<"already connected to database";
+
     ui->setupUi(this);
 
     setWindowTitle("个人中心");
     setWindowIcon(QIcon(ICON));
+
+    connect(ui->return_2,&QPushButton::clicked,this,&usercenter::on_return_2_clicked);
 
     // 左侧按钮
     btnAccountInfo = new QPushButton("账户基本信息", this);
@@ -103,6 +125,26 @@ usercenter::~usercenter()
 {
     delete ui;
 }
+
+
+void usercenter::displayUsername()
+{
+    if (currentUserID == -1) {
+        ui->UserName->setText("未知用户");
+        return;
+    }
+
+    QSqlQuery query(db);
+    query.prepare("SELECT username FROM Users WHERE id = :id");
+    query.bindValue(":id", currentUserID);
+    if (query.exec() && query.next()) {
+        QString username = query.value(0).toString();
+        ui->UserName->setText(username);
+    } else {
+        ui->UserName->setText("未知用户");
+    }
+}
+
 
 void usercenter::on_return_2_clicked()
 {

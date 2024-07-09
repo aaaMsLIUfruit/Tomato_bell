@@ -1,7 +1,10 @@
 #ifndef USERCENTER_H
 #define USERCENTER_H
-
 #include <QWidget>
+#include "Clock.h"
+#include <QtCharts/QChartView>
+#include<QLabel>
+#include<QSqlDatabase>
 #include <QPushButton>
 #include <QStackedWidget>
 #include <QVBoxLayout>
@@ -22,6 +25,7 @@ public:
 signals:
     void returnToClock();
 
+
 private slots:
     void on_return_2_clicked();
     void showAccountInfo();
@@ -30,6 +34,9 @@ private slots:
 
 private:
     Ui::usercenter *ui;
+    void displayUsername();
+    QString username; // 保存用户名
+    QSqlDatabase db;
     QPushButton *btnAccountInfo;
     QPushButton *btnPersonalAchievements;
     QPushButton *btnHistoryStatistics;
