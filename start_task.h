@@ -40,7 +40,8 @@ private slots:
     void on_comboBox_currentTextChanged(const QString &arg1);
     void on_spinBox_valueChanged(int arg1);
     void on_pushButton_clicked();
-    void on_return_to_start_task();
+    void on_return_to_start_task1();
+    void on_return_to_start_task2();
 
 private:
     Ui::start_task *ui;

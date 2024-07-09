@@ -1,10 +1,10 @@
-#include "mainclock.h"
-#include "ui_Mainclock.h"
+#include "mainClock.h"
+#include "ui_mainClock.h"
 #include "config.h"
 
 Mainclock::Mainclock(QWidget *parent)
     : QWidget(parent),
-    ui(new Ui::Mainclock),
+    ui(new Ui::mainClock),
     layout(new QVBoxLayout(this)),
     pauseButton(new QPushButton(this)),
     timerLabel(new QLabel(this)),
@@ -13,8 +13,9 @@ Mainclock::Mainclock(QWidget *parent)
     remainingTime(1500), // 初始时间为25分钟（1500秒）
     remainingPauseTime(300), // 暂停时间为5分钟（300秒）
     isPaused(0),
-    rest(0), // 初始化为0
-    num(1), // 初始值设为1
+    rest(0),
+    num(0),
+    completedCycles(0),
     pauseMessageBox(nullptr)
 {
     ui->setupUi(this);
@@ -52,6 +53,7 @@ void Mainclock::initWindow() {
     connect(pauseButton, &QPushButton::clicked, this, &Mainclock::togglePausePlay);
     connect(mainTimer, &QTimer::timeout, this, &Mainclock::updateTimer);
     connect(pauseTimer, &QTimer::timeout, this, &Mainclock::updatePauseTimer);
+    connect(ui->exitButton, &QPushButton::clicked, this, &Mainclock::onBackClicked);
 }
 
 void Mainclock::togglePausePlay() {
@@ -88,6 +90,7 @@ void Mainclock::updateTimer() {
         rest = 1;
         remainingPauseTime = 300;
         showPauseMessageBox();
+        remainingTime = 1500;
     }
 }
 
@@ -191,13 +194,19 @@ void Mainclock::onContinueClicked() {
 }
 
 void Mainclock::onRestartClicked() {
-    remainingTime = 1500; // 重置时间为25分钟
-    timerLabel->setText("25:00");
-    resumeMainTimer();
+    if (++completedCycles >= num) {
+        emit returntoClockyes();
+    } else {
+        remainingTime = 1500; // 重置时间为25分钟
+        timerLabel->setText("25:00");
+        remainingPauseTime = 300;
+        rest = 0; // Reset rest status
+        resumeMainTimer();
+    }
 }
 
 void Mainclock::onBackClicked() {
-    QApplication::quit();
+    emit returntoClockno();
 }
 
 void Mainclock::setSpinBoxData(int n) {

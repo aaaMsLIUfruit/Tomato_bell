@@ -3,5 +3,6 @@
         <file>icon.png</file>
         <file>Clock.png</file>
         <file>ziti.ttf</file>
+        <file>背景2.jpg</file>
     </qresource>
 </RCC>

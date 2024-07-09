@@ -90,6 +90,37 @@ start_task::~start_task()
     db.close();
 }
 
+void start_task::on_start_clicked()
+{
+    if (mainclock == nullptr) {
+        mainclock = std::make_unique<Mainclock>(this); // 创建新的 mainclock 对象
+        mainclock->setAttribute(Qt::WA_DeleteOnClose); // 窗口关闭时自动删除
+        connect(mainclock.get(), &Mainclock::returntoClockyes, this, &start_task::on_return_to_start_task1);
+        connect(mainclock.get(),&Mainclock::returntoClockno, this, &start_task::on_return_to_start_task2);
+    }
+
+    int spinBoxData=ui->spinBox->value();
+    QString comboBoxData=ui->comboBox->currentText();
+
+    // 传递数据
+    mainclock->setComBoxData(comboBoxData);
+    mainclock->setSpinBoxData(spinBoxData);
+
+    // 显示新页面
+
+    ui->pushButton_2->hide();
+    ui->comboBox->hide();
+    ui->pushButton->hide();
+    ui->spinBox->hide();
+    ui->label->hide();
+    ui->label_2->hide();
+    ui->label_3->hide();
+    ui->lineEdit->hide();
+    ui->start->hide();
+    mainclock->show();
+}
+
+
 void start_task::on_pushButton_2_clicked()
 {
     emit returnToClock();
@@ -245,7 +276,6 @@ void start_task::on_start_clicked()
 
 }
 
-
 //更新Users库中番茄钟数据（累计）
 bool start_task::updateTomatoCount(int userId, int tomatoCount) {
     QSqlQuery query;
@@ -258,3 +288,34 @@ bool start_task::updateTomatoCount(int userId, int tomatoCount) {
     }
     return true;
 }
+    
+void start_task::on_return_to_start_task1(){
+    ui->pushButton_2->show();
+    ui->comboBox->show();
+    ui->pushButton->show();
+    ui->spinBox->show();
+    ui->label->show();
+    ui->label_2->show();
+    ui->label_3->show();
+    ui->lineEdit->show();
+    ui->start->show();
+    mainclock.reset();
+
+    QMessageBox::information(this, "任务完成", "你已成功完成任务！");
+}
+
+void start_task::on_return_to_start_task2(){
+    ui->pushButton_2->show();
+    ui->comboBox->show();
+    ui->pushButton->show();
+    ui->spinBox->show();
+    ui->label->show();
+    ui->label_2->show();
+    ui->label_3->show();
+    ui->lineEdit->show();
+    ui->start->show();
+    mainclock.reset();
+
+    QMessageBox::information(this, "任务失败", "任务失败，再接再厉吧");
+}
+

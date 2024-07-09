@@ -5,6 +5,7 @@
 #define ICON ":/icon.png"
 #define CLOCK ":/Clock.png"
 #define ZITI ":/ziti.ttf"
+#define BACKGROUND2 ":/背景2.png"
 
 
 #endif // CONFIG_H
