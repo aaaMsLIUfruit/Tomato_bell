@@ -22,9 +22,8 @@ Clock::Clock(QWidget *parent)
     //构造函数，初始化注册界面
 
     ui->setupUi(this);
+    //initClock();
 
-    setWindowTitle("番茄钟");
-    setWindowIcon(QIcon(ICON));
     starttask=new mypushbutton(":/xiaoba.png","");
 
     starttask->setParent(this);
@@ -42,6 +41,27 @@ Clock::Clock(QWidget *parent)
     connect(personalcenter,&mypushbutton::clicked,this,&Clock::on_personal_center_clicked);
 }
 
+// void Clock::initClock()
+// {
+//     QScreen *screen = QGuiApplication::primaryScreen();
+//     QRect screenGeometry = screen->geometry();
+//     int cwidth = screenGeometry.width();
+//     int cheight = screenGeometry.height();
+
+//     // 设置窗口大小为屏幕大小
+//     setGeometry(0, 0, cwidth, cheight);
+
+//     // 设置窗口的标题
+//     setWindowTitle("番茄钟");
+
+//     // 设置窗口的图标
+//     setWindowIcon(QIcon(ICON));
+
+
+//     // 调用 update 函数，强制窗口重绘，确保背景被正确加载和显示
+//     update();
+// }
+
 void Clock::paintEvent(QPaintEvent *event) {
    QPainter painter(this);
    QPixmap pixmap(":/background1.jpg");
@@ -51,7 +71,10 @@ void Clock::paintEvent(QPaintEvent *event) {
 
 Clock::~Clock(){
     delete ui;
-
+    if(starttask!=NULL)
+        delete starttask;
+    if(personalcenter!=NULL)
+        delete personalcenter;
 }
 
 void Clock::on_return_to_Clock() {

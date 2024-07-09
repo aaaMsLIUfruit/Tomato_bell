@@ -46,7 +46,8 @@ private slots:
 
 private:
     Ui::mainClock *ui;
-    QVBoxLayout *layout;
+    QVBoxLayout *mainLayout,*topLayout,*bottomLayout;
+    QWidget *topWidget ,*bottomWidget;
     QPushButton *pauseButton;
     QString comboBox;
     MyLabel *timerLabel;

@@ -19,10 +19,10 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>280</y>
-     <width>60</width>
-     <height>30</height>
+     <x>300</x>
+     <y>410</y>
+     <width>42</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
@@ -41,10 +41,10 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>330</y>
-     <width>60</width>
-     <height>30</height>
+     <x>300</x>
+     <y>450</y>
+     <width>42</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
@@ -63,10 +63,10 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>380</y>
-     <width>200</width>
-     <height>30</height>
+     <x>220</x>
+     <y>480</y>
+     <width>126</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
@@ -85,10 +85,10 @@
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>280</y>
-     <width>300</width>
-     <height>30</height>
+     <x>370</x>
+     <y>490</y>
+     <width>108</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>
@@ -98,10 +98,10 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>330</y>
-     <width>300</width>
-     <height>30</height>
+     <x>370</x>
+     <y>410</y>
+     <width>108</width>
+     <height>22</height>
     </rect>
    </property>
    <property name="autoFillBackground">
@@ -114,10 +114,10 @@
   <widget class="QLineEdit" name="lineEdit_3">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>380</y>
-     <width>300</width>
-     <height>30</height>
+     <x>370</x>
+     <y>450</y>
+     <width>108</width>
+     <height>22</height>
     </rect>
    </property>
    <property name="echoMode">
@@ -127,10 +127,10 @@
   <widget class="QPushButton" name="yes">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>470</y>
-     <width>120</width>
-     <height>60</height>
+     <x>330</x>
+     <y>560</y>
+     <width>80</width>
+     <height>37</height>
     </rect>
    </property>
    <property name="font">
@@ -145,10 +145,10 @@
   <widget class="QPushButton" name="return_2">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>10</y>
-     <width>100</width>
-     <height>50</height>
+     <x>680</x>
+     <y>730</y>
+     <width>80</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
@@ -158,10 +158,10 @@
   <widget class="QTextEdit" name="textEditAgreement">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>110</y>
-     <width>400</width>
-     <height>150</height>
+     <x>100</x>
+     <y>150</y>
+     <width>631</width>
+     <height>101</height>
     </rect>
    </property>
    <property name="html">

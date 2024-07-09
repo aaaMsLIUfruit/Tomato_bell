@@ -37,13 +37,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::initWindow() {
     // 获取屏幕大小
-    QScreen *screen = QGuiApplication::primaryScreen();
-    QRect screenGeometry = screen->geometry();
-    int width = screenGeometry.width();
-    int height = screenGeometry.height();
+    // QScreen *screen = QGuiApplication::primaryScreen();
+    // QRect screenGeometry = screen->geometry();
+    // int width = screenGeometry.width();
+    // int height = screenGeometry.height();
 
     // 设置窗口大小为屏幕大小
-    setGeometry(0, 0, width, height);
+    //setGeometry(0, 0, width, height);
 
     // 设置窗口的标题
     setWindowTitle(TITLE);
@@ -54,6 +54,12 @@ void MainWindow::initWindow() {
 
     // 调用 update 函数，强制窗口重绘，确保背景被正确加载和显示
     update();
+}
+
+void MainWindow::paintEvent(QPaintEvent *event) {
+    QPainter painter(this);
+    QPixmap pixmap(":/first.jpg");
+    painter.drawPixmap(0, 0, width(), height(), pixmap);
 }
 
 void MainWindow::on_sign_in_clicked() {

@@ -24,7 +24,7 @@ public:
     ~MainWindow();
 
     void initWindow();
-
+    void paintEvent(QPaintEvent *event);
 
 private:
     Ui::MainWindow *ui;

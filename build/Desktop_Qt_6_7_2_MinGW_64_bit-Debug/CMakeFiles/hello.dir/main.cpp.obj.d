@@ -392,4 +392,6 @@ CMakeFiles/hello.dir/main.cpp.obj: C:\tomato\main.cpp \
  C:/Qt/6.7.2/mingw_64/include/QtSql/qsqldatabase.h \
  C:/Qt/6.7.2/mingw_64/include/QtSql/qtsqlglobal.h \
  C:/Qt/6.7.2/mingw_64/include/QtSql/qtsql-config.h \
- C:/Qt/6.7.2/mingw_64/include/QtSql/qtsqlexports.h
+ C:/Qt/6.7.2/mingw_64/include/QtSql/qtsqlexports.h \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/QFontDatabase \
+ C:/Qt/6.7.2/mingw_64/include/QtGui/qfontdatabase.h

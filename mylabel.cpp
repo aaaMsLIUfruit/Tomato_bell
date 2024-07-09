@@ -39,8 +39,10 @@ bool MyLabel::event(QEvent *e)
 
 void MyLabel::drawTimer(QPainter *p)
 {
+
     //先设置外矩形的大小用于绘制圆形进度条
     QRect rcOut = this->rect();
+
     //adjust四个参数：dx1,dy1相对于左上角的点,dx2,dy2相对于右下角的点
     rcOut.adjust(10,10,-10,-10);
     QSize outSize = rcOut.size();
@@ -50,16 +52,17 @@ void MyLabel::drawTimer(QPainter *p)
 
     //设置内矩形的大小用于绘制时间
     QRect rcInt = this->rect();
-    rcInt.adjust(20,90,-20,-90);
+    rcInt.adjust(10,45,-10,-45);
     QSize inSize = rcInt.size();
     int in_X = rcInt.x();
     int in_Y = rcInt.y();
 
     //画内矩形
     //画矩形边框色，同主界面的背景色，不同的话会有出现一个长方形矩形
-    p->setPen(QPen(QColor(68,85,123), 1, Qt::SolidLine));
+    p->setPen(QPen(QColor(222,241,255), 1, Qt::SolidLine));
     //绘制矩形
     p->drawRect(rcInt);
+
 
     //绘制时间
     //设置画笔样式
@@ -68,7 +71,7 @@ void MyLabel::drawTimer(QPainter *p)
     font.setPointSize(45);
     p->setFont(font);
     QPen pen;
-    pen.setColor(QColor("#ffffff"));
+    pen.setColor(QColor("#fff68f"));
     pen.setWidth(1);
     pen.setStyle(Qt::SolidLine);
     p->setPen(pen);
@@ -78,9 +81,10 @@ void MyLabel::drawTimer(QPainter *p)
     p->drawText(in_X, in_Y, inSize.width(), inSize.height(), Qt::AlignVCenter | Qt::AlignHCenter, timer);
 
     // 绘制圆形进度条
+
     QLinearGradient gradient(out_X, out_Y, outSize.height(), out_Y);
-    gradient.setColorAt(0, QColor("#E3521B"));
-    gradient.setColorAt(1.0, QColor("#8BE31B"));
+    gradient.setColorAt(0, QColor("#FFF68F"));
+    gradient.setColorAt(1.0, QColor("#FFFFF0"));
 
     int startAngle = 90 * 16;
     int spanAngle = m_time*-360/1500 * 16; // 完整圆形覆盖角度

@@ -7,7 +7,11 @@
 mainClock::mainClock(QWidget *parent)
     : QWidget(parent),
     ui(new Ui::mainClock),
-    layout(new QVBoxLayout(this)),
+    mainLayout(new QVBoxLayout(this)),
+    topLayout(new QVBoxLayout(this)),
+    bottomLayout(new QVBoxLayout(this)),
+    topWidget(new QWidget(this)),
+    bottomWidget(new QWidget(this)),
     pauseButton(new QPushButton(this)),
     timerLabel(new MyLabel(this)),
     mainTimer(new QTimer(this)),
@@ -36,21 +40,44 @@ mainClock::mainClock(QWidget *parent)
 
 mainClock::~mainClock() {
     delete ui;
+
 }
 
 //初始化窗口
 void mainClock::initWindow() {
-    setLayout(layout);
 
+    setLayout(mainLayout);
+    topWidget->setLayout(topLayout);
+    mainLayout->addWidget(topWidget);
+    bottomWidget->setLayout(bottomLayout);
+    mainLayout->addWidget(bottomWidget);
+
+    // *timerLabel = new MyLabel;
+    timerLabel->setFixedSize(240, 220);
+    topLayout->addWidget(timerLabel, 0, Qt::AlignCenter);
+
+    //QPushButton *pauseButton = new QPushButton;
     pauseButton->setText("▶");
     pauseButton->setFixedSize(80, 80);
     pauseButton->setStyleSheet("font-size: 30px; color: #800000; background-color: #FFFACD; border-radius: 40px;");
-    layout->addWidget(pauseButton, 0, Qt::AlignCenter);
+    bottomLayout->addWidget(pauseButton, 0, Qt::AlignCenter);
 
-    timerLabel->setText("25:00");
-    timerLabel->setStyleSheet("font-size: 36px; color: #800000;");
-    timerLabel->setAlignment(Qt::AlignCenter);
-    layout->addWidget(timerLabel);
+    // setLayout(layout);
+    // timerLabel->setText("25:00");
+    // timerLabel->setStyleSheet("font-size: 36px; color: #800000;");
+    // timerLabel->setAlignment(Qt::AlignCenter);
+    // layout->addWidget(timerLabel);
+    // pauseButton->setText("▶");
+    // pauseButton->setFixedSize(50, 50);
+
+    // pauseButton->setStyleSheet("font-size: 30px; color: #800000; background-color: #FFFACD; border-radius: 40px;");
+    // //layout->addWidget(pauseButton, 0, Qt::AlignCenter);
+    // //layout->addWidget(pauseButton, Qt::AlignmentFlag(Qt::Vertical|Qt::AlignBottom|Qt::AlignHCenter));
+    // int numRows = layout->count(); // 获取现有元素数量，减一即为底部位置
+    // layout->addWidget(pauseButton, numRows, Qt::AlignCenter);
+
+
+
 
     connect(pauseButton, &QPushButton::clicked, this, &mainClock::togglePausePlay);
     connect(mainTimer, &QTimer::timeout, this, &mainClock::updateTimer);
