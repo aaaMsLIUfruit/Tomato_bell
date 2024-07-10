@@ -25,6 +25,8 @@ public:
     ~start_task();
 
     std::unique_ptr<mainClock> mainclock;
+    bool isMUSIC2;
+    bool isMUSIC3;
 
 
 signals:
@@ -46,6 +48,7 @@ private slots:
     void on_pushButton_clicked();
     void on_return_to_start_task1();
     void on_return_to_start_task2();
+
 
 private:
     Ui::start_task *ui;

@@ -9,8 +9,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Multimedia Sql Charts)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql Multimedia Charts)
 set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
@@ -34,33 +34,11 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         start_task.h start_task.cpp start_task.ui
         usercenter.h usercenter.cpp usercenter.ui
         mainclock.h mainclock.cpp
-        Mainclock.ui
+        mainclock.ui
         Register.ui
         mypushbutton.h mypushbutton.cpp
         mylabel.h mylabel.cpp
-
-
-
-
-
-
-
-
-
-
-
-
-        userCenter.ui
-        usercenter.h usercenter.cpp
         easyclock.h easyclock.cpp easyclock.ui
-
-
-
-
-
-
-
-
     )
 else()
     if(ANDROID)
@@ -76,6 +54,8 @@ endif()
 
 target_link_libraries(hello PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(hello PRIVATE Qt${QT_VERSION_MAJOR}::Sql)
+target_link_libraries(hello PRIVATE Qt${QT_VERSION_MAJOR}::Multimedia)
+target_link_libraries(hello PRIVATE Qt${QT_VERSION_MAJOR}::Charts)
 
 if(${QT_VERSION} VERSION_LESS 6.1.0)
   set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.hello)

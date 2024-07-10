@@ -317,6 +317,18 @@ bool start_task::updateTomatoCount(int userId, int tomatoCount) {
     query.prepare("UPDATE Users SET tomato_count = tomato_count + :tomato_count WHERE user_id = :user_id");
     query.bindValue(":tomato_count", tomatoCount);
     query.bindValue(":user_id", userId);
+    if(tomatoCount<5){
+        isMUSIC2 = 0;
+        isMUSIC3 = 0;
+    }
+    else if(tomatoCount<10){
+        isMUSIC2 = 1;
+        isMUSIC3 = 0;
+    }
+    else{
+        isMUSIC2 = 1;
+        isMUSIC3 = 1;
+    }
     if (!query.exec()) {
         qDebug() << "Failed to update tomato count:" << query.lastError().text();
         return false;
