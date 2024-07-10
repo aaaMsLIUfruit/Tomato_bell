@@ -1,0 +1,22 @@
+jenkins控制台输出记录（构建成功）
+16:20:00 Started by user admin
+16:20:00 Running as SYSTEM
+16:20:00 Building in workspace /var/jenkins_home/workspace/initialbell
+16:20:00 The recommended git tool is: NONE
+16:20:00 using credential ayako17
+16:20:00  > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/initialbell/.git # timeout=10
+16:20:00 Fetching changes from the remote Git repository
+16:20:00  > git config remote.origin.url https://github.com/aaaMsLIUfruit/Tomato_bell.git # timeout=10
+16:20:00 Fetching upstream changes from https://github.com/aaaMsLIUfruit/Tomato_bell.git
+16:20:00  > git --version # timeout=10
+16:20:00  > git --version # 'git version 2.39.2'
+16:20:00 using GIT_ASKPASS to set credentials github个人令牌
+16:20:00  > git fetch --tags --force --progress -- https://github.com/aaaMsLIUfruit/Tomato_bell.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+16:20:02  > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+16:20:02 Checking out Revision a00feb64df3ac72a92cbf8b45fd88d1f9b70bc50 (refs/remotes/origin/master)
+16:20:02  > git config core.sparsecheckout # timeout=10
+16:20:02  > git checkout -f a00feb64df3ac72a92cbf8b45fd88d1f9b70bc50 # timeout=10
+16:20:02 Commit message: "Add existing project files to docker branch"
+16:20:02  > git rev-list --no-walk a00feb64df3ac72a92cbf8b45fd88d1f9b70bc50 # timeout=10
+16:20:03 [Set GitHub commit status (universal)] PENDING on repos [] (sha:a00feb6) with context:initialbell
+16:20:03 Finished: SUCCESS
