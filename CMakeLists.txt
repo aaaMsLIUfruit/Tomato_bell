@@ -11,15 +11,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Multimedia Sql Charts)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql Multimedia Charts)
+
 set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
-        resources/resources.qrc  # 添加资源文件
-        Sign_in.h
-        Sign_in.cpp
-        config.h
+    main.cpp
+    mainwindow.cpp
+    mainwindow.h
+    mainwindow.ui
+    resources/resources.qrc  # 添加资源文件
+    Sign_in.h
+    Sign_in.cpp
+    config.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

@@ -1,9 +1,7 @@
 #include "Clock.h"
 #include "ui_Clock.h"
-#include"config.h"
 #include"start_task.h"
 #include"usercenter.h"
-#include"mainClock.h"
 #include <QIcon>
 #include <QApplication>
 #include <QString>

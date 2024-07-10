@@ -25,37 +25,11 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QToolButton" name="UserName">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>50</y>
-     <width>91</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>用户名</string>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="Achievement">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>260</y>
-     <width>161</width>
-     <height>18</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>数据分析</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="return_2">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>270</y>
+     <x>700</x>
+     <y>500</y>
      <width>80</width>
      <height>18</height>
     </rect>

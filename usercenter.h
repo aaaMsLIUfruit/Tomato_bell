@@ -1,18 +1,23 @@
 #ifndef USERCENTER_H
 #define USERCENTER_H
+
 #include <QWidget>
-#include "Clock.h"
-#include <QtCharts/QChartView>
-#include<QLabel>
-#include<QtSql/QSqlDatabase>
+#include <QSqlDatabase>
 #include <QPushButton>
 #include <QStackedWidget>
-#include <QVBoxLayout>
 #include <QScrollArea>
+#include <QVBoxLayout>
+#include <QMediaPlayer>
+#include <QComboBox>
+#include <QtCharts/QChartView>
+#include <QtCharts/QBarSeries>
+#include <QtCharts/QBarSet>
+#include <QtCharts/QBarCategoryAxis>
+#include <QtCharts/QValueAxis>
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class usercenter; }
-QT_END_NAMESPACE
+namespace Ui {
+class usercenter;
+}
 
 class usercenter : public QWidget
 {
@@ -22,10 +27,6 @@ public:
     explicit usercenter(QWidget *parent = nullptr);
     ~usercenter();
 
-signals:
-    void returnToClock();
-
-
 private slots:
     void on_return_2_clicked();
     void showAccountInfo();
@@ -34,9 +35,8 @@ private slots:
 
 private:
     Ui::usercenter *ui;
-    void displayUsername();
-    QString username; // 保存用户名
     QSqlDatabase db;
+    int tomatoCount;
     QPushButton *btnAccountInfo;
     QPushButton *btnPersonalAchievements;
     QPushButton *btnHistoryStatistics;
@@ -44,10 +44,18 @@ private:
     QWidget *accountInfoPage;
     QWidget *personalAchievementsPage;
     QWidget *historyStatisticsPage;
-    QScrollArea *historyScrollArea;
     QScrollArea *personalAchievementsScrollArea;
-    QVBoxLayout *historyLayout;
     QVBoxLayout *achievementLayout;
+    QScrollArea *historyScrollArea;
+    QVBoxLayout *historyLayout;
+    QVBoxLayout *accountInfoLayout; // Add this line
+
+    void loadAccountInfo();
+    void loadAchievements();
+    void loadHistoryStatistics();
+
+signals:
+    void returnToClock();
 };
 
 #endif // USERCENTER_H
