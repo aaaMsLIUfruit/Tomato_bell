@@ -386,6 +386,8 @@ CMakeFiles/hello.dir/hello_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.7.2/mingw_64/include/QtSql/qtsqlexports.h \
  C:\tomato\build\Desktop_Qt_6_7_2_MinGW_64_bit-Debug\hello_autogen\EWIEGA46WW/moc_Sign_in.cpp \
  C:/tomato/Sign_in.h C:/tomato/Clock.h \
+ C:\tomato\build\Desktop_Qt_6_7_2_MinGW_64_bit-Debug\hello_autogen\EWIEGA46WW/moc_easyclock.cpp \
+ C:/tomato/easyclock.h \
  C:\tomato\build\Desktop_Qt_6_7_2_MinGW_64_bit-Debug\hello_autogen\EWIEGA46WW/moc_mainClock.cpp \
  C:/tomato/mainClock.h C:/Qt/6.7.2/mingw_64/include/QtWidgets/QVBoxLayout \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qboxlayout.h \
@@ -434,7 +436,7 @@ CMakeFiles/hello.dir/hello_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qabstractitemmodel.h \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/QSpinBox \
  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qspinbox.h C:/tomato/mainClock.h \
- C:/Qt/6.7.2/mingw_64/include/QtSql/QSqlError \
+ C:/tomato/mainwindow.h C:/Qt/6.7.2/mingw_64/include/QtSql/QSqlError \
  C:/Qt/6.7.2/mingw_64/include/QtSql/qsqlerror.h \
  C:\tomato\build\Desktop_Qt_6_7_2_MinGW_64_bit-Debug\hello_autogen\EWIEGA46WW/moc_usercenter.cpp \
  C:/tomato/usercenter.h C:/Qt/6.7.2/mingw_64/include/QtCharts/QChartView \

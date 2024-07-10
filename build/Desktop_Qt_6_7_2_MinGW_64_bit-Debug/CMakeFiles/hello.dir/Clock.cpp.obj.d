@@ -431,6 +431,9 @@ CMakeFiles/hello.dir/Clock.cpp.obj: C:\tomato\Clock.cpp C:\tomato\Clock.h \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qbasictimer.h \
  C:/Qt/6.7.2/mingw_64/include/QtGui/QFontDatabase \
  C:/Qt/6.7.2/mingw_64/include/QtGui/qfontdatabase.h \
+ C:\tomato\mainwindow.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMainWindow \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qmainwindow.h \
  C:/Qt/6.7.2/mingw_64/include/QtSql/QSqlError \
  C:/Qt/6.7.2/mingw_64/include/QtSql/qsqlerror.h C:\tomato\usercenter.h \
  C:/Qt/6.7.2/mingw_64/include/QtCharts/QChartView \

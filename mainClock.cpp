@@ -50,9 +50,9 @@ void mainClock::initWindow() {
     topWidget->setLayout(topLayout);
     mainLayout->addWidget(topWidget);
     bottomWidget->setLayout(bottomLayout);
-    mainLayout->addWidget(bottomWidget);
+    mainLayout->addWidget(bottomWidget);//布局修改
 
-    // *timerLabel = new MyLabel;
+
     timerLabel->setFixedSize(240, 220);
     topLayout->addWidget(timerLabel, 0, Qt::AlignCenter);
 

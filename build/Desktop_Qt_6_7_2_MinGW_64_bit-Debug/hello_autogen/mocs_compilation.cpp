@@ -2,6 +2,7 @@
 #include "EWIEGA46WW/moc_Clock.cpp"
 #include "EWIEGA46WW/moc_Register.cpp"
 #include "EWIEGA46WW/moc_Sign_in.cpp"
+#include "EWIEGA46WW/moc_easyclock.cpp"
 #include "EWIEGA46WW/moc_mainClock.cpp"
 #include "EWIEGA46WW/moc_mainwindow.cpp"
 #include "EWIEGA46WW/moc_mylabel.cpp"

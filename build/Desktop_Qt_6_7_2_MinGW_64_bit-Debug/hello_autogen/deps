@@ -666,6 +666,8 @@ hello_autogen/timestamp: \
 	C:/tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/3.29.2/CMakeSystem.cmake \
 	C:/tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_autogen/moc_predefs.h \
 	C:/tomato/config.h \
+	C:/tomato/easyclock.cpp \
+	C:/tomato/easyclock.h \
 	C:/tomato/main.cpp \
 	C:/tomato/mainClock.cpp \
 	C:/tomato/mainClock.h \
@@ -715,6 +717,7 @@ hello_autogen/timestamp: \
 	C:/tomato/Clock.ui \
 	C:/tomato/Register.ui \
 	C:/tomato/Sign_in.ui \
+	C:/tomato/easyclock.ui \
 	C:/tomato/mainClock.ui \
 	C:/tomato/mainwindow.ui \
 	C:/tomato/start_task.ui \

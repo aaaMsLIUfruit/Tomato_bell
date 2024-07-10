@@ -271,6 +271,30 @@ Sign_in.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\hello.dir\build.make CMakeFiles/hello.dir/Sign_in.cpp.s
 .PHONY : Sign_in.cpp.s
 
+easyclock.obj: easyclock.cpp.obj
+.PHONY : easyclock.obj
+
+# target to build an object file
+easyclock.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hello.dir\build.make CMakeFiles/hello.dir/easyclock.cpp.obj
+.PHONY : easyclock.cpp.obj
+
+easyclock.i: easyclock.cpp.i
+.PHONY : easyclock.i
+
+# target to preprocess a source file
+easyclock.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hello.dir\build.make CMakeFiles/hello.dir/easyclock.cpp.i
+.PHONY : easyclock.cpp.i
+
+easyclock.s: easyclock.cpp.s
+.PHONY : easyclock.s
+
+# target to generate assembly for a file
+easyclock.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hello.dir\build.make CMakeFiles/hello.dir/easyclock.cpp.s
+.PHONY : easyclock.cpp.s
+
 hello_autogen/3YJK5W5UP7/qrc_resources.obj: hello_autogen/3YJK5W5UP7/qrc_resources.cpp.obj
 .PHONY : hello_autogen/3YJK5W5UP7/qrc_resources.obj
 
@@ -511,6 +535,9 @@ help:
 	@echo ... Sign_in.obj
 	@echo ... Sign_in.i
 	@echo ... Sign_in.s
+	@echo ... easyclock.obj
+	@echo ... easyclock.i
+	@echo ... easyclock.s
 	@echo ... hello_autogen/3YJK5W5UP7/qrc_resources.obj
 	@echo ... hello_autogen/3YJK5W5UP7/qrc_resources.i
 	@echo ... hello_autogen/3YJK5W5UP7/qrc_resources.s

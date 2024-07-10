@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
     //将登陆界面按钮与登陆界面连接
     connect(ui->sign_in_button, &QPushButton::clicked, this, &MainWindow::on_sign_in_clicked);
     connect(ui->register_button, &QPushButton::clicked, this, &MainWindow::on_register_clicked);
+   // connect(ui->visitor,&QPushButton::clicked,this,&MainWindow::on_visitor_clicked);
 }
 
 MainWindow::~MainWindow()
@@ -37,13 +38,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::initWindow() {
     // 获取屏幕大小
-    // QScreen *screen = QGuiApplication::primaryScreen();
-    // QRect screenGeometry = screen->geometry();
-    // int width = screenGeometry.width();
-    // int height = screenGeometry.height();
+    QScreen *screen = QGuiApplication::primaryScreen();
+    QRect screenGeometry = screen->geometry();
+    int width = screenGeometry.width();
+    int height = screenGeometry.height();
 
     // 设置窗口大小为屏幕大小
-    //setGeometry(0, 0, width, height);
+    setGeometry(0, 0, width, height);
 
     // 设置窗口的标题
     setWindowTitle(TITLE);
@@ -91,4 +92,11 @@ void MainWindow::on_return_to_main() {
     ui->register_button->show();
     update();
 }
+
+
+
+//void MainWindow::on_visitor_clicked()
+//{
+
+//}
 

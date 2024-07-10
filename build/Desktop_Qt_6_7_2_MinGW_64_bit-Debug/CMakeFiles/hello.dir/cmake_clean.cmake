@@ -8,6 +8,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/hello.dir/Register.cpp.obj.d"
   "CMakeFiles/hello.dir/Sign_in.cpp.obj"
   "CMakeFiles/hello.dir/Sign_in.cpp.obj.d"
+  "CMakeFiles/hello.dir/easyclock.cpp.obj"
+  "CMakeFiles/hello.dir/easyclock.cpp.obj.d"
   "CMakeFiles/hello.dir/hello_autogen/3YJK5W5UP7/qrc_resources.cpp.obj"
   "CMakeFiles/hello.dir/hello_autogen/3YJK5W5UP7/qrc_resources.cpp.obj.d"
   "CMakeFiles/hello.dir/hello_autogen/mocs_compilation.cpp.obj"

@@ -25,6 +25,7 @@ public:
     QWidget *centralwidget;
     QPushButton *sign_in_button;
     QPushButton *register_button;
+    QPushButton *visitor;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -50,10 +51,17 @@ public:
 "font-size: 15pt;\n"
 "font-weight: bold;\n"
 "color: #800000; "));
+        visitor = new QPushButton(centralwidget);
+        visitor->setObjectName("visitor");
+        visitor->setGeometry(QRect(320, 340, 111, 31));
+        visitor->setStyleSheet(QString::fromUtf8("font: \"\351\273\221\344\275\223\";\n"
+"font-size: 15pt;\n"
+"font-weight: bold;\n"
+"color: #800000; "));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 17));
+        menubar->setGeometry(QRect(0, 0, 800, 19));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -69,6 +77,7 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         sign_in_button->setText(QCoreApplication::translate("MainWindow", "\347\231\273\345\275\225", nullptr));
         register_button->setText(QCoreApplication::translate("MainWindow", "\346\263\250\345\206\214", nullptr));
+        visitor->setText(QCoreApplication::translate("MainWindow", "\346\270\270\345\256\242\347\231\273\345\275\225", nullptr));
     } // retranslateUi
 
 };

@@ -415,6 +415,9 @@ CMakeFiles/hello.dir/start_task.cpp.obj: C:\tomato\start_task.cpp \
  C:/Qt/6.7.2/mingw_64/include/QtCore/qbasictimer.h \
  C:/Qt/6.7.2/mingw_64/include/QtGui/QFontDatabase \
  C:/Qt/6.7.2/mingw_64/include/QtGui/qfontdatabase.h C:\tomato\config.h \
+ C:\tomato\mainwindow.h \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMainWindow \
+ C:/Qt/6.7.2/mingw_64/include/QtWidgets/qmainwindow.h \
  C:/Qt/6.7.2/mingw_64/include/QtSql/QSqlError \
  C:/Qt/6.7.2/mingw_64/include/QtSql/qsqlerror.h \
  C:/Qt/6.7.2/mingw_64/include/QtSql/QSqlQuery \

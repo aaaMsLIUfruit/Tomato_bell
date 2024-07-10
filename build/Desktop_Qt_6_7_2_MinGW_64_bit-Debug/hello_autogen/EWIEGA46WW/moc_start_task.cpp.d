@@ -173,6 +173,7 @@ C:/tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_autogen/EWIEGA46WW/moc
   C:/Qt/6.7.2/mingw_64/include/QtSql/qtsqlglobal.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QComboBox \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLabel \
+  C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMessageBox \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QSpinBox \
@@ -191,6 +192,7 @@ C:/tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_autogen/EWIEGA46WW/moc
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlabel.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayoutitem.h \
+  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qmainwindow.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qmessagebox.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qrubberband.h \
@@ -407,4 +409,5 @@ C:/tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_autogen/EWIEGA46WW/moc
   C:/tomato/Clock.h \
   C:/tomato/config.h \
   C:/tomato/mainClock.h \
+  C:/tomato/mainwindow.h \
   C:/tomato/mypushbutton.h

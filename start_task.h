@@ -8,6 +8,7 @@
 #include "Clock.h"
 #include<QtSql/QSqlDatabase>
 #include "mainClock.h"
+#include"mainwindow.h"
 #include<QtSql/QSqlError>
 
 
@@ -25,8 +26,10 @@ public:
 
     std::unique_ptr<mainClock> mainclock;
 
+
 signals:
     void returnToClock();
+    void returnToMain();
     void on_comboBox_textActivated(const QString &arg1);
 // public slots:
 
@@ -35,6 +38,7 @@ private slots:
 
 
     void on_pushButton_2_clicked();
+    //void on_pushButton_2_clicked();
     void on_start_clicked();
     void on_comboBox_editTextChanged(const QString &arg1);
     void on_comboBox_currentTextChanged(const QString &arg1);
@@ -47,8 +51,11 @@ private:
     Ui::start_task *ui;
     QSqlDatabase db;
     //int currentUserId;
+    int m;
     bool updateTomatoCount(int userId, int tomatoCount);
     void addTaskLabelIfNotExists(const QString &label,int userID);
+    void addundefinition(int userId);
+
 };
 
 #endif // START_TASK_H

@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/tomato/Clock.cpp" "CMakeFiles/hello.dir/Clock.cpp.obj" "gcc" "CMakeFiles/hello.dir/Clock.cpp.obj.d"
   "C:/tomato/Register.cpp" "CMakeFiles/hello.dir/Register.cpp.obj" "gcc" "CMakeFiles/hello.dir/Register.cpp.obj.d"
   "C:/tomato/Sign_in.cpp" "CMakeFiles/hello.dir/Sign_in.cpp.obj" "gcc" "CMakeFiles/hello.dir/Sign_in.cpp.obj.d"
+  "C:/tomato/easyclock.cpp" "CMakeFiles/hello.dir/easyclock.cpp.obj" "gcc" "CMakeFiles/hello.dir/easyclock.cpp.obj.d"
   "C:/tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_autogen/3YJK5W5UP7/qrc_resources.cpp" "CMakeFiles/hello.dir/hello_autogen/3YJK5W5UP7/qrc_resources.cpp.obj" "gcc" "CMakeFiles/hello.dir/hello_autogen/3YJK5W5UP7/qrc_resources.cpp.obj.d"
   "C:/tomato/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/hello_autogen/mocs_compilation.cpp" "CMakeFiles/hello.dir/hello_autogen/mocs_compilation.cpp.obj" "gcc" "CMakeFiles/hello.dir/hello_autogen/mocs_compilation.cpp.obj.d"
   "C:/tomato/main.cpp" "CMakeFiles/hello.dir/main.cpp.obj" "gcc" "CMakeFiles/hello.dir/main.cpp.obj.d"

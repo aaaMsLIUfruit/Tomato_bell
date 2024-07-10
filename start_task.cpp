@@ -21,7 +21,7 @@ start_task::start_task(QWidget *parent)
     ui->setupUi(this);//这个要最先进行初始化……
 
     //初始化comboBox
-    ui->comboBox->setEditable(true);
+    ui->comboBox->setEditable(false);
 
 
     //create connection
@@ -38,7 +38,7 @@ start_task::start_task(QWidget *parent)
     else
         qDebug()<<"already connected to database";
 
-
+    addundefinition(currentUserID);
     //load user's labels
     QSqlQuery query;
     query.prepare("SELECT label_name FROM TaskLabels WHERE user_id = :user_id");
@@ -62,10 +62,10 @@ start_task::start_task(QWidget *parent)
 
 
 
-    ui->comboBox->addItem("学习");
-    ui->comboBox->addItem("工作");
-    ui->comboBox->setCurrentText(" ");
-    ui->comboBox->setEditable(true);
+    //ui->comboBox->addItem("学习");
+    //ui->comboBox->addItem("未命名");
+    ui->comboBox->setCurrentText("未选择标签");
+    //ui->comboBox->setEditable(true);
 
     ui->spinBox->setValue(0);
 
@@ -77,13 +77,14 @@ start_task::start_task(QWidget *parent)
     // QSpinBox槽函数
     connect(ui->spinBox, &QSpinBox::valueChanged, this, &start_task::on_spinBox_valueChanged);
 
-    connect(ui->pushButton_2, &QPushButton::clicked, this, &start_task::on_pushButton_2_clicked);
+    //connect(ui->pushButton_2, &QPushButton::clicked, this, &start_task::on_pushButton_2_clicked1);
 
     connect(ui->start,&QPushButton::clicked,this,&start_task::on_start_clicked);
 
     connect(ui->pushButton,&QPushButton::clicked,this,&start_task::on_pushButton_clicked);
 
 }
+
 
 start_task::~start_task()
 {
@@ -128,6 +129,11 @@ void start_task::on_pushButton_2_clicked()
     close();
 }
 
+//void start_task::on_pushButton_2_clicked2()
+//{
+ //   emit returnToMain();
+ //   close();
+//}
 
 void start_task::on_comboBox_editTextChanged(const QString &arg1)
 {
@@ -161,7 +167,33 @@ void start_task::on_spinBox_valueChanged(int arg1)
 //     ui->start->show();
 // }
 
+void start_task::addundefinition(int userID)
+{
+    QSqlQuery query;
+    query.prepare("SELECT label_id FROM TaskLabels WHERE label_name = :label_name AND user_id = :user_id");
+    query.bindValue(":label_name", "未选择标签");
+    query.bindValue(":user_id", userID);
 
+    if (!query.exec()) {
+        qDebug() << "Failed to check task label:" << query.lastError().text();
+        return;
+    }
+
+    if (!query.next()) {
+        // 如果标签不存在，插入新的标签
+        QSqlQuery insertQuery;
+        insertQuery.prepare("INSERT INTO TaskLabels (label_name, user_id) VALUES (:label_name, :user_id)");
+        insertQuery.bindValue(":label_name", "未选择标签");
+        insertQuery.bindValue(":user_id", userID);
+
+        if (!insertQuery.exec()) {
+            qDebug() << "Failed to insert new task label:" << insertQuery.lastError().text();
+        } else {
+            qDebug() << "New task label inserted successfully.";
+        }
+    }
+
+}
 
 //添加新任务标签
 void start_task::on_pushButton_clicked()

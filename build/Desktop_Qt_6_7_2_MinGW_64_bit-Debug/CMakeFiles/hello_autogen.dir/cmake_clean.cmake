@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "hello_autogen/include/ui_Mainclock.h"
   "hello_autogen/include/ui_Register.h"
   "hello_autogen/include/ui_Sign_in.h"
+  "hello_autogen/include/ui_easyclock.h"
   "hello_autogen/include/ui_mainwindow.h"
   "hello_autogen/include/ui_start_task.h"
   "hello_autogen/include/ui_usercenter.h"
