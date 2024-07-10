@@ -18,9 +18,9 @@ public:
 
 protected:
     // 事件过滤器，用于处理窗口移动事件
-    bool eventFilter(QObject *obj, QEvent *event) override;
+    //bool eventFilter(QObject *obj, QEvent *event) override;
     // 显示事件处理，用于调整窗口位置
-    void showEvent(QShowEvent *event) override;
+    //void showEvent(QShowEvent *event) override;
 
 private:
     Ui::Register *ui; // 指向UI界面的指针

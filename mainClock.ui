@@ -55,7 +55,12 @@
    </item>
    <item>
     <property name="text">
-     <string>不播放音乐</string>
+     <string>未选择音乐</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string/>
     </property>
    </item>
   </widget>

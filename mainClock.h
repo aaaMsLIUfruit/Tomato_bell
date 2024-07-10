@@ -26,8 +26,8 @@ public:
 
     void setSpinBoxData(int n);
     void setComBoxData(QString comboBoxData);
-    bool isMusic2;
-    bool isMusic3;
+    //bool isMusic2;
+   // bool isMusic3;
 
 signals:
     void returntoClockyes();
@@ -44,8 +44,10 @@ private slots:
     void onContinueClicked();
     void onRestartClicked();
     void onBackClicked();
-    void playMusic();
-    void selectMusic(QString choice);
+    //void playMusic();
+   // void selectMusic(QString choice);
+
+    //void on_MusicBox_currentTextChanged(const QString &arg1);
 
 private:
     Ui::mainClock *ui;
@@ -64,7 +66,7 @@ private:
     int num;
     int Music;
     QMessageBox *pauseMessageBox;
-    QMediaPlayer musicPlayer;
+   // QMediaPlayer musicPlayer;
 
     void initWindow();
 };

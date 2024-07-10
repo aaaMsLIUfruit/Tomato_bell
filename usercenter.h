@@ -14,6 +14,7 @@
 #include <QtCharts/QBarSet>
 #include <QtCharts/QBarCategoryAxis>
 #include <QtCharts/QValueAxis>
+#include"Clock.h"
 
 namespace Ui {
 class usercenter;

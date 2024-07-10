@@ -7,7 +7,7 @@
 class start_task;
 class Sign_in;
 class Register;
-class Mainclock;
+class easyclock;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -30,6 +30,7 @@ private:
     Ui::MainWindow *ui;
     std::unique_ptr<Sign_in> sign_in;
     std::unique_ptr<Register> register_;
+    std::unique_ptr<easyclock>Easyclock;
 
 
 private slots:
@@ -37,6 +38,6 @@ private slots:
     void on_register_clicked();
     void on_return_to_main();
 
-    //void on_visitor_clicked();
+    void on_visitor_clicked();
 };
 #endif // MAINWINDOW_H

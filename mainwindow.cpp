@@ -3,7 +3,7 @@
 #include "config.h"
 #include "Sign_in.h"
 #include "Register.h"
-
+#include "easyclock.h"
 #include <QIcon>
 #include<QtSql/QSqlDatabase>
 #include <QApplication>
@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
     , sign_in(nullptr)
     , register_(nullptr)
+    , Easyclock(nullptr)
 
 {
     ui->setupUi(this);
@@ -28,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
     //将登陆界面按钮与登陆界面连接
     connect(ui->sign_in_button, &QPushButton::clicked, this, &MainWindow::on_sign_in_clicked);
     connect(ui->register_button, &QPushButton::clicked, this, &MainWindow::on_register_clicked);
-   // connect(ui->visitor,&QPushButton::clicked,this,&MainWindow::on_visitor_clicked);
+    connect(ui->visitor,&QPushButton::clicked,this,&MainWindow::on_visitor_clicked);
 }
 
 MainWindow::~MainWindow()
@@ -38,16 +39,16 @@ MainWindow::~MainWindow()
 
 void MainWindow::initWindow() {
     // 获取屏幕大小
-    QScreen *screen = QGuiApplication::primaryScreen();
-    QRect screenGeometry = screen->geometry();
-    int width = screenGeometry.width();
-    int height = screenGeometry.height();
+    // QScreen *screen = QGuiApplication::primaryScreen();
+    // QRect screenGeometry = screen->geometry();
+    // int width = screenGeometry.width();
+    // int height = screenGeometry.height();
 
-    // 设置窗口大小为屏幕大小
-    setGeometry(0, 0, width, height);
+    // // 设置窗口大小为屏幕大小
+    // setGeometry(0, 0, width, height);
 
     // 设置窗口的标题
-    setWindowTitle(TITLE);
+     setWindowTitle(TITLE);
 
     // 设置窗口的图标
     setWindowIcon(QIcon(ICON));
@@ -59,7 +60,7 @@ void MainWindow::initWindow() {
 
 void MainWindow::paintEvent(QPaintEvent *event) {
     QPainter painter(this);
-    QPixmap pixmap(":/first.jpg");
+    QPixmap pixmap(":/first1.jpg");
     painter.drawPixmap(0, 0, width(), height(), pixmap);
 }
 
@@ -73,6 +74,7 @@ void MainWindow::on_sign_in_clicked() {
 
     ui->sign_in_button->hide();
     ui->register_button->hide();
+    ui->visitor->hide();
 }
 
 void MainWindow::on_register_clicked() {
@@ -85,18 +87,28 @@ void MainWindow::on_register_clicked() {
 
     ui->sign_in_button->hide();
     ui->register_button->hide();
+    ui->visitor->hide();
 }
 
 void MainWindow::on_return_to_main() {
     ui->sign_in_button->show();
     ui->register_button->show();
+    ui->visitor->show();
     update();
 }
 
+void MainWindow::on_visitor_clicked(){
+    if(!Easyclock)
+    {
+        Easyclock=std::make_unique<easyclock>(this);
+        connect(Easyclock.get(),&easyclock::returnToMain,this,&MainWindow::on_return_to_main);
+    }
+    Easyclock->show();
+    ui->sign_in_button->hide();
+    ui->register_button->hide();
+    ui->visitor->hide();
+
+}
 
 
-//void MainWindow::on_visitor_clicked()
-//{
-
-//}
 

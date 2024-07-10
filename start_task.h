@@ -8,7 +8,7 @@
 #include "Clock.h"
 #include<QtSql/QSqlDatabase>
 #include "mainClock.h"
-#include"mainwindow.h"
+
 #include<QtSql/QSqlError>
 
 
@@ -31,7 +31,7 @@ public:
 
 signals:
     void returnToClock();
-    void returnToMain();
+
     void on_comboBox_textActivated(const QString &arg1);
 // public slots:
 

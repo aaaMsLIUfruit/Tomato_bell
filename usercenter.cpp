@@ -9,6 +9,7 @@
 #include <QLabel>
 #include <QDate>
 #include <QScrollArea>
+#include <QtCharts/QChart>
 #include <QtCharts/QChartView>
 #include <QtCharts/QBarSet>
 #include <QtCharts/QBarSeries>
@@ -20,15 +21,19 @@ extern int currentUserID;
 usercenter::usercenter(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::usercenter)
+    , stackedWidget(new QStackedWidget(this))
+    , accountInfoPage(new QWidget(this))
+    , personalAchievementsPage(new QWidget(this))
+    , historyStatisticsPage(new QWidget(this))
 {
     ui->setupUi(this);
 
     // 连接数据库
-    db = QSqlDatabase::addDatabase("QMYSQL");
+    db = QSqlDatabase::addDatabase("QODBC");
     db.setHostName("localhost");
-    db.setDatabaseName("TOMATO");
+    db.setDatabaseName("testM");
     db.setUserName("root");
-    db.setPassword("YourPassword");
+    db.setPassword("123456");
     db.setPort(3306);
 
     if (!db.open()) {
@@ -48,15 +53,16 @@ usercenter::usercenter(QWidget *parent)
 
     // 右侧页面
     stackedWidget = new QStackedWidget(this);
-    QWidget *accountInfoPage = new QWidget(this);
-    QWidget *personalAchievementsPage = new QWidget(this);
-    QWidget *historyStatisticsPage = new QWidget(this);
+    accountInfoPage = new QWidget(this);
+    personalAchievementsPage = new QWidget(this);
+    historyStatisticsPage = new QWidget(this);
 
     // 账户基本信息页面布局
     QVBoxLayout *accountInfoLayout = new QVBoxLayout(accountInfoPage);
     QSqlQuery query(db);
-
-    if (query.exec("SELECT username, password, tomato_count FROM Users WHERE id = " + QString::number(currentUserID))) {
+    query.prepare("SELECT username, password, tomato_count FROM Users WHERE user_id = :userID");
+    query.bindValue(":userID", currentUserID);
+    if (query.exec()) {
         if (query.next()) {
             QString username = query.value(0).toString();
             QString password = query.value(1).toString();
@@ -88,9 +94,11 @@ usercenter::usercenter(QWidget *parent)
     };
 
     int tomatoCount = 0;
-    if (query.exec("SELECT tomato_count FROM Users WHERE id = " + QString::number(currentUserID))) {
+    query.prepare("SELECT username, password, tomato_count FROM Users WHERE user_id = :userID");
+    query.bindValue(":userID", currentUserID);
+    if (query.exec()) {
         if (query.next()) {
-            tomatoCount = query.value(0).toInt();
+            tomatoCount = query.value(2).toInt();
         }
     }
 
@@ -125,7 +133,7 @@ usercenter::usercenter(QWidget *parent)
     QVBoxLayout *historyLayout = new QVBoxLayout(historyContent);
     QMap<QDate, int> weeklyData;
 
-    query.prepare("SELECT task_date, COUNT(*) as count FROM Tomatoes "
+    query.prepare("SELECT task_date, COUNT(*) as count FROM History "
                   "WHERE task_date >= :start_date AND task_date <= :end_date "
                   "GROUP BY task_date");
     QDate endDate = QDate::currentDate();
@@ -135,8 +143,8 @@ usercenter::usercenter(QWidget *parent)
 
     if (query.exec()) {
         while (query.next()) {
-            QDate date = query.value("task_date").toDate();
-            int count = query.value("count").toInt();
+            QDate date = query.value(0).toDate();
+            int count = query.value(1).toInt();
             weeklyData[date] = count;
         }
     }
@@ -149,7 +157,7 @@ usercenter::usercenter(QWidget *parent)
     }
 
     // 使用Qt Charts显示柱状图
-    QtCharts::QBarSet *set = new QtCharts::QBarSet("番茄钟数");
+    QBarSet *set = new QBarSet("番茄钟数");
     QStringList categories;
 
     for (int i = 0; i < 7; ++i) {
@@ -158,25 +166,25 @@ usercenter::usercenter(QWidget *parent)
         categories << date.toString("MM-dd");
     }
 
-    QtCharts::QBarSeries *series = new QtCharts::QBarSeries();
+    QBarSeries *series = new QBarSeries();
     series->append(set);
 
-    QtCharts::QChart *chart = new QtCharts::QChart();
+    QChart *chart = new QChart();
     chart->addSeries(series);
     chart->setTitle("最近一周番茄钟数");
-    chart->setAnimationOptions(QtCharts::QChart::SeriesAnimations);
+    chart->setAnimationOptions(QChart::SeriesAnimations);
 
-    QtCharts::QBarCategoryAxis *axisX = new QtCharts::QBarCategoryAxis();
+    QBarCategoryAxis *axisX = new QBarCategoryAxis();
     axisX->append(categories);
     chart->addAxis(axisX, Qt::AlignBottom);
     series->attachAxis(axisX);
 
-    QtCharts::QValueAxis *axisY = new QtCharts::QValueAxis();
+    QValueAxis *axisY = new QValueAxis();
     axisY->setRange(0, *std::max_element(weeklyData.begin(), weeklyData.end()) + 1);
     chart->addAxis(axisY, Qt::AlignLeft);
     series->attachAxis(axisY);
 
-    QtCharts::QChartView *chartView = new QtCharts::QChartView(chart);
+    QChartView *chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
 
     historyLayout->addWidget(chartView);

@@ -24,8 +24,8 @@ signals:
     void returnToMain();
 
 protected:
-    bool eventFilter(QObject *obj, QEvent *event) override;
-    void showEvent(QShowEvent *event) override;
+    //bool eventFilter(QObject *obj, QEvent *event) override;
+    //void showEvent(QShowEvent *event) override;
 
 private slots:
     void on_return_button_clicked();
