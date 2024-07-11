@@ -87,7 +87,7 @@ void easyclock::initWindow() {
     connect(pauseButton, &QPushButton::clicked, this, &easyclock::togglePausePlay);
     connect(mainTimer, &QTimer::timeout, this, &easyclock::updateTimer);
     connect(pauseTimer, &QTimer::timeout, this, &easyclock::updatePauseTimer);
-    connect(ui->exitButton, &QPushButton::clicked, this, &easyclock::onBackClicked);
+    //connect(ui->exitButton, &QPushButton::clicked, this, &easyclock::onBackClicked);
 }
 
 void easyclock::togglePausePlay() {

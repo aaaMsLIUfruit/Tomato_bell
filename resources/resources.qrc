@@ -9,6 +9,8 @@
         <file>personal1.png</file>
         <file>personal2.png</file>
         <file>first1.jpg</file>
-        
+        <file>coffee.wav</file>
+        <file>rain.wav</file>
+        <file>sea.wav</file>
     </qresource>
 </RCC>

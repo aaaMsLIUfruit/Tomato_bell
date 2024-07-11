@@ -18,6 +18,8 @@ mainClock::mainClock(QWidget *parent)
     pauseTimer(new QTimer(this)),
     remainingTime(1500), // 初始时间为25分钟（1500秒）
     remainingPauseTime(300), // 暂停时间为5分钟（300秒）
+    musicPlayer(new QMediaPlayer(this)),
+    audioOutput(new QAudioOutput(this)),
     isPaused(0),
     rest(0),
     num(0),
@@ -86,7 +88,11 @@ void mainClock::initWindow() {
     connect(mainTimer, &QTimer::timeout, this, &mainClock::updateTimer);
     connect(pauseTimer, &QTimer::timeout, this, &mainClock::updatePauseTimer);
     connect(ui->exitButton, &QPushButton::clicked, this, &mainClock::onBackClicked);
-    //connect(ui->MusicBox,&QComboBox::currentTextChanged,this,&mainClock::on_MusicBox_currentTextChanged);
+    connect(ui->MusicBox, QOverload<int>::of(&QComboBox::currentIndexChanged),
+            [=](int index) {
+                QString choice = ui->MusicBox->itemText(index);
+                selectMusic(choice);
+            });
 }
 
 void mainClock::togglePausePlay() {
@@ -240,54 +246,57 @@ void mainClock::onRestartClicked() {
     }
 }
 
-// void mainClock::selectMusic(QString choice){
-//     if(choice == "林中细雨"){
-//         Music = 1;
-//     }
-//     else if(choice == "巴黎咖啡馆"){
-//         Music = 2;
-//     }
-//     else if(choice == "沙滩海浪"){
-//         Music = 3;
-//     }
-//     else{
-//         Music = 0;
-//     }
-//     playMusic();
-// };
+void mainClock::selectMusic(QString choice){
+    if(choice == "林中细雨"){
+        Music = 1;
+    }
+    else if(choice == "巴黎咖啡馆"){
+        Music = 2;
+    }
+    else if(choice == "沙滩海浪"){
+        Music = 3;
+    }
+    else{
+        Music = 0;
+    }
+    playMusic();
+};
 
 
-// void mainClock::playMusic(){
-//     musicPlayer.stop();
-//     switch (Music) {
-//     case 1:
-//         musicPlayer.setSource(QUrl(Music1));
-//         musicPlayer.setLoops(QMediaPlayer::Infinite);
-//         musicPlayer.play();
-//         break;
-//     case 2:
-//         if (isMusic2 == 1) {
-//             musicPlayer.setSource(QUrl(Music2));
-//             musicPlayer.setLoops(QMediaPlayer::Infinite);
-//             musicPlayer.play();
-//         } else {
-//             QMessageBox::warning(nullptr, "Warning", "您还未拥有该背景音");
-//         }
-//         break;
-//     case 3:
-//         if (isMusic3 == 1) {
-//             musicPlayer.setSource(QUrl(Music3));
-//             musicPlayer.setLoops(QMediaPlayer::Infinite);
-//             musicPlayer.play();
-//         } else {
-//             QMessageBox::warning(nullptr, "Warning", "您还未拥有该背景音");
-//         }
-//         break;
-//     default:
-//         musicPlayer.stop();
-//         break;
-//     }
-// }
+void mainClock::playMusic(){
+    musicPlayer->stop();
+    musicPlayer->setAudioOutput(audioOutput);
+    switch (Music) {
+    case 1:
+        musicPlayer->setSource(QUrl(Music1));
+        audioOutput->setVolume(30);
+        musicPlayer->setLoops(QMediaPlayer::Infinite);
+        musicPlayer->play();
+        break;
+    case 2:
+        if (isMusic2 == 1) {
+            musicPlayer->setSource(QUrl(Music2));
+            audioOutput->setVolume(30);
+            musicPlayer->setLoops(QMediaPlayer::Infinite);
+            musicPlayer->play();
+        } else {
+            QMessageBox::warning(nullptr, "Warning", "您还未拥有该背景音");
+        }
+        break;
+    case 3:
+        if (isMusic3 == 1) {
+            musicPlayer->setSource(QUrl(Music3));
+            audioOutput->setVolume(30);
+            musicPlayer->setLoops(QMediaPlayer::Infinite);
+            musicPlayer->play();
+        } else {
+            QMessageBox::warning(nullptr, "Warning", "您还未拥有该背景音");
+        }
+        break;
+    default:
+        break;
+    }
+}
 
 void mainClock::onBackClicked() {
     emit returntoClockno();
@@ -301,10 +310,4 @@ void mainClock::setComBoxData(QString comboBoxData){
     comboBox = comboBoxData;
 }
 
-// void mainClock::on_MusicBox_currentTextChanged(const QString &arg1)
-// {
-//     selectMusic(arg1);
-//     ui->MusicBox->setCurrentText(arg1);
-
-// }
 
