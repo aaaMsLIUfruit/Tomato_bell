@@ -29,6 +29,7 @@ public:
     void setComBoxData(QString comboBoxData);
     bool isMusic2;
     bool isMusic3;
+    int num;
 
 signals:
     void returntoClockyes();
@@ -62,13 +63,13 @@ private:
     int completedCycles;
     bool isPaused;
     int rest;
-    int num;
     int Music;
     QMessageBox *pauseMessageBox;
     QMediaPlayer *musicPlayer;
     QAudioOutput *audioOutput;
 
     void initWindow();
+    void nextClicked();
 };
 
 #endif // MAINCLOCK_H

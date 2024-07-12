@@ -11,7 +11,6 @@
 
 extern int currentUserID;
 int curLabel_id=0;
-bool isfinished=false;
 
 start_task::start_task(QWidget *parent)
     : QWidget(parent)
@@ -129,11 +128,6 @@ void start_task::on_pushButton_2_clicked()
     close();
 }
 
-//void start_task::on_pushButton_2_clicked2()
-//{
- //   emit returnToMain();
- //   close();
-//}
 
 void start_task::on_comboBox_editTextChanged(const QString &arg1)
 {
@@ -155,17 +149,6 @@ void start_task::on_spinBox_valueChanged(int arg1)
     ui->spinBox->setValue(arg1);
 }
 
-// void start_task::on_return_to_start_task(){
-//     ui->pushButton_2->show();
-//     ui->comboBox->show();
-//     ui->pushButton->show();
-//     ui->spinBox->show();
-//     ui->label->show();
-//     ui->label_2->show();
-//     ui->label_3->show();
-//     ui->lineEdit->show();
-//     ui->start->show();
-// }
 
 void start_task::addundefinition(int userID)
 {
@@ -242,73 +225,41 @@ void start_task::addTaskLabelIfNotExists(const QString &label,int userID) {
 //开始做任务了
 void start_task::on_start_clicked()
 {
-    if (mainclock == nullptr) {
-        mainclock = std::make_unique<mainClock>(this); // 创建新的 mainclock 对象
-        mainclock->setAttribute(Qt::WA_DeleteOnClose); // 窗口关闭时自动删除
-        connect(mainclock.get(), &mainClock::returntoClockyes, this, &start_task::on_return_to_start_task1);
-        connect(mainclock.get(), &mainClock::returntoClockno, this, &start_task::on_return_to_start_task2);
-
-    }
 
     int spinBoxData=ui->spinBox->value();
-    QString comboBoxData=ui->comboBox->currentText();
-
-    // 传递数据
-    mainclock->setComBoxData(comboBoxData);
-    mainclock->setSpinBoxData(spinBoxData);
-
-
-    QSqlQuery query;
-
-    //找到label_id
-    query.prepare("SELECT label_id FROM TaskLabels WHERE label_name = :label_name AND user_id = :user_id ");
-    query.bindValue(":label_name", comboBoxData);
-    query.bindValue(":user_id", currentUserID);
-    query.exec();
-    if(query.next())
+    if(spinBoxData !=0)
     {
-        curLabel_id=query.value("label_id").toInt();
-        qDebug()<<curLabel_id;
-    }
+        comboBoxData=ui->comboBox->currentText();
 
-    int tomatoCount = spinBoxData;
-
-    //添加到数据库
-    if(isfinished)
-    {
-        query.prepare("INSERT INTO History (user_id, label_id, task_date, task_duration, tomato_count) "
-                  "VALUES (:user_id, :label_id, CURRENT_DATE(), :task_duration, :tomato_count)");
+        // 传递数据
+        mainclock->setSpinBoxData(spinBoxData);
+        tomatoCount = spinBoxData;
 
 
+        // 显示新页面
+        if (mainclock == nullptr) {
+            mainclock = std::make_unique<mainClock>(this); // 创建新的 mainclock 对象
+            mainclock->setAttribute(Qt::WA_DeleteOnClose); // 窗口关闭时自动删除
+            connect(mainclock.get(), &mainClock::returntoClockyes, this, &start_task::on_return_to_start_task1);
+            connect(mainclock.get(), &mainClock::returntoClockno, this, &start_task::on_return_to_start_task2);
 
-    //下面的和登录的数据库有关，那里的用户信息要传到这里
-    query.bindValue(":user_id", currentUserID);
-    query.bindValue(":task_duration", tomatoCount*25);//一个番茄是25分钟来是不
-    query.bindValue(":tomato_count", tomatoCount);
-    query.bindValue(":label_id",curLabel_id);
-
-    if (!query.exec()) {
-        qDebug() << "Failed to insert task data:" << query.lastError().text();
-    } else {
-        qDebug() << "Task data inserted successfully.";
-        if (!updateTomatoCount(currentUserID, tomatoCount)) {
-            qDebug() << "Failed to update tomato count.";
         }
-    }
-    }
-    // 显示新页面
 
-    ui->pushButton_2->hide();
-    ui->comboBox->hide();
-    ui->pushButton->hide();
-    ui->spinBox->hide();
-    ui->label->hide();
-    ui->label_2->hide();
-    ui->label_3->hide();
-    ui->lineEdit->hide();
-    ui->start->hide();
-    mainclock->show();
-
+        mainclock->num = tomatoCount;
+        ui->pushButton_2->hide();
+        ui->comboBox->hide();
+        ui->pushButton->hide();
+        ui->spinBox->hide();
+        ui->label->hide();
+        ui->label_2->hide();
+        ui->label_3->hide();
+        ui->lineEdit->hide();
+        ui->start->hide();
+        mainclock->show();
+    }
+    else{
+        QMessageBox::information(this, "提醒", "不可以只设置一个番茄钟哦！");
+    }
 
 }
 
@@ -348,7 +299,41 @@ void start_task::on_return_to_start_task1(){
     ui->lineEdit->show();
     ui->start->show();
     mainclock.reset();
-    isfinished=true;
+
+    QSqlQuery query;
+
+    mainclock->setComBoxData(comboBoxData);
+    //找到label_id
+    query.prepare("SELECT label_id FROM TaskLabels WHERE label_name = :label_name AND user_id = :user_id ");
+    query.bindValue(":label_name", comboBoxData);
+    query.bindValue(":user_id", currentUserID);
+    query.exec();
+    if(query.next())
+    {
+        curLabel_id=query.value("label_id").toInt();
+        qDebug()<<curLabel_id;
+    }
+
+    //添加到数据库
+        query.prepare("INSERT INTO History (user_id, label_id, task_date, task_duration, tomato_count) "
+                      "VALUES (:user_id, :label_id, CURRENT_DATE(), :task_duration, :tomato_count)");
+
+
+
+        //下面的和登录的数据库有关，那里的用户信息要传到这里
+        query.bindValue(":user_id", currentUserID);
+        query.bindValue(":task_duration", tomatoCount*25);//一个番茄是25分钟来是不
+        query.bindValue(":tomato_count", tomatoCount);
+        query.bindValue(":label_id",curLabel_id);
+
+        if (!query.exec()) {
+            qDebug() << "Failed to insert task data:" << query.lastError().text();
+        } else {
+            qDebug() << "Task data inserted successfully.";
+            if (!updateTomatoCount(currentUserID, tomatoCount)) {
+                qDebug() << "Failed to update tomato count.";
+            }
+        }
     QMessageBox::information(this, "任务完成", "你已成功完成任务！");
 }
 
@@ -363,7 +348,7 @@ void start_task::on_return_to_start_task2(){
     ui->lineEdit->show();
     ui->start->show();
     mainclock.reset();
-    isfinished=false;
+    tomatoCount = 0;
     QMessageBox::information(this, "任务失败", "任务失败，再接再厉吧");
 }
 

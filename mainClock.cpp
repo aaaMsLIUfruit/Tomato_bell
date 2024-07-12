@@ -150,8 +150,23 @@ void mainClock::updatePauseTimer() {
         if (rest == 0) {
             showFailureMessageBox();
         } else {
-            onRestartClicked();
+            nextClicked();
         }
+    }
+}
+
+void mainClock::nextClicked(){
+    if (++completedCycles >= num)
+    {
+        emit returntoClockyes();
+    }
+    else
+    {
+        remainingTime = 1500; // 重置时间为25分钟
+        timerLabel->setText("25:00");
+        remainingPauseTime = 300;
+        rest = 0; // Reset rest status
+        resumeMainTimer();
     }
 }
 
@@ -235,15 +250,13 @@ void mainClock::onContinueClicked() {
 }
 
 void mainClock::onRestartClicked() {
-    if (++completedCycles >= num) {
-        emit returntoClockyes();
-    } else {
+
         remainingTime = 1500; // 重置时间为25分钟
         timerLabel->setText("25:00");
         remainingPauseTime = 300;
         rest = 0; // Reset rest status
         resumeMainTimer();
-    }
+
 }
 
 void mainClock::selectMusic(QString choice){

@@ -53,8 +53,10 @@ private slots:
 private:
     Ui::start_task *ui;
     QSqlDatabase db;
+    QString comboBoxData;
     //int currentUserId;
     int m;
+    int tomatoCount;
     bool updateTomatoCount(int userId, int tomatoCount);
     void addTaskLabelIfNotExists(const QString &label,int userID);
     void addundefinition(int userId);
