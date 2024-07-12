@@ -82,6 +82,7 @@ void Clock::on_return_to_Clock() {
     // ui->start_task->show();
     starttask->show();
     personalcenter->show();
+    ui->label->show();
     update();
 }
 
@@ -96,6 +97,7 @@ void Clock::on_start_task_clicked()
         }
     starttask->hide();
     personalcenter->hide();
+    ui->label->hide();
     Start_task->show();
     });
 }
@@ -109,6 +111,7 @@ void Clock::on_personal_center_clicked()
     }
     starttask->hide();
     personalcenter->hide();
+    ui->label->hide();
     Usercenter->show();
 }
 

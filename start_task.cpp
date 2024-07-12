@@ -11,7 +11,7 @@
 
 extern int currentUserID;
 int curLabel_id=0;
-
+bool isfinished=false;
 
 start_task::start_task(QWidget *parent)
     : QWidget(parent)
@@ -274,8 +274,9 @@ void start_task::on_start_clicked()
     int tomatoCount = spinBoxData;
 
     //添加到数据库
-
-    query.prepare("INSERT INTO History (user_id, label_id, task_date, task_duration, tomato_count) "
+    if(isfinished)
+    {
+        query.prepare("INSERT INTO History (user_id, label_id, task_date, task_duration, tomato_count) "
                   "VALUES (:user_id, :label_id, CURRENT_DATE(), :task_duration, :tomato_count)");
 
 
@@ -294,7 +295,7 @@ void start_task::on_start_clicked()
             qDebug() << "Failed to update tomato count.";
         }
     }
-
+    }
     // 显示新页面
 
     ui->pushButton_2->hide();
@@ -347,7 +348,7 @@ void start_task::on_return_to_start_task1(){
     ui->lineEdit->show();
     ui->start->show();
     mainclock.reset();
-
+    isfinished=true;
     QMessageBox::information(this, "任务完成", "你已成功完成任务！");
 }
 
@@ -362,7 +363,7 @@ void start_task::on_return_to_start_task2(){
     ui->lineEdit->show();
     ui->start->show();
     mainclock.reset();
-
+    isfinished=false;
     QMessageBox::information(this, "任务失败", "任务失败，再接再厉吧");
 }
 

@@ -26,7 +26,10 @@ Sign_in::Sign_in(QWidget *parent) :
 
     setWindowTitle("登录");
     setWindowIcon(QIcon(ICON));
-
+    int fontId = QFontDatabase::addApplicationFont(ZITI);
+    QString fontFamily = QFontDatabase::applicationFontFamilies(fontId).at(0);
+    QFont myFont(fontFamily);
+    myFont.setBold(true);
 
         db = QSqlDatabase::addDatabase("QODBC");
         db.setHostName("localhost");
@@ -100,13 +103,13 @@ bool Sign_in::validateAccount() {
 bool Sign_in::validatePassword() {
     QString password = ui->Password->text(); // 获取密码输入框的内容
 
-    // 验证密码是否为不超过15个字符的数字、字母、字符的组合
-    // QRegularExpression re("^[\\w!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>/?]{1,15}$");
-    // QRegularExpressionMatch match = re.match(password);
-    // if (!match.hasMatch()) {
-    //     QMessageBox::warning(this, "输入错误", "密码必须是不超过15个字符的数字、字母、字符的组合！请输入正确密码！", QMessageBox::Ok);
-    //     return false;
-    // }
+    //验证密码是否为不超过15个字符的数字、字母、字符的组合
+    QRegularExpression re("^[\\w!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>/?]{1,15}$");
+    QRegularExpressionMatch match = re.match(password);
+    if (!match.hasMatch()) {
+        QMessageBox::warning(this, "输入错误", "密码必须是不超过15个字符的数字、字母、字符的组合！请输入正确密码！", QMessageBox::Ok);
+        return false;
+    }
     return true;
 }
 

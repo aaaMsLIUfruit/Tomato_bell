@@ -3,7 +3,8 @@
 
 #include <QWidget>
 #include <QtSql/QSqlDatabase>
-#include<QMessageBox>
+#include <QMessageBox>
+#include <QFontDatabase>
 #include "Clock.h"
 
 

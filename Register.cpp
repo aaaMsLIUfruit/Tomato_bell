@@ -13,7 +13,10 @@ Register::Register(QWidget *parent) :
 
     setWindowTitle("注册");
     setWindowIcon(QIcon(ICON));
-
+    int fontId = QFontDatabase::addApplicationFont(ZITI);
+    QString fontFamily = QFontDatabase::applicationFontFamilies(fontId).at(0);
+    QFont myFont(fontFamily);
+    myFont.setBold(true);
     // 初始化时禁用输入字段
     enableInputFields(false);
 
@@ -210,3 +213,5 @@ Register::~Register()
 {
     delete ui;
 }
+
+

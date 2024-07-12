@@ -8,7 +8,7 @@
 #include <QTimer>
 #include <QMessageBox>
 #include <QFontDatabase>
-
+#include "mainwindow.h"
 #include "config.h"
 class MyLabel;
 

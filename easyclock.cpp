@@ -1,6 +1,6 @@
 #include "easyclock.h"
 #include "ui_easyclock.h"
-#include "mainwindow.h"
+
 #include "mylabel.h"
 #include "config.h"
 
@@ -67,13 +67,9 @@ void easyclock::initWindow() {
     pauseButton->setStyleSheet("font-size: 30px; color: #800000; background-color: #FFFACD; border-radius: 40px;");
     bottomLayout->addWidget(pauseButton, 0, Qt::AlignCenter);
 
-    // setLayout(layout);
-    // timerLabel->setText("25:00");
-    // timerLabel->setStyleSheet("font-size: 36px; color: #800000;");
-    // timerLabel->setAlignment(Qt::AlignCenter);
-    // layout->addWidget(timerLabel);
-    // pauseButton->setText("▶");
-    // pauseButton->setFixedSize(50, 50);
+    timerLabel->setText("25:00");
+    timerLabel->setTime(remainingTime);
+    timerLabel->setStyleSheet("font-size: 36px; color: #800000;");
 
     // pauseButton->setStyleSheet("font-size: 30px; color: #800000; background-color: #FFFACD; border-radius: 40px;");
     // //layout->addWidget(pauseButton, 0, Qt::AlignCenter);
@@ -87,7 +83,7 @@ void easyclock::initWindow() {
     connect(pauseButton, &QPushButton::clicked, this, &easyclock::togglePausePlay);
     connect(mainTimer, &QTimer::timeout, this, &easyclock::updateTimer);
     connect(pauseTimer, &QTimer::timeout, this, &easyclock::updatePauseTimer);
-    //connect(ui->exitButton, &QPushButton::clicked, this, &easyclock::onBackClicked);
+    connect(ui->exitButton, &QPushButton::clicked, this, &easyclock::onBackClicked);
 }
 
 void easyclock::togglePausePlay() {
@@ -208,7 +204,7 @@ void easyclock::showFailureMessageBox() {
     QPushButton *restartButton = new QPushButton("重新开始", failureMessageBox);
     failureMessageBox->addButton(restartButton, QMessageBox::AcceptRole);
 
-    QPushButton *backButton = new QPushButton("回到上一个界面", failureMessageBox);
+    QPushButton *backButton = new QPushButton("回到登录界面", failureMessageBox);
     failureMessageBox->addButton(backButton, QMessageBox::RejectRole);
 
     failureMessageBox->setStandardButtons(QMessageBox::NoButton);

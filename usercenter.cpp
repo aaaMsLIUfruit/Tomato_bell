@@ -86,11 +86,12 @@ usercenter::usercenter(QWidget *parent)
     };
 
     Achievement achievements[] = {
-        {1, "小试牛刀", "完成1个番茄"},
-        {5, "小有成就", "完成五个番茄"},
-        {10, "坚持不懈", "完成10个番茄"},
-        {15, "毅力可嘉", "完成15个番茄"},
-        {20, "学无止境", "完成20个番茄"}
+        {1, "小试牛刀", "获得1个番茄"},
+        {5, "小有成就", "获得5个番茄      解锁背景音乐 巴黎咖啡馆"},
+        {10, "坚持不懈", "获得10个番茄    解锁背景音乐 沙滩海浪"},
+        {15, "毅力可嘉", "获得15个番茄    解锁背景皮肤 雨中少女"},
+        {20, "学无止境", "获得20个番茄"},
+        {100,"番茄首富","获得100个番茄"}
     };
 
     int tomatoCount = 0;
@@ -124,7 +125,7 @@ usercenter::usercenter(QWidget *parent)
     QVBoxLayout *achievementMainLayout = new QVBoxLayout(personalAchievementsPage);
     achievementMainLayout->addWidget(personalAchievementsScrollArea);
     personalAchievementsPage->setLayout(achievementMainLayout);
-    QSize fixedSize(300, 200);
+    QSize fixedSize(600, 400);
     personalAchievementsPage->setFixedSize(fixedSize);
 
     // 历史统计页面布局

@@ -39,8 +39,8 @@ mainClock::mainClock(QWidget *parent)
 
     initWindow();
     togglePausePlay();
-   //  ui->MusicBox->setCurrentText("未选择音乐");
-   // selectMusic("未选择音乐");
+   ui->MusicBox->setCurrentText("未选择音乐");
+   selectMusic("未选择音乐");
 }
 
 mainClock::~mainClock() {
@@ -67,9 +67,9 @@ void mainClock::initWindow() {
     pauseButton->setStyleSheet("font-size: 30px; color: #800000; background-color: #FFFACD; border-radius: 40px;");
     bottomLayout->addWidget(pauseButton, 0, Qt::AlignCenter);
 
-    // setLayout(layout);
-    // timerLabel->setText("25:00");
-    // timerLabel->setStyleSheet("font-size: 36px; color: #800000;");
+    timerLabel->setText("25:00");
+    timerLabel->setTime(remainingTime);
+    timerLabel->setStyleSheet("font-size: 36px; color: #800000;");
     // timerLabel->setAlignment(Qt::AlignCenter);
     // layout->addWidget(timerLabel);
     // pauseButton->setText("▶");
@@ -280,7 +280,7 @@ void mainClock::playMusic(){
             musicPlayer->setLoops(QMediaPlayer::Infinite);
             musicPlayer->play();
         } else {
-            QMessageBox::warning(nullptr, "Warning", "您还未拥有该背景音");
+            QMessageBox::warning(nullptr, "Warning", "您还未拥有该背景音,请获取更多番茄解锁成就！");
         }
         break;
     case 3:
@@ -290,7 +290,7 @@ void mainClock::playMusic(){
             musicPlayer->setLoops(QMediaPlayer::Infinite);
             musicPlayer->play();
         } else {
-            QMessageBox::warning(nullptr, "Warning", "您还未拥有该背景音");
+            QMessageBox::warning(nullptr, "Warning", "您还未拥有该背景音，请获取更多番茄解锁成就！");
         }
         break;
     default:

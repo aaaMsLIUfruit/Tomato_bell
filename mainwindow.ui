@@ -17,11 +17,18 @@
    <widget class="QPushButton" name="sign_in_button">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>350</x>
       <y>220</y>
       <width>91</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">
@@ -37,8 +44,8 @@ color: #800000; </string>
    <widget class="QPushButton" name="register_button">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>280</y>
+      <x>350</x>
+      <y>270</y>
       <width>91</width>
       <height>31</height>
      </rect>
@@ -56,9 +63,9 @@ color: #800000; </string>
    <widget class="QPushButton" name="visitor">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>340</y>
-      <width>111</width>
+      <x>310</x>
+      <y>320</y>
+      <width>171</width>
       <height>31</height>
      </rect>
     </property>
@@ -69,7 +76,25 @@ font-weight: bold;
 color: #800000; </string>
     </property>
     <property name="text">
-     <string>游客登录</string>
+     <string>快速开始番茄钟</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>160</y>
+      <width>251</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#550000;&quot;&gt;￥￥西红柿首富￥￥&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>

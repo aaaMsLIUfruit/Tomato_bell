@@ -75,6 +75,7 @@ void MainWindow::on_sign_in_clicked() {
     ui->sign_in_button->hide();
     ui->register_button->hide();
     ui->visitor->hide();
+    ui->label->hide();
 }
 
 void MainWindow::on_register_clicked() {
@@ -88,12 +89,14 @@ void MainWindow::on_register_clicked() {
     ui->sign_in_button->hide();
     ui->register_button->hide();
     ui->visitor->hide();
+    ui->label->hide();
 }
 
 void MainWindow::on_return_to_main() {
     ui->sign_in_button->show();
     ui->register_button->show();
     ui->visitor->show();
+    ui->label->show();
     update();
 }
 
@@ -107,6 +110,7 @@ void MainWindow::on_visitor_clicked(){
     ui->sign_in_button->hide();
     ui->register_button->hide();
     ui->visitor->hide();
+    ui->label->hide();
 
 }
 

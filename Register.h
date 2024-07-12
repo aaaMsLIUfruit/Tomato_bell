@@ -4,7 +4,7 @@
 #include <QWidget>
 #include<QMessageBox>
 #include<QtSql/QSqlDatabase>
-
+#include<QFontDatabase>
 namespace Ui{
 class Register;
 }
@@ -39,6 +39,7 @@ signals:
 private slots:
     void on_return_button_clicked();
     void on_yes_clicked();
+
 
 };
 
