@@ -136,7 +136,7 @@ bool Register::isUserExists(const QString &username)
 void Register::addUserToDatabase(const QString &username, const QString &password)
 {
     QSqlQuery query;
-    query.prepare("INSERT INTO Users (username, password, skin_id) VALUES (:username, :password)");
+    query.prepare("INSERT INTO Users (username, password) VALUES (:username, :password)");
     query.bindValue(":username", username);
     query.bindValue(":password", password);
 
